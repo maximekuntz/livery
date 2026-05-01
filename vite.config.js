@@ -9,4 +9,20 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     },
   },
+  build: {
+    lib: {
+      entry: resolve(__dirname, 'src/index.js'),
+      name: 'Livery',
+      fileName: 'livery',
+    },
+    rollupOptions: {
+      // Exclude Vue from the bundle — consumers provide it via peerDependencies
+      external: ['vue'],
+      output: {
+        globals: { vue: 'Vue' },
+        assetFileNames: (assetInfo) =>
+          assetInfo.name === 'style.css' ? 'livery.css' : assetInfo.name,
+      },
+    },
+  },
 })
