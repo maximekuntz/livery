@@ -13,6 +13,10 @@ export { default as LvSelectInput }      from './components/LvSelectInput/LvSele
 export { default as LvMultiSelectInput } from './components/LvMultiSelectInput/LvMultiSelectInput.vue'
 export { default as LvSectionHeader }    from './components/LvSectionHeader/LvSectionHeader.vue'
 export { default as LvPageHeader }       from './components/LvPageHeader/LvPageHeader.vue'
+export { default as LvAlert }            from './components/notification/LvAlert/LvAlert.vue'
+export { default as LvToast }            from './components/notification/LvToast/LvToast.vue'
+export { default as LvToastContainer }   from './components/notification/LvToastContainer/LvToastContainer.vue'
+export { useToast }                      from './components/notification/useToast.js'
 
 // Design tokens (JS values)
 export * as tokens from './tokens/index.js'
@@ -30,12 +34,16 @@ import LvSelectInput      from './components/LvSelectInput/LvSelectInput.vue'
 import LvMultiSelectInput from './components/LvMultiSelectInput/LvMultiSelectInput.vue'
 import LvSectionHeader    from './components/LvSectionHeader/LvSectionHeader.vue'
 import LvPageHeader       from './components/LvPageHeader/LvPageHeader.vue'
+import LvAlert            from './components/notification/LvAlert/LvAlert.vue'
+import LvToast            from './components/notification/LvToast/LvToast.vue'
+import LvToastContainer   from './components/notification/LvToastContainer/LvToastContainer.vue'
 
 const components = {
   LvButton, LvBadge, LvCard, LvDivider,
   LvBaseIcon, LvClickableIcon,
   LvTextInput, LvBooleanInput, LvSelectInput, LvMultiSelectInput,
   LvSectionHeader, LvPageHeader,
+  LvAlert, LvToast, LvToastContainer,
 }
 
 export const Livery = {
