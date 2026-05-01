@@ -24,6 +24,7 @@ export { default as LvToastContainer }   from './components/notification/LvToast
 export { useToast }                      from './components/notification/useToast.js'
 export { default as LvSidebarLayout }   from './components/layout/LvSidebarLayout/LvSidebarLayout.vue'
 export { default as LvTopNavLayout }    from './components/layout/LvTopNavLayout/LvTopNavLayout.vue'
+export { default as LvTemplateView }    from './components/layout/LvTemplateView/LvTemplateView.vue'
 export { default as LvNavItem }         from './components/layout/LvNavItem/LvNavItem.vue'
 export { default as LvNavGroup }        from './components/layout/LvNavGroup/LvNavGroup.vue'
 export { default as LvTopNavItem }      from './components/layout/LvTopNavItem/LvTopNavItem.vue'
@@ -54,6 +55,7 @@ import LvToast            from './components/notification/LvToast/LvToast.vue'
 import LvToastContainer   from './components/notification/LvToastContainer/LvToastContainer.vue'
 import LvSidebarLayout   from './components/layout/LvSidebarLayout/LvSidebarLayout.vue'
 import LvTopNavLayout    from './components/layout/LvTopNavLayout/LvTopNavLayout.vue'
+import LvTemplateView    from './components/layout/LvTemplateView/LvTemplateView.vue'
 import LvNavItem         from './components/layout/LvNavItem/LvNavItem.vue'
 import LvNavGroup        from './components/layout/LvNavGroup/LvNavGroup.vue'
 import LvTopNavItem      from './components/layout/LvTopNavItem/LvTopNavItem.vue'
@@ -65,7 +67,7 @@ const components = {
   LvDateInput, LvTimeInput, LvDateTimeInput,
   LvSectionHeader, LvPageHeader, LvTable, LvPagination,
   LvAlert, LvToast, LvToastContainer,
-  LvSidebarLayout, LvTopNavLayout,
+  LvSidebarLayout, LvTopNavLayout, LvTemplateView,
   LvNavItem, LvNavGroup, LvTopNavItem,
 }
 
