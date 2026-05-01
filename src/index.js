@@ -11,6 +11,9 @@ export { default as LvTextInput }        from './components/LvTextInput/LvTextIn
 export { default as LvBooleanInput }     from './components/LvBooleanInput/LvBooleanInput.vue'
 export { default as LvSelectInput }      from './components/LvSelectInput/LvSelectInput.vue'
 export { default as LvMultiSelectInput } from './components/LvMultiSelectInput/LvMultiSelectInput.vue'
+export { default as LvDateInput }        from './components/LvDateInput/LvDateInput.vue'
+export { default as LvTimeInput }        from './components/LvTimeInput/LvTimeInput.vue'
+export { default as LvDateTimeInput }    from './components/LvDateTimeInput/LvDateTimeInput.vue'
 export { default as LvSectionHeader }    from './components/LvSectionHeader/LvSectionHeader.vue'
 export { default as LvPageHeader }       from './components/LvPageHeader/LvPageHeader.vue'
 export { default as LvTable }            from './components/LvTable/LvTable.vue'
@@ -39,6 +42,9 @@ import LvTextInput        from './components/LvTextInput/LvTextInput.vue'
 import LvBooleanInput     from './components/LvBooleanInput/LvBooleanInput.vue'
 import LvSelectInput      from './components/LvSelectInput/LvSelectInput.vue'
 import LvMultiSelectInput from './components/LvMultiSelectInput/LvMultiSelectInput.vue'
+import LvDateInput        from './components/LvDateInput/LvDateInput.vue'
+import LvTimeInput        from './components/LvTimeInput/LvTimeInput.vue'
+import LvDateTimeInput    from './components/LvDateTimeInput/LvDateTimeInput.vue'
 import LvSectionHeader    from './components/LvSectionHeader/LvSectionHeader.vue'
 import LvPageHeader       from './components/LvPageHeader/LvPageHeader.vue'
 import LvTable            from './components/LvTable/LvTable.vue'
@@ -56,6 +62,7 @@ const components = {
   LvButton, LvBadge, LvCard, LvDivider,
   LvBaseIcon, LvClickableIcon,
   LvTextInput, LvBooleanInput, LvSelectInput, LvMultiSelectInput,
+  LvDateInput, LvTimeInput, LvDateTimeInput,
   LvSectionHeader, LvPageHeader, LvTable, LvPagination,
   LvAlert, LvToast, LvToastContainer,
   LvSidebarLayout, LvTopNavLayout,
