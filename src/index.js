@@ -32,6 +32,9 @@ export { default as LvTemplateView }    from './components/layout/LvTemplateView
 export { default as LvNavItem }         from './components/layout/LvNavItem/LvNavItem.vue'
 export { default as LvNavGroup }        from './components/layout/LvNavGroup/LvNavGroup.vue'
 export { default as LvTopNavItem }      from './components/layout/LvTopNavItem/LvTopNavItem.vue'
+export { default as LvTrainCarriage }   from './components/train/LvTrainCarriage/LvTrainCarriage.vue'
+export { default as LvTrainConsist }    from './components/train/LvTrainConsist/LvTrainConsist.vue'
+export { default as LvCarriageInfo }    from './components/train/LvCarriageInfo/LvCarriageInfo.vue'
 
 // Design tokens (JS values)
 export * as tokens from './tokens/index.js'
@@ -66,6 +69,9 @@ import LvTemplateView    from './components/layout/LvTemplateView/LvTemplateView
 import LvNavItem         from './components/layout/LvNavItem/LvNavItem.vue'
 import LvNavGroup        from './components/layout/LvNavGroup/LvNavGroup.vue'
 import LvTopNavItem      from './components/layout/LvTopNavItem/LvTopNavItem.vue'
+import LvTrainCarriage  from './components/train/LvTrainCarriage/LvTrainCarriage.vue'
+import LvTrainConsist   from './components/train/LvTrainConsist/LvTrainConsist.vue'
+import LvCarriageInfo   from './components/train/LvCarriageInfo/LvCarriageInfo.vue'
 
 const components = {
   LvButton, LvBadge, LvCard, LvDivider,
@@ -76,6 +82,7 @@ const components = {
   LvAlert, LvToast, LvToastContainer,
   LvSidebarLayout, LvTopNavLayout, LvTemplateView,
   LvNavItem, LvNavGroup, LvTopNavItem,
+  LvTrainCarriage, LvTrainConsist, LvCarriageInfo,
 }
 
 export const Livery = {
