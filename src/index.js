@@ -17,6 +17,11 @@ export { default as LvAlert }            from './components/notification/LvAlert
 export { default as LvToast }            from './components/notification/LvToast/LvToast.vue'
 export { default as LvToastContainer }   from './components/notification/LvToastContainer/LvToastContainer.vue'
 export { useToast }                      from './components/notification/useToast.js'
+export { default as LvSidebarLayout }   from './components/layout/LvSidebarLayout/LvSidebarLayout.vue'
+export { default as LvTopNavLayout }    from './components/layout/LvTopNavLayout/LvTopNavLayout.vue'
+export { default as LvNavItem }         from './components/layout/LvNavItem/LvNavItem.vue'
+export { default as LvNavGroup }        from './components/layout/LvNavGroup/LvNavGroup.vue'
+export { default as LvTopNavItem }      from './components/layout/LvTopNavItem/LvTopNavItem.vue'
 
 // Design tokens (JS values)
 export * as tokens from './tokens/index.js'
@@ -37,6 +42,11 @@ import LvPageHeader       from './components/LvPageHeader/LvPageHeader.vue'
 import LvAlert            from './components/notification/LvAlert/LvAlert.vue'
 import LvToast            from './components/notification/LvToast/LvToast.vue'
 import LvToastContainer   from './components/notification/LvToastContainer/LvToastContainer.vue'
+import LvSidebarLayout   from './components/layout/LvSidebarLayout/LvSidebarLayout.vue'
+import LvTopNavLayout    from './components/layout/LvTopNavLayout/LvTopNavLayout.vue'
+import LvNavItem         from './components/layout/LvNavItem/LvNavItem.vue'
+import LvNavGroup        from './components/layout/LvNavGroup/LvNavGroup.vue'
+import LvTopNavItem      from './components/layout/LvTopNavItem/LvTopNavItem.vue'
 
 const components = {
   LvButton, LvBadge, LvCard, LvDivider,
@@ -44,6 +54,8 @@ const components = {
   LvTextInput, LvBooleanInput, LvSelectInput, LvMultiSelectInput,
   LvSectionHeader, LvPageHeader,
   LvAlert, LvToast, LvToastContainer,
+  LvSidebarLayout, LvTopNavLayout,
+  LvNavItem, LvNavGroup, LvTopNavItem,
 }
 
 export const Livery = {
