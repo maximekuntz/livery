@@ -32,7 +32,6 @@
   "devDependencies": {
     "@storybook/addon-a11y": "^10.3.6",
     "@storybook/addon-links": "^10.3.6",
-    "@storybook/blocks": "^8.0.0",
     "@storybook/vue3": "^10.3.6",
     "@storybook/vue3-vite": "^10.3.6",
     "@vitejs/plugin-vue": "^5.0.0",
