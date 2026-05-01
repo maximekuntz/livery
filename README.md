@@ -1,8 +1,10 @@
-# Livery
+﻿# Livery
 
 > Rail-inspired design system for Vue 3
 
-Livery is a component library and design token system built around the visual language of railways — signal aspects, enamel signage, industrial typography, and the geometry of rolling stock.
+Livery is a private component library and design token system built around the visual language of railways — signal aspects, enamel signage, industrial typography, and the geometry of rolling stock.
+
+**Live component documentation → [maximekuntz.github.io/livery](https://maximekuntz.github.io/livery)**
 
 ---
 
@@ -17,55 +19,78 @@ Livery is a component library and design token system built around the visual la
 
 ---
 
-## Getting Started
+## Installation
+
+Livery is distributed as a private package through [GitHub Packages](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry).
+
+### 1. Authenticate with GitHub Packages
+
+Create or edit `~/.npmrc` (global) **or** `.npmrc` at the root of your consuming project:
+
+```
+@maximekuntz:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+```
+
+> Generate a token at **GitHub → Settings → Developer settings → Personal access tokens**.
+> The token needs the `read:packages` scope.
+
+### 2. Install the package
 
 ```bash
-npm install
-npm run storybook   # component explorer at http://localhost:6006
-npm run build       # build the library
+npm install @maximekuntz/livery
 ```
 
----
+### 3. Import the CSS tokens
 
-## Project Structure
-
-```
-src/
-├── tokens/
-│   ├── index.js        # JS design token exports
-│   └── tokens.css      # CSS custom properties
-├── components/
-│   ├── LvButton/
-│   ├── LvBadge/
-│   ├── LvCard/
-│   └── LvDivider/
-├── stories/
-│   └── Tokens.stories.js
-└── index.js            # library entry + Vue plugin
-.storybook/
-├── main.js
-├── preview.js
-└── manager.js
-```
-
----
-
-## Using the Library
-
-### As a Vue plugin
+In your app entry file (e.g. `main.js`):
 
 ```js
+import '@maximekuntz/livery/dist/livery.css'
+```
+
+---
+
+## Usage
+
+### Register all components globally (Vue plugin)
+
+```js
+// main.js
 import { createApp } from 'vue'
-import { Livery } from './src/index.js'
-import './src/tokens/tokens.css'
+import { Livery } from '@maximekuntz/livery'
+import '@maximekuntz/livery/dist/livery.css'
+import App from './App.vue'
 
 createApp(App).use(Livery).mount('#app')
 ```
 
-### Individual imports
+All `Lv*` components are then available in every template without an explicit import.
+
+### Import individual components
 
 ```js
-import { LvButton, LvBadge, LvCard } from './src/index.js'
+import { LvButton, LvCard, LvTextInput } from '@maximekuntz/livery'
+```
+
+### Use design tokens in CSS
+
+After importing `livery.css`, all tokens are available as CSS custom properties:
+
+```css
+.my-element {
+  color: var(--color-blue-700);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+}
+```
+
+### Use design tokens in JS
+
+```js
+import { tokens } from '@maximekuntz/livery'
+
+console.log(tokens.color.blue[700])
 ```
 
 ---
@@ -78,11 +103,91 @@ import { LvButton, LvBadge, LvCard } from './src/index.js'
 | `LvBadge` | Compact status indicator using signal aspect colours |
 | `LvCard` | Surface container with header / body / footer slots |
 | `LvDivider` | Track-line separator, horizontal or vertical |
+| `LvBaseIcon` | Thin wrapper around icon content |
+| `LvClickableIcon` | Icon with an accessible click target |
+| `LvTextInput` | Text field with label, hint, and error state |
+| `LvBooleanInput` | Checkbox / toggle |
+| `LvSelectInput` | Single-value dropdown |
+| `LvMultiSelectInput` | Multi-value dropdown |
+| `LvDateInput` | Date picker |
+| `LvTimeInput` | Time picker |
+| `LvDateTimeInput` | Combined date + time picker |
+| `LvSectionHeader` | Titled section divider |
+| `LvPageHeader` | Page-level title with optional actions slot |
+| `LvTable` | Data table with sortable columns |
+| `LvPagination` | Page navigation control |
+| `LvAlert` | Inline contextual message |
+| `LvToast` | Transient notification |
+| `LvToastContainer` | Mount point for toast notifications |
+| `LvSidebarLayout` | App shell with persistent sidebar |
+| `LvTopNavLayout` | App shell with top navigation bar |
+| `LvTemplateView` | Content area template |
+| `LvNavItem` | Sidebar navigation link |
+| `LvNavGroup` | Collapsible group of nav items |
+| `LvTopNavItem` | Top-bar navigation link |
+
+---
+
+## Toasts (programmatic)
+
+```js
+import { useToast } from '@maximekuntz/livery'
+
+const toast = useToast()
+toast.success('Record saved')
+toast.error('Something went wrong')
+```
+
+Mount `<LvToastContainer />` once near the root of your app.
 
 ---
 
 ## Design Tokens
 
-All tokens available as CSS custom properties (`--color-blue-700`, `--space-4`, etc.) and as JS named exports.
+All tokens are available as:
+- **CSS custom properties** via `livery.css` (`--color-blue-700`, `--space-4`, …)
+- **JS named exports** via `import { tokens } from '@maximekuntz/livery'`
 
-Token namespaces: `color` · `typography` · `spacing` · `radius` · `shadow` · `duration` · `easing` · `semantic`" 
+Token namespaces: `color` · `typography` · `spacing` · `radius` · `shadow` · `duration` · `easing` · `semantic`
+
+---
+
+## Development
+
+```bash
+npm install
+npm run storybook        # component explorer at http://localhost:6006
+npm run build            # build the library to dist/
+npm run test             # run unit tests
+```
+
+### Publishing a new version
+
+1. Bump the version in `package.json`.
+2. Create a GitHub Release — the [Publish workflow](.github/workflows/publish.yml) triggers automatically and pushes the new version to GitHub Packages.
+
+---
+
+## Project Structure
+
+```
+src/
+├── tokens/
+│   ├── index.js        # JS design token exports
+│   └── tokens.css      # CSS custom properties
+├── components/
+│   ├── layout/         # shell & navigation components
+│   ├── notification/   # alert, toast, toast container
+│   └── Lv*/            # individual components
+├── stories/
+│   └── Tokens.stories.js
+└── index.js            # library entry + Vue plugin
+.storybook/
+├── main.js
+├── preview.js
+└── manager.js
+.github/
+└── workflows/
+    ├── publish.yml     # publish to GitHub Packages on release
+    └── storybook.yml   # deploy Storybook to GitHub Pages
+```

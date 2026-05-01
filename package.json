@@ -1,14 +1,30 @@
 {
-  "name": "livery",
+  "name": "@maximekuntz/livery",
   "version": "0.1.0",
   "description": "Rail-inspired design system for Vue 3",
   "type": "module",
+  "main": "./dist/livery.umd.cjs",
+  "module": "./dist/livery.js",
+  "exports": {
+    ".": {
+      "import": "./dist/livery.js",
+      "require": "./dist/livery.umd.cjs"
+    },
+    "./dist/livery.css": "./dist/livery.css"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "storybook": "storybook dev --port 6006",
     "build-storybook": "storybook build",
-    "test": "vitest"
+    "test": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "vue": "^3.4.0"
@@ -16,7 +32,6 @@
   "devDependencies": {
     "@storybook/addon-a11y": "^10.3.6",
     "@storybook/addon-links": "^10.3.6",
-    "@storybook/blocks": "^8.0.0",
     "@storybook/vue3": "^10.3.6",
     "@storybook/vue3-vite": "^10.3.6",
     "@vitejs/plugin-vue": "^5.0.0",
