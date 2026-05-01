@@ -1,0 +1,87 @@
+<template>
+  <svg
+    :width="sizeMap[size]"
+    :height="sizeMap[size]"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    :aria-hidden="!ariaLabel"
+    :aria-label="ariaLabel"
+    :role="ariaLabel ? 'img' : undefined"
+    class="lv-icon"
+    v-html="iconPath"
+  />
+</template>
+
+<script>
+/**
+ * LvBaseIcon — SVG icon primitive backed by a curated Heroicons-style set.
+ *
+ * All paths are hardcoded (no dynamic user data) — v-html is safe here.
+ * For decorative use, leave ariaLabel undefined; the SVG gets aria-hidden.
+ * For standalone icons with meaning, provide ariaLabel.
+ */
+export const ICONS = {
+  'check':         '<path d="M4.5 12.75l6 6 9-13.5"/>',
+  'close':         '<path d="M6 18L18 6M6 6l12 12"/>',
+  'chevron-down':  '<path d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>',
+  'chevron-up':    '<path d="M4.5 15.75l7.5-7.5 7.5 7.5"/>',
+  'chevron-left':  '<path d="M15.75 19.5L8.25 12l7.5-7.5"/>',
+  'chevron-right': '<path d="M8.25 4.5l7.5 7.5-7.5 7.5"/>',
+  'eye':           '<path d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>',
+  'eye-off':       '<path d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"/>',
+  'search':        '<path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>',
+  'info':          '<path d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/>',
+  'warning':       '<path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>',
+  'arrow-left':    '<path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>',
+  'arrow-right':   '<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>',
+  'plus':          '<path d="M12 4.5v15m7.5-7.5h-15"/>',
+  'minus':         '<path d="M19.5 12h-15"/>',
+  'menu':          '<path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>',
+  'settings':      '<path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 010 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 010-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28z"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>',
+  'user':          '<path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>',
+  'logout':        '<path d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"/>',
+  'external-link': '<path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>',
+  'check-circle':  '<path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>',
+  'x-circle':      '<path d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>',
+}
+</script>
+
+<script setup>
+import { computed } from 'vue'
+
+const props = defineProps({
+  /** Icon name — must be one of the available icons */
+  name: {
+    type: String,
+    required: true,
+    validator: (v) => Object.keys(ICONS).includes(v),
+  },
+  /** T-shirt size */
+  size: {
+    type: String,
+    default: 'md',
+    validator: (v) => ['xs', 'sm', 'md', 'lg', 'xl'].includes(v),
+  },
+  /** Accessible label — omit for decorative icons */
+  ariaLabel: {
+    type: String,
+    default: undefined,
+  },
+})
+
+const sizeMap = { xs: 12, sm: 16, md: 20, lg: 24, xl: 32 }
+
+const iconPath = computed(() => ICONS[props.name] ?? '')
+</script>
+
+<style scoped>
+.lv-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+</style>

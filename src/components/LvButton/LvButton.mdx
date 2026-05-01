@@ -1,0 +1,36 @@
+import { Meta, Title, Controls, Canvas, ArgTypes } from '@storybook/addon-docs'
+import * as ButtonStories from './LvButton.stories.js'
+
+<Meta of={ButtonStories} />
+
+<Title>Button</Title>
+
+The `LvButton` is the primary interactive element in Livery. Styled after railway signal panels — high-contrast, purposeful, and unambiguous.
+
+## Usage
+
+```vue
+<LvButton variant="filled" size="md">Depart</LvButton>
+<LvButton variant="outlined">View timetable</LvButton>
+<LvButton variant="danger">Cancel service</LvButton>
+```
+
+## Do / Don't
+
+**Do** — use clear, action-oriented labels that describe what happens: "Book seat", "View timetable".  
+**Don't** — use vague labels like "Click here" or "Submit" without context.
+
+**Do** — use `variant="danger"` only for destructive, irreversible actions.  
+**Don't** — use danger styling for ordinary negative or cancel actions.
+
+**Do** — pair icon slots with a visible text label, or supply `aria-label` when icon-only.  
+**Don't** — rely on colour alone to convey button intent.
+
+## Accessibility
+
+- All states (hover, focus, active, disabled, loading) have distinct visual treatments.
+- `disabled` and `loading` both set `aria-disabled` / `aria-busy` so screen readers announce the state.
+- Focus ring uses `outline` — never suppressed — meeting WCAG 2.4.7.
+
+<Controls />
+<Canvas />

@@ -1,0 +1,156 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Livery — Global CSS Custom Properties
+   Rail-inspired design system
+   ═══════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ── Colour: Slate ── */
+  --color-slate-50:  #f8f9fa;
+  --color-slate-100: #f1f3f5;
+  --color-slate-200: #e9ecef;
+  --color-slate-300: #dee2e6;
+  --color-slate-400: #ced4da;
+  --color-slate-500: #adb5bd;
+  --color-slate-600: #6c757d;
+  --color-slate-700: #495057;
+  --color-slate-800: #343a40;
+  --color-slate-900: #212529;
+  --color-slate-950: #0d0f11;
+
+  /* ── Colour: Signal Red ── */
+  --color-red-50:  #fff5f5;
+  --color-red-400: #ff6b6b;
+  --color-red-500: #fa5252;
+  --color-red-600: #f03e3e;
+  --color-red-700: #c92a2a;
+
+  /* ── Colour: Amber ── */
+  --color-amber-400: #ffd43b;
+  --color-amber-500: #fcc419;
+  --color-amber-700: #f59f00;
+
+  /* ── Colour: Green ── */
+  --color-green-500: #51cf66;
+  --color-green-700: #2f9e44;
+
+  /* ── Colour: Steel Blue ── */
+  --color-blue-50:  #e7f5ff;
+  --color-blue-100: #d0ebff;
+  --color-blue-600: #228be6;
+  --color-blue-700: #1c7ed6;
+  --color-blue-800: #1971c2;
+  --color-blue-900: #1864ab;
+
+  /* ── Semantic ── */
+  --bg-page:          var(--color-slate-50);
+  --bg-surface:       #ffffff;
+  --bg-inverse:       var(--color-slate-900);
+
+  --text-primary:     var(--color-slate-900);
+  --text-secondary:   var(--color-slate-600);
+  --text-disabled:    var(--color-slate-400);
+  --text-inverse:     #ffffff;
+  --text-link:        var(--color-blue-700);
+  --text-link-hover:  var(--color-blue-900);
+
+  --border-subtle:    var(--color-slate-200);
+  --border-default:   var(--color-slate-300);
+  --border-strong:    var(--color-slate-500);
+
+  --brand-primary:        var(--color-blue-700);
+  --brand-primary-hover:  var(--color-blue-800);
+  --brand-primary-active: var(--color-blue-900);
+
+  --color-success: var(--color-green-700);
+  --color-warning: var(--color-amber-700);
+  --color-danger:  var(--color-red-600);
+  --color-info:    var(--color-blue-600);
+
+  /* ── Typography ── */
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-md:   1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+
+  --font-regular:  400;
+  --font-medium:   500;
+  --font-semibold: 600;
+  --font-bold:     700;
+
+  --leading-tight:   1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.75;
+
+  --tracking-tight:   -0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;
+  --tracking-widest:  0.12em;
+
+  /* ── Spacing ── */
+  --space-0:  0;
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ── Radius ── */
+  --radius-none: 0;
+  --radius-sm:   0.125rem;
+  --radius-md:   0.25rem;
+  --radius-lg:   0.5rem;
+  --radius-xl:   0.75rem;
+  --radius-full: 9999px;
+
+  /* ── Shadow ── */
+  --shadow-none: none;
+  --shadow-sm:   0 1px 2px 0 rgb(0 0 0 / 0.08);
+  --shadow-md:   0 4px 6px -1px rgb(0 0 0 / 0.10), 0 2px 4px -2px rgb(0 0 0 / 0.10);
+  --shadow-lg:   0 10px 15px -3px rgb(0 0 0 / 0.10), 0 4px 6px -4px rgb(0 0 0 / 0.10);
+
+  /* ── Motion ── */
+  --duration-fast:   100ms;
+  --duration-normal: 200ms;
+  --duration-slow:   350ms;
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:    cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* ── Base reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background-color: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Focus ring — high-visibility like a signal aspect ── */
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
