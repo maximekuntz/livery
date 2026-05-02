@@ -9,7 +9,7 @@
 
    Available themes:
      tee-grand-comfort   Trans-Europ-Express Grand Comfort (crimson & cream)
-     corail              SNCF Corail (silver-grey & coral-orange)
+     corail              SNCF Corail (silver-grey body, slate windows, orange doors, green stripe)
      orient-express      Orient Express / Wagon-Lits (navy & gold)
      tgv-001             TGV 001 prototype (tangerine orange & anthracite)
    ═══════════════════════════════════════════════════════════════════ */
@@ -50,35 +50,36 @@
 }
 
 /* ── Corail ───────────────────────────────────────────────────────────────────
-   Light silver-grey body with coral-orange doors and ends.
+   Silver-grey carriage body (#ced6d3), dark slate window band (#404954),
+   signature orange doors (#e66422), and a green roof stripe (#3aab50).
    SNCF workhorse passenger stock, introduced 1975.
    ──────────────────────────────────────────────────────────────────────────── */
 [data-theme="corail"] {
   /* Semantic backgrounds */
-  --bg-page:          #f4f5f6;
+  --bg-page:          #ced6d3;   /* silver-grey carriage body */
   --bg-surface:       #ffffff;
-  --bg-inverse:       #3d4550;
+  --bg-inverse:       #404954;   /* dark slate window band */
 
   /* Text */
   --text-primary:     #1a1d20;
-  --text-secondary:   #505a64;
-  --text-disabled:    #b0b7be;
+  --text-secondary:   #404954;   /* window-band slate */
+  --text-disabled:    #9daaa6;
   --text-inverse:     #ffffff;
-  --text-link:        #c24508;
-  --text-link-hover:  #a13806;
+  --text-link:        #e66422;
+  --text-link-hover:  #c44d18;
 
   /* Borders */
-  --border-subtle:    #e8eaec;
-  --border-default:   #cdd1d6;
-  --border-strong:    #e0540f;
+  --border-subtle:    #dde5e2;   /* light dividers inside white surfaces */
+  --border-default:   #9ab0ab;   /* card outlines against grey page */
+  --border-strong:    #e66422;   /* orange door accent */
 
   /* Brand / interactive */
-  --brand-primary:        #e0540f;
-  --brand-primary-hover:  #c24508;
-  --brand-primary-active: #a13806;
+  --brand-primary:        #e66422;   /* Corail orange — doors */
+  --brand-primary-hover:  #c44d18;
+  --brand-primary-active: #a33e10;
 
   /* Feedback */
-  --color-success: #2f9e44;
+  --color-success: #3aab50;   /* green roof stripe */
   --color-warning: #f59f00;
   --color-danger:  #f03e3e;
   --color-info:    #1c7ed6;

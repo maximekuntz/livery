@@ -66,54 +66,71 @@ export const themeTransEuropExpress = {
 }
 
 // ─── Corail ───────────────────────────────────────────────────────────────────
-// Light silver-grey body with signature coral-orange doors and ends.
+// Silver-grey carriage body, dark slate window band, orange doors, green roof stripe.
 // SNCF's workhorse passenger stock introduced in 1975, still in service today.
 export const themeCorail = {
   name: 'Corail',
   id:   'corail',
 
-  // Primitives
-  coral50:    '#fff5f0',
-  coral100:   '#ffe6d8',
-  coral200:   '#ffc9a8',
-  coral300:   '#ffa070',
-  coral400:   '#f57036',
-  coral500:   '#e0540f',   // ← signature Corail orange
-  coral600:   '#c24508',
-  coral700:   '#a13806',
-  coral800:   '#852e06',
-  coral900:   '#6e2707',
+  // Primitives — SNCF Corail livery colours
+  orange50:    '#fff5f0',
+  orange100:   '#fde0cc',
+  orange200:   '#fac09a',
+  orange300:   '#f59862',
+  orange400:   '#ef7a3c',
+  orange500:   '#e66422',   // ← signature Corail orange (doors)
+  orange600:   '#c44d18',
+  orange700:   '#a33e10',
+  orange800:   '#83310d',
+  orange900:   '#6a280a',
 
-  silver50:   '#f4f5f6',
-  silver100:  '#e8eaec',
-  silver200:  '#cdd1d6',
-  silver300:  '#b0b7be',   // ← signature Corail silver-grey
-  silver400:  '#8c959e',
-  silver500:  '#6a7480',
-  silver600:  '#505a64',
-  silver700:  '#3d4550',
+  silver50:    '#eef2f1',
+  silver100:   '#dde5e2',
+  silver200:   '#ced6d3',   // ← lower carriage body grey
+  silver300:   '#b4c0bc',
+  silver400:   '#9ab0ab',
+  silver500:   '#7a9490',
+  silver600:   '#5e7a76',
+
+  slate50:     '#f0f2f4',
+  slate100:    '#d8dde2',
+  slate200:    '#b4bec7',
+  slate300:    '#8a99a6',
+  slate400:    '#617280',
+  slate500:    '#404954',   // ← window-band slate
+  slate600:    '#2e3540',
+  slate700:    '#1a1d20',
+
+  green50:     '#edf8f0',
+  green100:    '#cfecd5',
+  green200:    '#a0d9ab',
+  green300:    '#6ac479',
+  green400:    '#44b558',
+  green500:    '#3aab50',   // ← green roof stripe
+  green600:    '#2d8b3f',
+  green700:    '#1f6e2f',
 
   // Semantic overrides
-  bgPage:           '#f4f5f6',  // silver-grey platform
+  bgPage:           '#ced6d3',   // silver-grey carriage body
   bgSurface:        '#ffffff',
-  bgInverseValue:   '#3d4550',
+  bgInverseValue:   '#404954',   // slate window band
 
   textPrimary:      '#1a1d20',
-  textSecondary:    '#505a64',
-  textDisabled:     '#b0b7be',
+  textSecondary:    '#404954',
+  textDisabled:     '#9daaa6',
   textInverse:      '#ffffff',
-  textLink:         '#c24508',
-  textLinkHover:    '#a13806',
+  textLink:         '#e66422',
+  textLinkHover:    '#c44d18',
 
-  borderSubtle:     '#e8eaec',
-  borderDefault:    '#cdd1d6',
-  borderStrong:     '#e0540f',
+  borderSubtle:     '#dde5e2',
+  borderDefault:    '#9ab0ab',
+  borderStrong:     '#e66422',
 
-  brandPrimary:       '#e0540f',
-  brandPrimaryHover:  '#c24508',
-  brandPrimaryActive: '#a13806',
+  brandPrimary:       '#e66422',   // Corail orange — doors
+  brandPrimaryHover:  '#c44d18',
+  brandPrimaryActive: '#a33e10',
 
-  colorSuccess: '#2f9e44',
+  colorSuccess: '#3aab50',   // green roof stripe
   colorWarning: '#f59f00',
   colorDanger:  '#f03e3e',
   colorInfo:    '#1c7ed6',
