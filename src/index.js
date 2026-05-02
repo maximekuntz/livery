@@ -1,6 +1,10 @@
 // ─── Livery Design System ─────────────────────────────────────────────────────
 // Rail-inspired Vue 3 component library
 
+// CSS design tokens & themes (bundled into dist/livery.css)
+import './tokens/tokens.css'
+import './tokens/themes.css'
+
 export { default as LvButton }           from './components/LvButton/LvButton.vue'
 export { default as LvBadge }            from './components/LvBadge/LvBadge.vue'
 export { default as LvCard }             from './components/LvCard/LvCard.vue'
@@ -31,6 +35,9 @@ export { default as LvTopNavItem }      from './components/layout/LvTopNavItem/L
 
 // Design tokens (JS values)
 export * as tokens from './tokens/index.js'
+
+// Train livery themes
+export * as themes from './tokens/themes.js'
 
 // Install plugin — registers all components globally
 import LvButton           from './components/LvButton/LvButton.vue'
