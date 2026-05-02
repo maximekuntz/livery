@@ -152,6 +152,38 @@ Token namespaces: `color` · `typography` · `spacing` · `radius` · `shadow` �
 
 ---
 
+## Themes
+
+Livery ships four global colour themes inspired by iconic European train liveries.
+They override the semantic design tokens and are activated via a `data-theme` attribute:
+
+```html
+<!-- Apply a theme to the whole page -->
+<body data-theme="corail"> … </body>
+
+<!-- Or scope it to a single section -->
+<div data-theme="orient-express"> … </div>
+```
+
+All theme CSS is bundled inside `livery.css` — no extra import required.
+
+| Theme ID | Train | Palette |
+|---|---|---|
+| `tee` | Trans-Europ-Express (Grand Comfort livery) | Crimson red & warm cream |
+| `corail` | SNCF Corail | Coral-orange & silver-grey |
+| `orient-express` | Orient Express / Wagon-Lits | Midnight navy & burnished gold |
+| `tgv-sud-est` | TGV Sud Est | Tangerine orange & anthracite |
+
+Theme objects are also available as JS exports for tooling:
+
+```js
+import { themes } from '@maximekuntz/livery'
+
+console.log(themes.themeCorail.brandPrimary) // '#e0540f'
+```
+
+---
+
 ## Development
 
 ```bash
@@ -174,13 +206,15 @@ npm run test             # run unit tests
 src/
 ├── tokens/
 │   ├── index.js        # JS design token exports
-│   └── tokens.css      # CSS custom properties
+│   ├── tokens.css      # CSS custom properties
+│   └── themes.css      # Train livery theme overrides (tee, corail, orient-express, tgv-sud-est)
 ├── components/
 │   ├── layout/         # shell & navigation components
 │   ├── notification/   # alert, toast, toast container
 │   └── Lv*/            # individual components
 ├── stories/
-│   └── Tokens.stories.js
+│   ├── Tokens.stories.js
+│   └── Themes.stories.js
 └── index.js            # library entry + Vue plugin
 .storybook/
 ├── main.js

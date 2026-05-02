@@ -1,0 +1,156 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Livery — Train Livery Themes
+   Global colour themes inspired by iconic European train liveries.
+
+   Apply a theme by setting the `data-theme` attribute on any element:
+
+     <body data-theme="corail"> … </body>
+     <div data-theme="orient-express"> … </div>
+
+   Available themes:
+     tee                 Trans-Europ-Express Grand Comfort (crimson & cream)
+     corail              SNCF Corail (silver-grey body, slate windows, orange doors, green stripe)
+     orient-express      Orient Express / Wagon-Lits (navy & gold)
+     tgv-sud-est         TGV Sud-Est (tangerine orange & anthracite)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Trans-Europ-Express Grand Comfort ────────────────────────────────────────
+   Crimson red upper body, warm cream interiors.
+   Premier express service across Western Europe, 1957–1988.
+   ──────────────────────────────────────────────────────────────────────────── */
+[data-theme="tee"] {
+  /* Semantic backgrounds */
+  --bg-page:          #fdfaf3;
+  --bg-surface:       #ffffff;
+  --bg-inverse:       #96172a;
+
+  /* Text */
+  --text-primary:     #2d0c10;
+  --text-secondary:   #6b3038;
+  --text-disabled:    #b8858c;
+  --text-inverse:     #fdf2f3;
+  --text-link:        #b41c2b;
+  --text-link-hover:  #7d131e;
+
+  /* Borders */
+  --border-subtle:    #f2e6c4;
+  --border-default:   #e8d49a;
+  --border-strong:    #b41c2b;
+
+  /* Brand / interactive */
+  --brand-primary:        #b41c2b;
+  --brand-primary-hover:  #96172a;
+  --brand-primary-active: #7d131e;
+
+  /* Feedback */
+  --color-success: #2f9e44;
+  --color-warning: #f59f00;
+  --color-danger:  #b41c2b;
+  --color-info:    #1c7ed6;
+}
+
+/* ── Corail ───────────────────────────────────────────────────────────────────
+   Silver-grey carriage body (#ced6d3), dark slate window band (#404954),
+   signature orange doors (#e66422), and a green roof stripe (#3aab50).
+   SNCF workhorse passenger stock, introduced 1975.
+   ──────────────────────────────────────────────────────────────────────────── */
+[data-theme="corail"] {
+  /* Semantic backgrounds */
+  --bg-page:          #f4f5f6;   /* silver-grey carriage body */
+  --bg-surface:       #ffffff;
+  --bg-inverse:       #404954;   /* dark slate window band */
+
+  /* Text */
+  --text-primary:     #1a1d20;
+  --text-secondary:   #404954;   /* window-band slate */
+  --text-disabled:    #9daaa6;
+  --text-inverse:     #ffffff;
+  --text-link:        #e66422;
+  --text-link-hover:  #c44d18;
+
+  /* Borders */
+  --border-subtle:    #dde5e2;   /* light dividers inside white surfaces */
+  --border-default:   #9ab0ab;   /* card outlines against grey page */
+  --border-strong:    #e66422;   /* orange door accent */
+
+  /* Brand / interactive */
+  --brand-primary:        #e66422;   /* Corail orange — doors */
+  --brand-primary-hover:  #c44d18;
+  --brand-primary-active: #a33e10;
+
+  /* Feedback */
+  --color-success: #3aab50;   /* green roof stripe */
+  --color-warning: #f59f00;
+  --color-danger:  #f03e3e;
+  --color-info:    #1c7ed6;
+}
+
+/* ── Orient Express ───────────────────────────────────────────────────────────
+   Deep midnight Wagon-Lits navy with burnished gold lettering and fittings.
+   Compagnie Internationale des Wagons-Lits, in service since 1883.
+   ──────────────────────────────────────────────────────────────────────────── */
+[data-theme="orient-express"] {
+  /* Semantic backgrounds */
+  --bg-page:          #fdfbf5;
+  --bg-surface:       #ffffff;
+  --bg-inverse:       #111d47;
+
+  /* Text */
+  --text-primary:     #0c1430;
+  --text-secondary:   #2a4a99;
+  --text-disabled:    #8199d4;
+  --text-inverse:     #f0e6cc;
+  --text-link:        #c5951f;
+  --text-link-hover:  #a67a14;
+
+  /* Borders */
+  --border-subtle:    #f0e6cc;
+  --border-default:   #e9ce5e;
+  --border-strong:    #1c3680;
+
+  /* Brand / interactive */
+  --brand-primary:        #1c3680;
+  --brand-primary-hover:  #162559;
+  --brand-primary-active: #111d47;
+
+  /* Feedback */
+  --color-success: #2f9e44;
+  --color-warning: #c5951f;
+  --color-danger:  #f03e3e;
+  --color-info:    #2a4a99;
+}
+
+/* ── TGV Sud-Est ──────────────────────────────────────────────────────────────
+   Vivid tangerine orange over dark anthracite bogies and underframe.
+   Gas-turbine prototype, record runs in 1972.
+   ──────────────────────────────────────────────────────────────────────────── */
+[data-theme="tgv-sud-est"] {
+  /* Semantic backgrounds */
+  --bg-page:          #f3f4f6;
+  --bg-surface:       #ffffff;
+  --bg-inverse:       #2c3542;
+
+  /* Text */
+  --text-primary:     #151c28;
+  --text-secondary:   #4e5862;
+  --text-disabled:    #9ca3ac;
+  --text-inverse:     #ffffff;
+  --text-link:        #c05500;
+  --text-link-hover:  #9e4600;
+
+  /* Borders */
+  --border-subtle:    #e5e7eb;
+  --border-default:   #c8ccd2;
+  --border-strong:    #e06800;
+
+  /* Brand / interactive */
+  --brand-primary:        #e06800;
+  --brand-primary-hover:  #c05500;
+  --brand-primary-active: #9e4600;
+
+  /* Feedback */
+  --color-success: #2f9e44;
+  --color-warning: #f59f00;
+  --color-danger:  #f03e3e;
+  --color-info:    #1c7ed6;
+}
