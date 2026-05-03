@@ -1,6 +1,6 @@
 import PageSection from './PageSection.vue'
 import Button from '../Button/Button.vue'
-import Card from '../Card/Card.vue'
+import BaseCard from '../BaseCard/BaseCard.vue'
 
 /** @type { import('@storybook/vue3-vite').Meta } */
 export default {
@@ -41,12 +41,20 @@ export const Default = {
     description: 'Next services from Edinburgh Waverley.',
   },
   render: (args) => ({
-    components: { PageSection, Card },
+    components: { PageSection, BaseCard },
     setup: () => ({ args }),
     template: `
       <PageSection v-bind="args">
-        <Card><p style="padding: var(--space-2) 0">09:42 · Inverness · On time</p></Card>
-        <Card><p style="padding: var(--space-2) 0">10:05 · Glasgow Queen Street · Delayed 8 min</p></Card>
+        <BaseCard>
+          <p style="padding: var(--space-2) 0">
+            09:42 · Inverness · On time
+            </p>
+        </BaseCard>
+        <BaseCard>
+          <p style="padding: var(--space-2) 0">
+            10:05 · Glasgow Queen Street · Delayed 8 min
+          </p>
+        </BaseCard>
       </PageSection>
     `,
   }),
@@ -55,7 +63,7 @@ export const Default = {
 export const WithActions = {
   args: { title: 'Scheduled services' },
   render: (args) => ({
-    components: { PageSection, Button, Card },
+    components: { PageSection, Button, BaseCard },
     setup: () => ({ args }),
     template: `
       <PageSection v-bind="args">
@@ -63,7 +71,11 @@ export const WithActions = {
           <Button variant="outlined" size="sm">Export</Button>
           <Button size="sm">Add service</Button>
         </template>
-        <Card><p style="padding: var(--space-2) 0">IC 225 · Edinburgh → London · 09:00</p></Card>
+        <BaseCard>
+          <p style="padding: var(--space-2) 0">
+            IC 225 · Edinburgh → London · 09:00
+          </p>
+        </BaseCard>
       </PageSection>
     `,
   }),
@@ -72,7 +84,7 @@ export const WithActions = {
 export const CustomHeader = {
   name: 'Custom header slot',
   render: () => ({
-    components: { PageSection, Card },
+    components: { PageSection, BaseCard },
     template: `
       <PageSection>
         <template #header>
@@ -80,7 +92,11 @@ export const CustomHeader = {
             Platform 9 · Departing in 4 min
           </p>
         </template>
-        <Card><p style="padding: var(--space-2) 0">The Flying Scotsman — London Kings Cross</p></Card>
+        <BaseCard>
+          <p style="padding: var(--space-2) 0">
+            The Flying Scotsman — London Kings Cross
+          </p>
+        </BaseCard>
       </PageSection>
     `,
   }),

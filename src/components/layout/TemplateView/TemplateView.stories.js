@@ -1,7 +1,7 @@
 import TemplateView from './TemplateView.vue'
 import PageHeader   from '../../PageHeader/PageHeader.vue'
 import Button       from '../../Button/Button.vue'
-import Badge        from '../../Badge/Badge.vue'
+import BaseBadge    from '../../BaseBadge/BaseBadge.vue'
 import SectionHeader from '../../SectionHeader/SectionHeader.vue'
 
 export default {
@@ -127,7 +127,7 @@ export const Default = {
 export const WithToolbar = {
   name: 'With Toolbar',
   render: (args) => ({
-    components: { TemplateView, PageHeader, Button, Badge, FakeMetrics },
+    components: { TemplateView, PageHeader, Button, BaseBadge, FakeMetrics },
     setup() { return { args } },
     template: `
       <div style="height: 100vh; background: var(--bg-page);">
@@ -137,7 +137,10 @@ export const WithToolbar = {
           </template>
           <template #toolbar>
             <Button size="sm" variant="secondary">All</Button>
-            <Button size="sm" variant="ghost">Active <Badge variant="danger" size="sm" style="margin-left: 4px;">3</Badge></Button>
+            <Button size="sm" variant="ghost">
+              Active 
+              <BaseBadge variant="danger" size="sm" style="margin-left: 4px;" :label="3" />
+            </Button>
             <Button size="sm" variant="ghost">Resolved</Button>
             <div style="margin-left: auto; display: flex; gap: var(--space-2);">
               <Button size="sm" variant="primary">Report incident</Button>

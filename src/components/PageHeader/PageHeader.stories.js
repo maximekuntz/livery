@@ -1,6 +1,6 @@
 import PageHeader from './PageHeader.vue'
 import Button from '../Button/Button.vue'
-import Badge from '../Badge/Badge.vue'
+import BaseBadge from '../BaseBadge/BaseBadge.vue'
 import ClickableIcon from '../ClickableIcon/ClickableIcon.vue'
 
 export default {
@@ -59,7 +59,7 @@ export const WithActions = {
 
 export const WithBreadcrumbAndMeta = {
   render: () => ({
-    components: { PageHeader, Button, Badge },
+    components: { PageHeader, Button, BaseBadge },
     template: `
       <PageHeader
         eyebrow="GWR · 1A23"
@@ -78,9 +78,9 @@ export const WithBreadcrumbAndMeta = {
           <Button variant="danger"   size="sm">Cancel service</Button>
         </template>
         <template #meta>
-          <Badge variant="success" pill>On time</Badge>
-          <Badge variant="default">Intercity 125</Badge>
-          <Badge variant="info">First class available</Badge>
+          <BaseBadge variant="success" pill label="On time" />
+          <BaseBadge variant="default" label="Intercity 125" />
+          <BaseBadge variant="info" label="First class available" />
         </template>
       </PageHeader>
     `,

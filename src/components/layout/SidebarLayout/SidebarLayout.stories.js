@@ -1,7 +1,6 @@
 import SidebarLayout from './SidebarLayout.vue'
 import NavItem from '../NavItem/NavItem.vue'
 import NavGroup from '../NavGroup/NavGroup.vue'
-import Badge from '../../Badge/Badge.vue'
 import Button from '../../Button/Button.vue'
 import ClickableIcon from '../../ClickableIcon/ClickableIcon.vue'
 
@@ -75,7 +74,7 @@ const PageContent = {
 
 export const Default = {
   render: (args) => ({
-    components: { SidebarLayout, NavItem, NavGroup, Badge, ClickableIcon, PageContent },
+    components: { SidebarLayout, NavItem, NavGroup, ClickableIcon, PageContent },
     setup() { return { args } },
     template: `
       <SidebarLayout v-bind="args" style="height: 100vh;">

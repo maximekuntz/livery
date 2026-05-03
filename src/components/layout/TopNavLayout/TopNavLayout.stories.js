@@ -1,7 +1,6 @@
 import TopNavLayout from './TopNavLayout.vue'
 import TopNavItem from '../TopNavItem/TopNavItem.vue'
 import Button from '../../Button/Button.vue'
-import Badge from '../../Badge/Badge.vue'
 import ClickableIcon from '../../ClickableIcon/ClickableIcon.vue'
 
 export default {

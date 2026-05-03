@@ -70,7 +70,7 @@ All components are then available in every template without an explicit import.
 ### Import individual components
 
 ```js
-import { Button, Card, TextInput } from '@maximekuntz/livery'
+import { Button, BaseCard, TextInput } from '@maximekuntz/livery'
 ```
 
 ### Use design tokens in CSS
@@ -100,9 +100,7 @@ console.log(tokens.color.blue[700])
 | Component | Description |
 |-----------|-------------|
 | `Button` | Primary interactive element — filled, outlined, ghost, danger variants |
-| `Badge` | Compact status indicator using signal aspect colours |
 | `BaseBadge` | Badge with optional icon and label prop |
-| `Card` | Surface container with header / body / footer slots |
 | `BaseCard` | Card with built-in icon and title prop |
 | `Divider` | Track-line separator, horizontal or vertical |
 | `BaseIcon` | Thin wrapper around icon content |

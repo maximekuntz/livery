@@ -1,5 +1,5 @@
 import Table from './Table.vue'
-import Badge from '../Badge/Badge.vue'
+import BaseBadge from '../BaseBadge/BaseBadge.vue'
 import Button from '../Button/Button.vue'
 
 export default {
@@ -81,12 +81,12 @@ export const Default = {
 export const CustomCells = {
   name: 'Custom Cells',
   render: (args) => ({
-    components: { Table, Badge },
+    components: { Table, BaseBadge },
     setup() { return { args, COLUMNS, ROWS, STATUS_VARIANT } },
     template: `
       <Table v-bind="args" :columns="COLUMNS" :rows="ROWS" caption="Northern Network — Live Departures">
         <template #cell(status)="{ value }">
-          <Badge :variant="STATUS_VARIANT[value] ?? 'default'" pill>{{ value }}</Badge>
+          <BaseBadge :variant="STATUS_VARIANT[value] ?? 'default'" pill :label="value" />
         </template>
         <template #cell(departs)="{ value }">
           <span style="font-family: var(--font-mono); font-variant-numeric: tabular-nums;">{{ value }}</span>
@@ -99,7 +99,7 @@ export const CustomCells = {
 
 export const Sortable = {
   render: (args) => ({
-    components: { Table, Badge },
+    components: { Table, BaseBadge },
     setup() {
       const { ref, computed } = window.Vue ?? {}
       // Storybook renders in browser — use Vue from the global
@@ -134,7 +134,7 @@ export const Sortable = {
         @sort="onSort"
       >
         <template #cell(status)="{ value }">
-          <Badge :variant="STATUS_VARIANT[value] ?? 'default'" pill>{{ value }}</Badge>
+          <BaseBadge :variant="STATUS_VARIANT[value] ?? 'default'" pill :label="value" />
         </template>
       </Table>
     `,
@@ -171,12 +171,12 @@ export const Empty = {
 
 export const Dense = {
   render: (args) => ({
-    components: { Table, Badge },
+    components: { Table, BaseBadge },
     setup() { return { args, COLUMNS, ROWS, STATUS_VARIANT } },
     template: `
       <Table v-bind="args" :columns="COLUMNS" :rows="ROWS" caption="Dense table">
         <template #cell(status)="{ value }">
-          <Badge :variant="STATUS_VARIANT[value] ?? 'default'" pill>{{ value }}</Badge>
+          <BaseBadge :variant="STATUS_VARIANT[value] ?? 'default'" pill :label="value" />
         </template>
       </Table>
     `,
@@ -187,12 +187,12 @@ export const Dense = {
 export const WithFooter = {
   name: 'With Footer',
   render: (args) => ({
-    components: { Table, Badge },
+    components: { Table, BaseBadge },
     setup() { return { args, COLUMNS, ROWS, STATUS_VARIANT } },
     template: `
       <Table v-bind="args" :columns="COLUMNS" :rows="ROWS" caption="Departures with footer">
         <template #cell(status)="{ value }">
-          <Badge :variant="STATUS_VARIANT[value] ?? 'default'" pill>{{ value }}</Badge>
+          <BaseBadge :variant="STATUS_VARIANT[value] ?? 'default'" pill :label="value" />
         </template>
         <template #footer>
           Showing {{ ROWS.length }} of {{ ROWS.length }} services
@@ -205,7 +205,7 @@ export const WithFooter = {
 
 export const Selectable = {
   render: (args) => ({
-    components: { Table, Badge },
+    components: { Table, BaseBadge },
     data() {
       return { selectedId: null }
     },
@@ -223,7 +223,7 @@ export const Selectable = {
           :on-row-click="(row) => selectedId = row.id"
         >
           <template #cell(status)="{ value }">
-            <Badge :variant="STATUS_VARIANT[value] ?? 'default'" pill>{{ value }}</Badge>
+            <BaseBadge :variant="STATUS_VARIANT[value] ?? 'default'" pill :label="value" />
           </template>
         </Table>
         <p style="margin-top: 1rem; font-size: var(--text-sm); color: var(--text-secondary);">
@@ -248,7 +248,7 @@ const MANY_ROWS = Array.from({ length: 40 }, (_, i) => ({
 export const ClientSidePagination = {
   name: 'Client-Side Pagination',
   render: (args) => ({
-    components: { Table, Badge },
+    components: { Table, BaseBadge },
     setup() { return { args, COLUMNS, MANY_ROWS, STATUS_VARIANT } },
     template: `
       <Table
@@ -260,7 +260,7 @@ export const ClientSidePagination = {
         :page-size="5"
       >
         <template #cell(status)="{ value }">
-          <Badge :variant="STATUS_VARIANT[value] ?? 'default'" pill>{{ value }}</Badge>
+          <BaseBadge :variant="STATUS_VARIANT[value] ?? 'default'" pill :label="value" />
         </template>
         <template #cell(departs)="{ value }">
           <span style="font-family: var(--font-mono); font-variant-numeric: tabular-nums;">{{ value }}</span>
@@ -274,7 +274,7 @@ export const ClientSidePagination = {
 export const ServerSidePagination = {
   name: 'Server-Side Pagination',
   render: (args) => ({
-    components: { Table, Badge },
+    components: { Table, BaseBadge },
     data() {
       return {
         page: 1,
@@ -304,7 +304,7 @@ export const ServerSidePagination = {
           @update:page-size="pageSize = $event"
         >
           <template #cell(status)="{ value }">
-            <Badge :variant="STATUS_VARIANT[value] ?? 'default'" pill>{{ value }}</Badge>
+            <BaseBadge :variant="STATUS_VARIANT[value] ?? 'default'" pill :label="value" />
           </template>
           <template #cell(departs)="{ value }">
             <span style="font-family: var(--font-mono); font-variant-numeric: tabular-nums;">{{ value }}</span>

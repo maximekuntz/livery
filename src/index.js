@@ -6,11 +6,9 @@ import './tokens/tokens.css'
 import './tokens/themes.css'
 
 export { default as Button }           from './components/Button/Button.vue'
-export { default as BaseBadge }          from './components/BaseBadge/BaseBadge.vue'
-export { default as BaseCard }           from './components/BaseCard/BaseCard.vue'
-export { default as BaseHeader }         from './components/BaseHeader/BaseHeader.vue'
-export { default as Badge }            from './components/Badge/Badge.vue'
-export { default as Card }             from './components/Card/Card.vue'
+export { default as BaseBadge }        from './components/BaseBadge/BaseBadge.vue'
+export { default as BaseCard }         from './components/BaseCard/BaseCard.vue'
+export { default as BaseHeader }       from './components/BaseHeader/BaseHeader.vue'
 export { default as Divider }          from './components/Divider/Divider.vue'
 export { default as BaseIcon }         from './components/BaseIcon/BaseIcon.vue'
 export { default as ClickableIcon }    from './components/ClickableIcon/ClickableIcon.vue'
@@ -50,11 +48,9 @@ export * as themes from './tokens/themes.js'
 
 // Install plugin — registers all components globally
 import Button           from './components/Button/Button.vue'
-import BaseBadge          from './components/BaseBadge/BaseBadge.vue'
-import BaseCard           from './components/BaseCard/BaseCard.vue'
-import BaseHeader         from './components/BaseHeader/BaseHeader.vue'
-import Badge            from './components/Badge/Badge.vue'
-import Card             from './components/Card/Card.vue'
+import BaseBadge        from './components/BaseBadge/BaseBadge.vue'
+import BaseCard         from './components/BaseCard/BaseCard.vue'
+import BaseHeader       from './components/BaseHeader/BaseHeader.vue'
 import Divider          from './components/Divider/Divider.vue'
 import BaseIcon         from './components/BaseIcon/BaseIcon.vue'
 import ClickableIcon    from './components/ClickableIcon/ClickableIcon.vue'
@@ -86,9 +82,8 @@ import ExpandableSection from './components/ExpandableSection/ExpandableSection.
 import PageSection       from './components/PageSection/PageSection.vue'
 
 const components = {
-  BaseBadge, BaseCard, BaseHeader,
-  Button, Badge, Card, Divider,
-  BaseIcon, ClickableIcon,
+  BaseBadge, BaseCard, BaseHeader, Button, 
+  Divider, BaseIcon, ClickableIcon,
   TextInput, BooleanInput, SelectInput, MultiSelectInput,
   DateInput, TimeInput, DateTimeInput,
   SectionHeader, PageHeader, Table, Pagination,
