@@ -8,7 +8,7 @@ import { ref, reactive } from 'vue'
  *
  *   add({ message: 'Booking confirmed', variant: 'success' })
  *
- * Mount <LvToastContainer :toasts="toasts" @remove="remove" /> once at the app root.
+ * Mount <ToastContainer :toasts="toasts" @remove="remove" /> once at the app root.
  *
  * A singleton store is used so any component can call add() without prop-drilling.
  */

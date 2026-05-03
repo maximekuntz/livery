@@ -65,12 +65,12 @@ import App from './App.vue'
 createApp(App).use(Livery).mount('#app')
 ```
 
-All `Lv*` components are then available in every template without an explicit import.
+All components are then available in every template without an explicit import.
 
 ### Import individual components
 
 ```js
-import { LvButton, LvCard, LvTextInput } from '@maximekuntz/livery'
+import { Button, Card, TextInput } from '@maximekuntz/livery'
 ```
 
 ### Use design tokens in CSS
@@ -99,32 +99,35 @@ console.log(tokens.color.blue[700])
 
 | Component | Description |
 |-----------|-------------|
-| `LvButton` | Primary interactive element — filled, outlined, ghost, danger variants |
-| `LvBadge` | Compact status indicator using signal aspect colours |
-| `LvCard` | Surface container with header / body / footer slots |
-| `LvDivider` | Track-line separator, horizontal or vertical |
-| `LvBaseIcon` | Thin wrapper around icon content |
-| `LvClickableIcon` | Icon with an accessible click target |
-| `LvTextInput` | Text field with label, hint, and error state |
-| `LvBooleanInput` | Checkbox / toggle |
-| `LvSelectInput` | Single-value dropdown |
-| `LvMultiSelectInput` | Multi-value dropdown |
-| `LvDateInput` | Date picker |
-| `LvTimeInput` | Time picker |
-| `LvDateTimeInput` | Combined date + time picker |
-| `LvSectionHeader` | Titled section divider |
-| `LvPageHeader` | Page-level title with optional actions slot |
-| `LvTable` | Data table with sortable columns |
-| `LvPagination` | Page navigation control |
-| `LvAlert` | Inline contextual message |
-| `LvToast` | Transient notification |
-| `LvToastContainer` | Mount point for toast notifications |
-| `LvSidebarLayout` | App shell with persistent sidebar |
-| `LvTopNavLayout` | App shell with top navigation bar |
-| `LvTemplateView` | Content area template |
-| `LvNavItem` | Sidebar navigation link |
-| `LvNavGroup` | Collapsible group of nav items |
-| `LvTopNavItem` | Top-bar navigation link |
+| `Button` | Primary interactive element — filled, outlined, ghost, danger variants |
+| `Badge` | Compact status indicator using signal aspect colours |
+| `BaseBadge` | Badge with optional icon and label prop |
+| `Card` | Surface container with header / body / footer slots |
+| `BaseCard` | Card with built-in icon and title prop |
+| `Divider` | Track-line separator, horizontal or vertical |
+| `BaseIcon` | Thin wrapper around icon content |
+| `ClickableIcon` | Icon with an accessible click target |
+| `TextInput` | Text field with label, hint, and error state |
+| `BooleanInput` | Checkbox / toggle |
+| `SelectInput` | Single-value dropdown |
+| `MultiSelectInput` | Multi-value dropdown |
+| `DateInput` | Date picker |
+| `TimeInput` | Time picker |
+| `DateTimeInput` | Combined date + time picker |
+| `SectionHeader` | Titled section divider |
+| `PageHeader` | Page-level title with optional actions slot |
+| `BaseHeader` | Section header with icon and label prop |
+| `Table` | Data table with sortable columns |
+| `Pagination` | Page navigation control |
+| `Alert` | Inline contextual message |
+| `Toast` | Transient notification |
+| `ToastContainer` | Mount point for toast notifications |
+| `SidebarLayout` | App shell with persistent sidebar |
+| `TopNavLayout` | App shell with top navigation bar |
+| `TemplateView` | Content area template |
+| `NavItem` | Sidebar navigation link |
+| `NavGroup` | Collapsible group of nav items |
+| `TopNavItem` | Top-bar navigation link |
 
 ---
 
@@ -138,7 +141,7 @@ toast.success('Record saved')
 toast.error('Something went wrong')
 ```
 
-Mount `<LvToastContainer />` once near the root of your app.
+Mount `<ToastContainer />` once near the root of your app.
 
 ---
 
@@ -211,7 +214,7 @@ src/
 ├── components/
 │   ├── layout/         # shell & navigation components
 │   ├── notification/   # alert, toast, toast container
-│   └── Lv*/            # individual components
+│   └── [ComponentName]/ # individual components
 ├── stories/
 │   ├── Tokens.stories.js
 │   └── Themes.stories.js
