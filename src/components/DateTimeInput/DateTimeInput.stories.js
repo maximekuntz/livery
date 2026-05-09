@@ -1,7 +1,7 @@
 import DateTimeInput from './DateTimeInput.vue'
 
 export default {
-  title: 'Form/DateTimeInput',
+  title: 'Components/Inputs/Date and Time/DateTimeInput',
   component: DateTimeInput,
   tags: ['autodocs'],
   argTypes: {

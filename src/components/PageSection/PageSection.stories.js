@@ -4,7 +4,7 @@ import BaseCard from '../BaseCard/BaseCard.vue'
 
 /** @type { import('@storybook/vue3-vite').Meta } */
 export default {
-  title: 'Components/PageSection',
+  title: 'Components/Layout/PageSection',
   component: PageSection,
   tags: ['autodocs'],
   argTypes: {

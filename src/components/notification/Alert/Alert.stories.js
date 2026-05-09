@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import Alert from './Alert.vue'
 
 export default {
-  title: 'Notification/Alert',
+  title: 'Components/Notification/Alert',
   component: Alert,
   tags: ['autodocs'],
   argTypes: {

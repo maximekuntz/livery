@@ -2,7 +2,7 @@ import BaseHeader from './BaseHeader.vue'
 import Button from '../Button/Button.vue'
 
 export default {
-  title: 'Components/BaseHeader',
+  title: 'Components/Layout/BaseHeader',
   component: BaseHeader,
   tags: ['autodocs'],
   argTypes: {

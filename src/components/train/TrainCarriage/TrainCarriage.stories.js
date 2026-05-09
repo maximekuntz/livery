@@ -2,7 +2,7 @@ import TrainCarriage from './TrainCarriage.vue'
 
 /** @type { import('@storybook/vue3-vite').Meta } */
 export default {
-  title: 'Train/TrainCarriage',
+  title: 'Components/Train/TrainCarriage',
   component: TrainCarriage,
   tags: ['autodocs'],
   argTypes: {

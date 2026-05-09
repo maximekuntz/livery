@@ -3,7 +3,7 @@ import BaseBadge from '../BaseBadge/BaseBadge.vue'
 import Button from '../Button/Button.vue'
 
 export default {
-  title: 'Data/Table',
+  title: 'Components/Table',
   component: Table,
   tags: ['autodocs'],
   argTypes: {

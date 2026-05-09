@@ -2,7 +2,7 @@ import SectionHeader from './SectionHeader.vue'
 import Button from '../Button/Button.vue'
 
 export default {
-  title: 'Components/SectionHeader',
+  title: 'Components/Layout/SectionHeader',
   component: SectionHeader,
   tags: ['autodocs'],
   argTypes: {

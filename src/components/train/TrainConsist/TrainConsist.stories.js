@@ -33,7 +33,7 @@ const dmuConsist = [
 
 /** @type { import('@storybook/vue3-vite').Meta } */
 export default {
-  title: 'Train/TrainConsist',
+  title: 'Components/Train/TrainConsist',
   component: TrainConsist,
   tags: ['autodocs'],
   argTypes: {

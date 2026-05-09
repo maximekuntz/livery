@@ -3,7 +3,7 @@ import TextInput from './TextInput.vue'
 import BaseIcon from '../BaseIcon/BaseIcon.vue'
 
 export default {
-  title: 'Components/TextInput',
+  title: 'Components/Inputs/TextInput',
   component: TextInput,
   tags: ['autodocs'],
   argTypes: {

@@ -5,7 +5,7 @@ import Button from '../../Button/Button.vue'
 import ClickableIcon from '../../ClickableIcon/ClickableIcon.vue'
 
 export default {
-  title: 'Layout/SidebarLayout',
+  title: 'Components/Layout/SidebarLayout',
   component: SidebarLayout,
   tags: ['autodocs'],
   argTypes: {

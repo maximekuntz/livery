@@ -13,7 +13,7 @@ const STATIONS = [
 ]
 
 export default {
-  title: 'Components/MultiSelectInput',
+  title: 'Components/Inputs/MultiSelectInput',
   component: MultiSelectInput,
   tags: ['autodocs'],
   argTypes: {

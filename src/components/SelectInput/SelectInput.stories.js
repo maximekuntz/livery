@@ -11,7 +11,7 @@ const STATIONS = [
 ]
 
 export default {
-  title: 'Components/SelectInput',
+  title: 'Components/Inputs/SelectInput',
   component: SelectInput,
   tags: ['autodocs'],
   argTypes: {

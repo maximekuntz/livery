@@ -8,7 +8,7 @@ const AVAILABLE_ICONS = [
 ]
 
 export default {
-  title: 'Primitives/BaseIcon',
+  title: 'Components/BaseIcon',
   component: BaseIcon,
   tags: ['autodocs'],
   argTypes: {

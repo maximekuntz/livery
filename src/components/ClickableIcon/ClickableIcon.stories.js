@@ -1,7 +1,7 @@
 import ClickableIcon from './ClickableIcon.vue'
 
 export default {
-  title: 'Primitives/ClickableIcon',
+  title: 'Components/ClickableIcon',
   component: ClickableIcon,
   tags: ['autodocs'],
   argTypes: {

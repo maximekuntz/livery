@@ -1,7 +1,7 @@
 import TimeInput from './TimeInput.vue'
 
 export default {
-  title: 'Form/TimeInput',
+  title: 'Components/Inputs/Date and Time/TimeInput',
   component: TimeInput,
   tags: ['autodocs'],
   argTypes: {

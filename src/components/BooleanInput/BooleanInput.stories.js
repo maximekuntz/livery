@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import BooleanInput from './BooleanInput.vue'
 
 export default {
-  title: 'Components/BooleanInput',
+  title: 'Components/Inputs/BooleanInput',
   component: BooleanInput,
   tags: ['autodocs'],
   argTypes: {

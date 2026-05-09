@@ -5,7 +5,7 @@ import BaseBadge    from '../../BaseBadge/BaseBadge.vue'
 import SectionHeader from '../../SectionHeader/SectionHeader.vue'
 
 export default {
-  title: 'Layout/TemplateView',
+  title: 'Components/Layout/TemplateView',
   component: TemplateView,
   tags: ['autodocs'],
   argTypes: {

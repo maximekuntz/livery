@@ -4,7 +4,7 @@ import BaseBadge from '../BaseBadge/BaseBadge.vue'
 import ClickableIcon from '../ClickableIcon/ClickableIcon.vue'
 
 export default {
-  title: 'Components/PageHeader',
+  title: 'Components/Layout/PageHeader',
   component: PageHeader,
   tags: ['autodocs'],
   argTypes: {

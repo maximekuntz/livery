@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import Toast from './Toast.vue'
 
 export default {
-  title: 'Notification/Toast',
+  title: 'Components/Notification/Toast',
   component: Toast,
   tags: ['autodocs'],
   argTypes: {

@@ -4,7 +4,7 @@ import TrainConsist from '../TrainConsist/TrainConsist.vue'
 
 /** @type { import('@storybook/vue3-vite').Meta } */
 export default {
-  title: 'Train/CarriageInfo',
+  title: 'Components/Train/CarriageInfo',
   component: CarriageInfo,
   tags: ['autodocs'],
   argTypes: {

@@ -4,7 +4,7 @@ import Button from '../../Button/Button.vue'
 import ClickableIcon from '../../ClickableIcon/ClickableIcon.vue'
 
 export default {
-  title: 'Layout/TopNavLayout',
+  title: 'Components/Layout/TopNavLayout',
   component: TopNavLayout,
   tags: ['autodocs'],
   argTypes: {

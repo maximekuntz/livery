@@ -4,7 +4,7 @@ import Button from '../../Button/Button.vue'
 import { useToast } from '../useToast.js'
 
 export default {
-  title: 'Notification/ToastContainer',
+  title: 'Components/Notification/ToastContainer',
   component: ToastContainer,
   tags: ['autodocs'],
   argTypes: {
