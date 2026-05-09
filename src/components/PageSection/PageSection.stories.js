@@ -68,8 +68,8 @@ export const WithActions = {
     template: `
       <PageSection v-bind="args">
         <template #actions>
-          <Button variant="outlined" size="sm">Export</Button>
-          <Button size="sm">Add service</Button>
+          <Button variant="outlined" size="sm" label="Export" />
+          <Button size="sm" label="Add service" />
         </template>
         <BaseCard>
           <p style="padding: var(--space-2) 0">

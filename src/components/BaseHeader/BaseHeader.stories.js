@@ -38,8 +38,8 @@ export const WithActions = {
         icon="settings"
       >
         <template #actions>
-          <Button variant="outlined" size="sm">Edit</Button>
-          <Button variant="filled" size="sm">Add stop</Button>
+          <Button variant="outlined" size="sm" label="Edit" />
+          <Button variant="filled" size="sm" label="Add stop" />
         </template>
       </BaseHeader>
     `,

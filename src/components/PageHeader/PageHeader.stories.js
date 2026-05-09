@@ -49,8 +49,8 @@ export const WithActions = {
       >
         Platform overview
         <template #actions>
-          <Button variant="outlined" size="md">Export</Button>
-          <Button variant="filled"   size="md">Add service</Button>
+          <Button variant="outlined" size="md" label="Export" />
+          <Button variant="filled"   size="md" label="Add service" />
         </template>
       </PageHeader>
     `,
@@ -74,8 +74,8 @@ export const WithBreadcrumbAndMeta = {
         Service 1A23
 
         <template #actions>
-          <Button variant="outlined" size="sm">Edit</Button>
-          <Button variant="danger"   size="sm">Cancel service</Button>
+          <Button variant="outlined" size="sm" label="Edit" />
+          <Button variant="danger"   size="sm" label="Cancel service" />
         </template>
         <template #meta>
           <BaseBadge variant="success" pill label="On time" />

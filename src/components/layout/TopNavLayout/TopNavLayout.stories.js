@@ -136,7 +136,7 @@ export const Contained = {
           <TopNavItem href="#">Network</TopNavItem>
         </template>
         <template #actions>
-          <Button variant="outlined" size="sm">Sign out</Button>
+          <Button variant="outlined" size="sm" label="Sign out" />
         </template>
         <FakeContent />
       </TopNavLayout>

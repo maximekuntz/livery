@@ -40,7 +40,7 @@ export const WithActions = {
       <SectionHeader description="Manage the calling points for this service.">
         Calling points
         <template #actions>
-          <Button variant="outlined" size="sm">Edit</Button>
+          <Button variant="outlined" size="sm" label="Edit" />
         </template>
       </SectionHeader>
     `,

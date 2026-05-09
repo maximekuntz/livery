@@ -47,7 +47,7 @@ a main content area, and an optional aside panel.
       <PageHeader eyebrow="Operations">Timetable</PageHeader>
     </template>
     <template #toolbar>
-      <Button variant="ghost" size="sm">Filter</Button>
+      <Button variant="ghost" size="sm" label="Filter" />
     </template>
 
     <!-- main content -->
@@ -136,14 +136,11 @@ export const WithToolbar = {
             <PageHeader eyebrow="Operations">Incidents</PageHeader>
           </template>
           <template #toolbar>
-            <Button size="sm" variant="secondary">All</Button>
-            <Button size="sm" variant="ghost">
-              Active 
-              <BaseBadge variant="danger" size="sm" style="margin-left: 4px;" :label="3" />
-            </Button>
-            <Button size="sm" variant="ghost">Resolved</Button>
+            <Button size="sm" variant="secondary" label="All" />
+            <Button size="sm" variant="ghost" label="Active" />
+            <Button size="sm" variant="ghost" label="Resolved" />
             <div style="margin-left: auto; display: flex; gap: var(--space-2);">
-              <Button size="sm" variant="primary">Report incident</Button>
+              <Button size="sm" variant="primary" label="Report incident" />
             </div>
           </template>
           <FakeMetrics />
@@ -235,8 +232,8 @@ export const StickyChrome = {
             </PageHeader>
           </template>
           <template #toolbar>
-            <Button size="sm" variant="ghost">All</Button>
-            <Button size="sm" variant="ghost">Active</Button>
+            <Button size="sm" variant="ghost" label="All" />
+            <Button size="sm" variant="ghost" label="Active" />
           </template>
           <div style="display: flex; flex-direction: column; gap: var(--space-4);">
             <div

@@ -1,28 +1,27 @@
 <template>
-  <component
-    :is="tag"
-    :type="tag === 'button' ? type : undefined"
+  <button
     :disabled="disabled || loading"
     :aria-disabled="disabled || loading"
     :aria-busy="loading"
     :class="classes"
+    type="button"
+    @click="$emit('click')"
     v-bind="$attrs"
   >
     <span v-if="loading" class="lv-button__spinner" aria-hidden="true" />
-    <span v-if="$slots.icon && iconPosition === 'left'" class="lv-button__icon" aria-hidden="true">
-      <slot name="icon" />
+    <span v-if="icon && iconPosition === 'left'" class="lv-button__icon" aria-hidden="true">
+      <BaseIcon :name="icon" />
     </span>
-    <span class="lv-button__label">
-      <slot />
+    <span v-if="label" class="lv-button__label">{{ label }}</span>
+    <span v-if="icon && iconPosition === 'right'" class="lv-button__icon" aria-hidden="true">
+      <BaseIcon :name="icon" />
     </span>
-    <span v-if="$slots.icon && iconPosition === 'right'" class="lv-button__icon" aria-hidden="true">
-      <slot name="icon" />
-    </span>
-  </component>
+  </button>
 </template>
 
 <script setup>
 import { computed } from 'vue'
+import BaseIcon from '../BaseIcon/BaseIcon.vue'
 
 /**
  * Button — Primary interactive element.
@@ -31,6 +30,16 @@ import { computed } from 'vue'
  * Loading state sets `aria-busy` and disables pointer interaction.
  */
 const props = defineProps({
+  /** Text content of the button */
+  label: {
+    type: String,
+    default: '',
+  },
+  /** Icon name from the BaseIcon set (e.g. 'arrow-right') */
+  icon: {
+    type: String,
+    default: null,
+  },
   /** Visual treatment */
   variant: {
     type: String,
@@ -42,16 +51,6 @@ const props = defineProps({
     type: String,
     default: 'md',
     validator: (v) => ['sm', 'md', 'lg'].includes(v),
-  },
-  /** Render as a different element (e.g. 'a' for links) */
-  tag: {
-    type: String,
-    default: 'button',
-  },
-  /** Native button type */
-  type: {
-    type: String,
-    default: 'button',
   },
   /** Disabled state */
   disabled: {
@@ -70,6 +69,8 @@ const props = defineProps({
     validator: (v) => ['left', 'right'].includes(v),
   },
 })
+
+defineEmits(['click'])
 
 const classes = computed(() => [
   'lv-button',

@@ -66,10 +66,9 @@ export const Playground = {
             :key="v"
             variant="outlined"
             size="sm"
+            :label="v"
             @click="fire(v)"
-          >
-            {{ v }}
-          </Button>
+          />
         </div>
         <ToastContainer :toasts="toasts" :position="args.position" @remove="remove" />
       </div>

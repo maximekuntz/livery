@@ -47,8 +47,8 @@ export const WithNameAndFooter = {
           </p>
         </div>
         <template #footer>
-          <Button variant="outlined" size="sm">View alternatives</Button>
-          <Button variant="ghost" size="sm">Dismiss</Button>
+          <Button variant="outlined" size="sm" label="View alternatives" />
+          <Button variant="ghost" size="sm" label="Dismiss" />
         </template>
       </BaseCard>
     `,
