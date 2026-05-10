@@ -1,9 +1,9 @@
 import BaseCard from './BaseCard.vue'
-import Button from '../Button/Button.vue'
-import BaseBadge from '../BaseBadge/BaseBadge.vue'
+import Button from '../../Button/Button.vue'
+import BaseBadge from '../../BaseBadge/BaseBadge.vue'
 
 export default {
-  title: 'Components/BaseCard',
+  title: 'Components/Cards/BaseCard',
   component: BaseCard,
   tags: ['autodocs'],
   argTypes: {
@@ -28,7 +28,7 @@ export const Default = {
     template: `
       <BaseCard v-bind="args" style="max-width:360px">
         <p style="color:var(--text-primary)">
-          Platform 3 — London Paddington to Bristol Temple Meads.
+          Platform 3 - London Paddington to Bristol Temple Meads.
         </p>
       </BaseCard>
     `,

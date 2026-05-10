@@ -1,6 +1,6 @@
 import PageSection from './PageSection.vue'
 import Button from '../Button/Button.vue'
-import BaseCard from '../BaseCard/BaseCard.vue'
+import BaseCard from '../cards/BaseCard/BaseCard.vue'
 
 /** @type { import('@storybook/vue3-vite').Meta } */
 export default {

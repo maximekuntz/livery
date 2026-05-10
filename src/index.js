@@ -7,7 +7,8 @@ import './tokens/themes.css'
 
 export { default as Button }           from './components/Button/Button.vue'
 export { default as BaseBadge }        from './components/BaseBadge/BaseBadge.vue'
-export { default as BaseCard }         from './components/BaseCard/BaseCard.vue'
+export { default as Card }             from './components/cards/Card/Card.vue'
+export { default as BaseCard }         from './components/cards/BaseCard/BaseCard.vue'
 export { default as BaseHeader }       from './components/BaseHeader/BaseHeader.vue'
 export { default as Divider }          from './components/Divider/Divider.vue'
 export { default as BaseIcon }         from './components/BaseIcon/BaseIcon.vue'
@@ -49,7 +50,8 @@ export * as themes from './tokens/themes.js'
 // Install plugin — registers all components globally
 import Button           from './components/Button/Button.vue'
 import BaseBadge        from './components/BaseBadge/BaseBadge.vue'
-import BaseCard         from './components/BaseCard/BaseCard.vue'
+import Card             from './components/cards/Card/Card.vue'
+import BaseCard         from './components/cards/BaseCard/BaseCard.vue'
 import BaseHeader       from './components/BaseHeader/BaseHeader.vue'
 import Divider          from './components/Divider/Divider.vue'
 import BaseIcon         from './components/BaseIcon/BaseIcon.vue'
@@ -82,7 +84,7 @@ import ExpandableSection from './components/ExpandableSection/ExpandableSection.
 import PageSection       from './components/PageSection/PageSection.vue'
 
 const components = {
-  BaseBadge, BaseCard, BaseHeader, Button, 
+  BaseBadge, Card, BaseCard, BaseHeader, Button, 
   Divider, BaseIcon, ClickableIcon,
   TextInput, BooleanInput, SelectInput, MultiSelectInput,
   DateInput, TimeInput, DateTimeInput,
