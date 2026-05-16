@@ -1,6 +1,7 @@
 import PageSection from './PageSection.vue'
 import Button from '../Button/Button.vue'
 import BaseCard from '../cards/BaseCard/BaseCard.vue'
+import { ICONS } from '../BaseIcon/BaseIcon.vue'
 
 /** @type { import('@storybook/vue3-vite').Meta } */
 export default {
@@ -8,6 +9,11 @@ export default {
   component: PageSection,
   tags: ['autodocs'],
   argTypes: {
+    icon: {
+      control: { type: 'select' },
+      options: [undefined, ...Object.keys(ICONS)],
+      description: 'Optional icon shown before the title',
+    },
     title: {
       control: 'text',
       description: 'Section heading text',
@@ -37,6 +43,7 @@ export default {
 
 export const Default = {
   args: {
+    icon: 'clock',
     title: 'Live departures',
     description: 'Next services from Edinburgh Waverley.',
   },

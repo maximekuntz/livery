@@ -1,4 +1,5 @@
 import ExpandableSection from './ExpandableSection.vue'
+import { ICONS } from '../BaseIcon/BaseIcon.vue'
 
 /** @type { import('@storybook/vue3-vite').Meta } */
 export default {
@@ -6,6 +7,11 @@ export default {
   component: ExpandableSection,
   tags: ['autodocs'],
   argTypes: {
+    icon: {
+      control: { type: 'select' },
+      options: [undefined, ...Object.keys(ICONS)],
+      description: 'Optional icon shown before trigger text',
+    },
     defaultOpen: {
       control: 'boolean',
       description: 'Open on first render',
@@ -26,7 +32,7 @@ export default {
 }
 
 export const Default = {
-  args: { defaultOpen: false },
+  args: { defaultOpen: false, icon: 'warning' },
   render: (args) => ({
     components: { ExpandableSection },
     setup: () => ({ args }),

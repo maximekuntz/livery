@@ -4,13 +4,21 @@
       <slot name="header">
         <div class="lv-page-section__heading-row">
           <div class="lv-page-section__heading-content">
-            <component
-              :is="tag"
-              :id="titleId"
-              class="lv-page-section__title"
-            >
-              {{ title }}
-            </component>
+            <div class="lv-page-section__title-row">
+              <BaseIcon
+                v-if="icon"
+                :name="icon"
+                size="md"
+                class="lv-page-section__icon"
+              />
+              <component
+                :is="tag"
+                :id="titleId"
+                class="lv-page-section__title"
+              >
+                {{ title }}
+              </component>
+            </div>
             <p v-if="description" class="lv-page-section__description">
               {{ description }}
             </p>
@@ -30,6 +38,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import BaseIcon from '../BaseIcon/BaseIcon.vue'
 
 let uid = 0
 
@@ -41,6 +50,11 @@ let uid = 0
  * title element, satisfying the WCAG 2.2 landmark labelling requirement.
  */
 const props = defineProps({
+  /** Optional icon shown before the section title */
+  icon: {
+    type: String,
+    default: undefined,
+  },
   /** Section title — rendered as the heading element */
   title: {
     type: String,
@@ -112,6 +126,12 @@ const classes = computed(() => [
   min-width: 0;
 }
 
+.lv-page-section__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
 .lv-page-section__title {
   font-family: var(--font-sans);
   font-size: var(--text-xl);
@@ -119,6 +139,10 @@ const classes = computed(() => [
   line-height: var(--leading-tight);
   color: var(--text-primary);
   margin: 0;
+}
+
+.lv-page-section__icon {
+  color: var(--text-secondary);
 }
 
 .lv-page-section__description {

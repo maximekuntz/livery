@@ -8,9 +8,17 @@
       <div class="lv-page-header__content">
         <div v-if="eyebrow" class="lv-page-header__eyebrow">{{ eyebrow }}</div>
 
-        <component :is="tag" class="lv-page-header__title">
-          <slot />
-        </component>
+        <div class="lv-page-header__title-row">
+          <BaseIcon
+            v-if="icon"
+            :name="icon"
+            size="lg"
+            class="lv-page-header__icon"
+          />
+          <component :is="tag" class="lv-page-header__title">
+            <slot />
+          </component>
+        </div>
 
         <p v-if="subtitle" class="lv-page-header__subtitle">
           {{ subtitle }}
@@ -29,6 +37,8 @@
 </template>
 
 <script setup>
+import BaseIcon from '../BaseIcon/BaseIcon.vue'
+
 /**
  * PageHeader — Top-level page heading.
  *
@@ -37,6 +47,11 @@
  * for supporting context. Actions slot for primary page-level CTAs.
  */
 defineProps({
+  /** Optional icon shown before the page title */
+  icon: {
+    type: String,
+    default: undefined,
+  },
   /** Small label above the title — e.g. route or category */
   eyebrow: {
     type: String,
@@ -91,6 +106,12 @@ defineProps({
   min-width: 0;
 }
 
+.lv-page-header__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
 /* ── Eyebrow ── */
 .lv-page-header__eyebrow {
   font-size: var(--text-xs);
@@ -108,6 +129,10 @@ defineProps({
   line-height: var(--leading-tight);
   color: var(--text-primary);
   margin: 0;
+}
+
+.lv-page-header__icon {
+  color: var(--text-secondary);
 }
 
 /* ── Subtitle ── */

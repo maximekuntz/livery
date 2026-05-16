@@ -1,12 +1,20 @@
 <template>
   <div class="lv-section-header">
     <div class="lv-section-header__content">
-      <component
-        :is="tag"
-        class="lv-section-header__title"
-      >
-        <slot />
-      </component>
+      <div class="lv-section-header__title-row">
+        <BaseIcon
+          v-if="icon"
+          :name="icon"
+          size="sm"
+          class="lv-section-header__icon"
+        />
+        <component
+          :is="tag"
+          class="lv-section-header__title"
+        >
+          <slot />
+        </component>
+      </div>
       <p v-if="description" class="lv-section-header__description">
         {{ description }}
       </p>
@@ -18,6 +26,8 @@
 </template>
 
 <script setup>
+import BaseIcon from '../BaseIcon/BaseIcon.vue'
+
 /**
  * SectionHeader — Section-level heading with optional description and actions.
  *
@@ -25,6 +35,11 @@
  * compact, uppercase rule, clear hierarchy below a PageHeader.
  */
 defineProps({
+  /** Optional icon shown before the title */
+  icon: {
+    type: String,
+    default: undefined,
+  },
   /** Description text below the title */
   description: {
     type: String,
@@ -56,6 +71,12 @@ defineProps({
   min-width: 0;
 }
 
+.lv-section-header__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
 .lv-section-header__title {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
@@ -64,6 +85,10 @@ defineProps({
   text-transform: uppercase;
   color: var(--text-secondary);
   margin: 0;
+}
+
+.lv-section-header__icon {
+  color: var(--text-secondary);
 }
 
 .lv-section-header__description {

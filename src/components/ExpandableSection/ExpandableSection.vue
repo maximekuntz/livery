@@ -9,6 +9,12 @@
       @click="toggle"
     >
       <span class="lv-expandable-section__trigger-content">
+        <BaseIcon
+          v-if="icon"
+          :name="icon"
+          size="sm"
+          class="lv-expandable-section__icon"
+        />
         <slot name="trigger" />
       </span>
       <svg
@@ -44,6 +50,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import BaseIcon from '../BaseIcon/BaseIcon.vue'
 
 let uid = 0
 
@@ -55,6 +62,11 @@ let uid = 0
  * Compose multiple instances to build an accordion.
  */
 const props = defineProps({
+  /** Optional icon shown before trigger text */
+  icon: {
+    type: String,
+    default: undefined,
+  },
   /** Open by default */
   defaultOpen: {
     type: Boolean,
@@ -159,8 +171,15 @@ function toggle() {
 }
 
 .lv-expandable-section__trigger-content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   flex: 1;
   min-width: 0;
+}
+
+.lv-expandable-section__icon {
+  color: var(--text-secondary);
 }
 
 /* ── Chevron ── */
