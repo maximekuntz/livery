@@ -18,6 +18,7 @@ export default {
     skeletonRows:     { control: { type: 'number', min: 1, max: 20 } },
     emptyText:        { control: 'text' },
     caption:          { control: 'text' },
+    captionIcon:      { control: 'text' },
   },
   parameters: {
     docs: {
@@ -25,6 +26,8 @@ export default {
         component: `
 **Table** — Accessible, sortable data table for structured content.
 
+- Optional \`captionIcon\` renders a leading icon in the visible table caption
+- Column definitions can include an optional \`icon\` name to render a leading header icon
 - Sortable columns with \`aria-sort\` — sorting is UI-only; emit \`sort\` to apply it externally
 - Scoped slot \`cell(key)\` for custom cell rendering per column
 - \`loading\` shows animated skeleton rows; \`empty\` slot for zero-state
@@ -43,11 +46,11 @@ export default {
 
 /* ── Shared fixtures ── */
 const COLUMNS = [
-  { key: 'service', label: 'Service', sortable: true },
-  { key: 'origin',  label: 'Origin',  sortable: true },
-  { key: 'destination', label: 'Destination' },
-  { key: 'departs', label: 'Departs', sortable: true, align: 'right' },
-  { key: 'status',  label: 'Status',  align: 'center' },
+  { key: 'service', label: 'Service', icon: 'menu', sortable: true },
+  { key: 'origin',  label: 'Origin',  icon: 'arrow-left', sortable: true },
+  { key: 'destination', label: 'Destination', icon: 'arrow-right' },
+  { key: 'departs', label: 'Departs', icon: 'clock', sortable: true, align: 'right' },
+  { key: 'status',  label: 'Status', icon: 'info', align: 'center' },
 ]
 
 const ROWS = [
@@ -71,6 +74,7 @@ export const Default = {
     `,
   }),
   args: {
+    captionIcon: 'calendar',
     striped: false,
     dense: false,
     bordered: false,

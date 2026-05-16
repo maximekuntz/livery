@@ -2,7 +2,16 @@
   <div :class="wrapperClasses">
     <!-- Optional caption / toolbar above the table -->
     <div v-if="$slots.toolbar || caption" class="lv-table__toolbar">
-      <p v-if="caption" class="lv-table__caption-text" :id="captionId">{{ caption }}</p>
+      <p v-if="caption" class="lv-table__caption-text" :id="captionId">
+        <BaseIcon
+          v-if="captionIcon"
+          class="lv-table__caption-icon"
+          :name="captionIcon"
+          size="sm"
+          aria-hidden="true"
+        />
+        <span>{{ caption }}</span>
+      </p>
       <slot name="toolbar" />
     </div>
 
@@ -31,6 +40,12 @@
               @click="col.sortable ? handleSort(col.key) : undefined"
             >
               <span class="lv-table__th-content">
+                <BaseIcon
+                  v-if="col.icon"
+                  :name="col.icon"
+                  size="xs"
+                  aria-hidden="true"
+                />
                 {{ col.label }}
                 <span v-if="col.sortable" class="lv-table__sort-icon" aria-hidden="true">
                   <BaseIcon
@@ -135,7 +150,7 @@ import Pagination from '../Pagination/Pagination.vue'
  *
  * Column definition shape:
  * ```js
- * { key: 'name', label: 'Name', sortable: true, align: 'left', width: '200px' }
+ * { key: 'name', label: 'Name', icon: 'calendar', sortable: true, align: 'left', width: '200px' }
  * ```
  *
  * Slots:
@@ -168,6 +183,11 @@ const props = defineProps({
   },
   /** Accessible caption / visible table title */
   caption: {
+    type: String,
+    default: undefined,
+  },
+  /** Optional icon rendered before the caption */
+  captionIcon: {
     type: String,
     default: undefined,
   },
@@ -355,11 +375,19 @@ const wrapperClasses = computed(() => [
 }
 
 .lv-table__caption-text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   font-size: var(--text-sm);
   font-weight: var(--font-semibold);
   color: var(--text-primary);
   margin: 0;
   flex: 1;
+}
+
+.lv-table__caption-icon {
+  color: var(--text-secondary);
+  flex: 0 0 auto;
 }
 
 /* ── Scroll container ── */
