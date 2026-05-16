@@ -18,6 +18,16 @@ jobs:
           node-version: 20
           registry-url: https://npm.pkg.github.com
 
+      - name: Ensure release tag matches package version
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          RELEASE_TAG="${GITHUB_REF_NAME#v}"
+
+          if [ "$PACKAGE_VERSION" != "$RELEASE_TAG" ]; then
+            echo "Release tag $GITHUB_REF_NAME does not match package version $PACKAGE_VERSION"
+            exit 1
+          fi
+
       - run: npm ci
       - run: npm publish
         env:

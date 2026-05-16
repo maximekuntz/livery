@@ -19,6 +19,7 @@ export default defineConfig({
       // Exclude Vue from the bundle — consumers provide it via peerDependencies
       external: ['vue'],
       output: {
+        exports: 'named',
         globals: { vue: 'Vue' },
         assetFileNames: (assetInfo) =>
           assetInfo.name === 'style.css' ? 'livery.css' : assetInfo.name,

@@ -1,6 +1,6 @@
 {
   "name": "@maximekuntz/livery",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Rail-inspired design system for Vue 3",
   "type": "module",
   "main": "./dist/livery.umd.cjs",
