@@ -29,6 +29,15 @@ const dmuConsist = [
   { id: 'd4', type: 'locomotive', shape: 'nose-right',  travelClass: 'standard', number: 'D' },
 ]
 
+const twoIntercityEmuConsist = [
+  { id: 'e1-a', type: 'locomotive', shape: 'nose-left',  travelClass: 'first',    number: '1' },
+  { id: 'e1-b', type: 'carriage',   shape: 'rectangular', travelClass: 'standard', number: '2' },
+  { id: 'e1-c', type: 'locomotive', shape: 'nose-right',  travelClass: 'standard', number: '3' },
+  { id: 'e2-a', type: 'locomotive', shape: 'nose-left',  travelClass: 'first',    number: '4' },
+  { id: 'e2-b', type: 'carriage',   shape: 'rectangular', travelClass: 'standard', number: '5' },
+  { id: 'e2-c', type: 'locomotive', shape: 'nose-right',  travelClass: 'standard', number: '6' },
+]
+
 // ── Meta ──────────────────────────────────────────────────────────────────────
 
 /** @type { import('@storybook/vue3-vite').Meta } */
@@ -73,6 +82,24 @@ export const DMUFourCar = {
     platformZones: [
       { label: 'A', from: 0, to: 1 },
       { label: 'B', from: 2, to: 3 },
+    ],
+    direction: 'ltr',
+  },
+  render: (args) => ({
+    components: { TrainConsist },
+    setup: () => ({ args }),
+    template: '<TrainConsist v-bind="args" />',
+  }),
+}
+
+/** Two coupled 3-car Intercity EMUs (6 cars total) */
+export const TwoIntercityEMUs = {
+  args: {
+    carriages: twoIntercityEmuConsist,
+    platformZones: [
+      { label: 'A', from: 0, to: 1 },
+      { label: 'B', from: 2, to: 3 },
+      { label: 'C', from: 4, to: 5 },
     ],
     direction: 'ltr',
   },
