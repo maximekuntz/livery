@@ -41,6 +41,8 @@ export { default as CarriageInfo }    from './components/train/CarriageInfo/Carr
 export { default as ExpandableText }  from './components/ExpandableText/ExpandableText.vue'
 export { default as ExpandableSection } from './components/ExpandableSection/ExpandableSection.vue'
 export { default as PageSection }     from './components/PageSection/PageSection.vue'
+export { default as Modal }           from './components/Modal/Modal.vue'
+export { default as ConfirmModal }    from './components/Modal/ConfirmModal.vue'
 
 // Design tokens (JS values)
 export * as tokens from './tokens/index.js'
@@ -84,6 +86,8 @@ import CarriageInfo   from './components/train/CarriageInfo/CarriageInfo.vue'
 import ExpandableText    from './components/ExpandableText/ExpandableText.vue'
 import ExpandableSection from './components/ExpandableSection/ExpandableSection.vue'
 import PageSection       from './components/PageSection/PageSection.vue'
+import Modal             from './components/Modal/Modal.vue'
+import ConfirmModal      from './components/Modal/ConfirmModal.vue'
 
 const components = {
   BaseBadge, Card, BaseCard, Metric, BaseHeader, Button, 
@@ -96,6 +100,7 @@ const components = {
   NavItem, NavGroup, TopNavItem,
   TrainCarriage, TrainConsist, CarriageInfo,
   ExpandableText, ExpandableSection, PageSection,
+  Modal, ConfirmModal,
 }
 
 export const Livery = {
