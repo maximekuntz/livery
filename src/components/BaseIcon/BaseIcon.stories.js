@@ -11,6 +11,13 @@ export default {
   title: 'Components/BaseIcon',
   component: BaseIcon,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Renders built-in Livery SVG icons by name (for example: "search") and also supports Font Awesome class names (for example: "fa-solid fa-train"). For Font Awesome icons, load Font Awesome CSS in your app or Storybook preview.',
+      },
+    },
+  },
   argTypes: {
     name: {
       control: { type: 'select' },
@@ -58,6 +65,34 @@ export const Sizes = {
         <BaseIcon name="search" size="md" />
         <BaseIcon name="search" size="lg" />
         <BaseIcon name="search" size="xl" />
+      </div>
+    `,
+  }),
+}
+
+export const FontAwesome = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Example usage with Font Awesome classes. This requires Font Awesome CSS to be loaded globally.',
+      },
+    },
+  },
+  render: () => ({
+    components: { BaseIcon },
+    setup: () => ({
+      faIcons: ['fa-solid fa-train', 'fa-solid fa-bell', 'fa-solid fa-user', 'fa-regular fa-calendar'],
+    }),
+    template: `
+      <div style="display:flex;flex-wrap:wrap;gap:1.5rem;font-family:var(--font-sans)">
+        <div
+          v-for="name in faIcons"
+          :key="name"
+          style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2)"
+        >
+          <BaseIcon :name="name" size="lg" :aria-label="name" />
+          <span style="font-size:var(--text-xs);color:var(--text-secondary)">{{ name }}</span>
+        </div>
       </div>
     `,
   }),

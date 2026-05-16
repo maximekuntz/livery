@@ -1,5 +1,14 @@
 <template>
+  <i
+    v-if="isFaIcon"
+    :class="['lv-icon', faClassName]"
+    :style="{ fontSize: `${sizeMap[size]}px` }"
+    :aria-hidden="!ariaLabel"
+    :aria-label="ariaLabel"
+    :role="ariaLabel ? 'img' : undefined"
+  />
   <svg
+    v-else
     :width="sizeMap[size]"
     :height="sizeMap[size]"
     viewBox="0 0 24 24"
@@ -60,7 +69,7 @@ const props = defineProps({
   name: {
     type: String,
     required: true,
-    validator: (v) => Object.keys(ICONS).includes(v),
+    validator: (v) => Object.keys(ICONS).includes(v) || /^fa([srbdl]|-)?\s|^fa-[\w-]+/.test(v),
   },
   /** T-shirt size */
   size: {
@@ -77,6 +86,17 @@ const props = defineProps({
 
 const sizeMap = { xs: 12, sm: 16, md: 20, lg: 24, xl: 32 }
 
+const isFaName = (value) => /^fa([srbdl]|-)?\s|^fa-[\w-]+/.test(value)
+
+const isFaIcon = computed(() => isFaName(props.name))
+
+const faClassName = computed(() => {
+  if (!isFaIcon.value) return ''
+
+  const tokens = props.name.trim().split(/\s+/)
+  return tokens.some((token) => token.startsWith('fa-')) ? props.name : `fa ${props.name}`
+})
+
 const iconPath = computed(() => ICONS[props.name] ?? '')
 </script>
 
@@ -85,5 +105,6 @@ const iconPath = computed(() => ICONS[props.name] ?? '')
   display: inline-block;
   flex-shrink: 0;
   vertical-align: middle;
+  line-height: 1;
 }
 </style>

@@ -103,7 +103,7 @@ console.log(tokens.color.blue[700])
 | `BaseBadge` | Badge with optional icon and label prop |
 | `BaseCard` | Card with built-in icon and title prop |
 | `Divider` | Track-line separator, horizontal or vertical |
-| `BaseIcon` | Thin wrapper around icon content |
+| `BaseIcon` | Built-in SVG icon set plus optional Font Awesome class-name support |
 | `ClickableIcon` | Icon with an accessible click target |
 | `TextInput` | Text field with label, hint, and error state |
 | `BooleanInput` | Checkbox / toggle |
@@ -140,6 +140,19 @@ toast.error('Something went wrong')
 ```
 
 Mount `<ToastContainer />` once near the root of your app.
+
+---
+
+## BaseIcon and Font Awesome
+
+`BaseIcon` supports both Livery icon keys and Font Awesome class strings.
+
+```vue
+<BaseIcon name="search" />
+<BaseIcon name="fa-solid fa-train" aria-label="Train" />
+```
+
+When using Font Awesome names, ensure Font Awesome CSS is loaded in your app.
 
 ---
 
