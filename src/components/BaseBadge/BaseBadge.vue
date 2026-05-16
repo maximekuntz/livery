@@ -7,8 +7,8 @@
       class="base-badge__icon"
       aria-hidden="true"
     />
-    <span v-if="label">{{ label }}</span>
-    <slot v-else />
+    <span>{{ label }}</span>
+    <slot />
   </span>
 </template>
 
