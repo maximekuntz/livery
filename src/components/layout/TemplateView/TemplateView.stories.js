@@ -122,6 +122,13 @@ export const Default = {
     `,
   }),
   args: { padding: true, maxWidth: 'none', stickyChrome: false },
+  parameters: {
+    docs: {
+      description: {
+        story: 'The standard page view: a `PageHeader` in the `#header` slot and content in the default slot. Nest this inside `SidebarLayout` or `TopNavLayout` to complete the application shell.',
+      },
+    },
+  },
 }
 
 export const WithToolbar = {
@@ -149,6 +156,13 @@ export const WithToolbar = {
     `,
   }),
   args: { padding: true, maxWidth: 'none', stickyChrome: false },
+  parameters: {
+    docs: {
+      description: {
+        story: 'The `#toolbar` slot renders a secondary bar between the header and content — ideal for tab strips, filter chips, or bulk-action controls. Move per-page primary actions here when there are more than two of them, keeping `PageHeader`\'s `#actions` reserved for the single most important CTA.',
+      },
+    },
+  },
 }
 
 export const WithAside = {
@@ -189,6 +203,13 @@ export const WithAside = {
     `,
   }),
   args: { padding: true, maxWidth: 'none', asideWidth: '280px', asidePosition: 'right', stickyChrome: false },
+  parameters: {
+    docs: {
+      description: {
+        story: 'The `#aside` slot adds a side panel alongside the main content — perfect for detail panels, contextual metadata, or inspection views. The panel scrolls independently and is given an `aria-label` via the `asideLabel` prop. Use `SectionHeader` inside the aside to label grouped information.',
+      },
+    },
+  },
 }
 
 export const AsideLeft = {
@@ -216,6 +237,13 @@ export const AsideLeft = {
     `,
   }),
   args: { padding: true, maxWidth: 'none', asideWidth: '240px', asidePosition: 'left', stickyChrome: false },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Set `asidePosition="left"` to place the aside panel on the left — typical for filter sidebars and navigation trees. The content column always gets the remaining space.',
+      },
+    },
+  },
 }
 
 export const StickyChrome = {
@@ -256,6 +284,13 @@ export const StickyChrome = {
     `,
   }),
   args: { padding: true, stickyChrome: true },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Enable `stickyChrome` to pin the header and toolbar to the top of the scroll container. Use this for long lists or data tables where users need constant access to filters and the page title. The chrome uses `z-index: 100` to stay above scrolling content.',
+      },
+    },
+  },
 }
 
 export const Constrained = {
@@ -277,4 +312,11 @@ export const Constrained = {
     `,
   }),
   args: { padding: true, maxWidth: '768px', stickyChrome: false },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Set `maxWidth` to constrain and centre the entire view — header, toolbar, content, and aside — to a readable column width. Suitable for settings pages, forms, and documentation views where a full-width layout feels too sparse.',
+      },
+    },
+  },
 }

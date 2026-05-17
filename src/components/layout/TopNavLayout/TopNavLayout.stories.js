@@ -24,6 +24,29 @@ export default {
 - Optional \`subbar\` slot for secondary chrome (tabs, breadcrumbs, filters)
 - Dark navbar matches Livery's rail-cabin aesthetic
 
+### When to use \`TopNavLayout\` vs \`SidebarLayout\`
+
+| | \`TopNavLayout\` | \`SidebarLayout\` |
+|---|---|---|
+| **Navigation style** | Horizontal, sticky bar | Vertical, always visible |
+| **Best for** | Content sites, simpler apps, marketing | Dashboards, tool UIs, admin panels |
+| **Nav item count** | 3–6 top-level links | 5–15+ items with grouping |
+| **Hierarchy** | Flat or one level deep | Multi-level groups (\`NavGroup\`) |
+| **Collapsed mode** | ✗ | ✓ Icon-only via \`collapsible\` |
+
+Always nest \`TemplateView\` inside the default slot to give each page a consistent
+header, toolbar, and content structure.
+
+### Slots
+
+| Slot | Purpose |
+|---|---|
+| \`brand\` | Logo / wordmark on the left of the navbar |
+| \`nav\` | Navigation links (\`TopNavItem\`) |
+| \`actions\` | Right side: user avatar, icon buttons, CTAs |
+| \`subbar\` | Optional secondary bar below the navbar (tabs, breadcrumb, filters) |
+| \`default\` | Page body content — compose \`TemplateView\` here |
+
 **Accessibility**
 - Top-level \`<header role="banner">\` landmark
 - Primary nav rendered as \`<nav aria-label="Primary navigation">\`
@@ -84,6 +107,13 @@ export const Default = {
     maxWidth: '1280px',
     navbarHeight: '3.5rem',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Minimal layout with brand, primary nav, and full-width content. Use `TemplateView` inside the default slot to add a `PageHeader` and structured page regions.',
+      },
+    },
+  },
 }
 
 export const WithActions = {
@@ -116,6 +146,13 @@ export const WithActions = {
   args: {
     contained: false,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'The `#actions` slot sits on the right side of the navbar. Use it for utility icons (search, notifications) and a user avatar/menu. Keep the number of actions small — this is global chrome, not a page-level toolbar.',
+      },
+    },
+  },
 }
 
 export const Contained = {
@@ -145,6 +182,13 @@ export const Contained = {
   args: {
     contained: true,
     maxWidth: '900px',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Set `contained` to constrain and centre the page content area to `maxWidth`. The navbar itself remains full-width. Useful for forms, settings pages, or any view where a narrower reading column improves legibility.',
+      },
+    },
   },
 }
 
@@ -180,5 +224,12 @@ export const WithSubbar = {
   }),
   args: {
     contained: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'The `#subbar` slot renders a secondary bar directly below the navbar — ideal for tab strips, breadcrumbs, or filter controls that apply to the current section. It remains visible as the page scrolls, giving users persistent access to sub-navigation.',
+      },
+    },
   },
 }
