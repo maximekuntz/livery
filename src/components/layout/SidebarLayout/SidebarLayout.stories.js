@@ -28,6 +28,29 @@ export default {
 - Uses CSS custom properties exclusively — no hardcoded colours or spacing
 - Semantically structured: \`<aside>\`, \`<nav>\`, \`<header>\`, \`<main>\`
 
+### When to use \`SidebarLayout\` vs \`TopNavLayout\`
+
+| | \`SidebarLayout\` | \`TopNavLayout\` |
+|---|---|---|
+| **Navigation style** | Vertical, always visible | Horizontal, sticky bar |
+| **Best for** | Dashboards, tool UIs, admin panels | Content sites, simpler apps, marketing |
+| **Nav item count** | 5–15+ items with grouping | 3–6 top-level links |
+| **Hierarchy** | Multi-level groups (\`NavGroup\`) | Flat or one level deep |
+| **Collapsed mode** | ✓ Icon-only via \`collapsible\` | ✗ |
+
+Always nest \`TemplateView\` inside the default slot to give each page a consistent
+header, toolbar, and content structure.
+
+### Slots
+
+| Slot | Purpose |
+|---|---|
+| \`sidebar-header\` | Logo / brand zone at the top of the sidebar |
+| \`sidebar\` | Primary nav links (\`NavItem\` / \`NavGroup\`) |
+| \`sidebar-footer\` | User avatar, settings, or secondary links at the bottom |
+| \`topbar\` | Content inside the in-column top bar (search, user menu) |
+| \`default\` | Page body content — compose \`TemplateView\` here |
+
 **Accessibility**
 - Sidebar has \`role="complementary"\` via \`<aside>\` + \`aria-label\`
 - Mobile toggle sets \`aria-expanded\` on the hamburger button
@@ -130,6 +153,13 @@ export const Default = {
     sidebarLabel: 'Sidebar',
     mobileBreakpoint: 768,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Full-featured layout with a brand header, grouped nav links, a user footer, and a topbar for utility icons. Use `TemplateView` inside the default slot to add per-page header and content structure.',
+      },
+    },
+  },
 }
 
 export const Collapsible = {
@@ -168,6 +198,13 @@ export const Collapsible = {
     sidebarWidth: '240px',
     collapsedWidth: '64px',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Enable `collapsible` to allow users to collapse the sidebar to icon-only mode (`collapsedWidth`). Pass `:collapsed` down to each `NavItem` so labels and group headings hide when collapsed. Useful for power users who want more horizontal space for content.',
+      },
+    },
+  },
 }
 
 export const MinimalShell = {
@@ -190,5 +227,12 @@ export const MinimalShell = {
   }),
   args: {
     sidebarWidth: '200px',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'The `#sidebar-header` and `#sidebar-footer` slots are optional. This is the minimum viable shell — only the `#sidebar` nav slot is required. Good as a starting point before adding branding and user account sections.',
+      },
+    },
   },
 }

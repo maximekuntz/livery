@@ -39,6 +39,62 @@ export default {
       table: { defaultValue: { summary: 'false' } },
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+**PageSection** — Semantic \`<section>\` container for a named, independently navigable content block.
+
+Each \`PageSection\` wraps its heading and body content inside a \`<section aria-labelledby="…">\`,
+which creates a navigable landmark for assistive technology. Use it to divide a page into
+logically distinct top-level groups (e.g. "Live departures", "Scheduled services", "Notes").
+
+### When to use
+
+| Situation | Component to reach for |
+|---|---|
+| Top of a page view | \`PageHeader\` |
+| **Major named content block with grouped body content** | **\`PageSection\`** ✓ |
+| Lightweight section label without a body wrapper | \`SectionHeader\` |
+| Header inside a card, panel, drawer, or dialog | \`BaseHeader\` |
+
+### \`PageSection\` vs \`SectionHeader\`
+
+- **\`PageSection\`** — creates a \`<section>\` DOM landmark with \`aria-labelledby\`. Body content
+  is rendered inside a flex column with consistent vertical rhythm. Choose this when the
+  content group is meaningful enough to appear as a page landmark.
+- **\`SectionHeader\`** — heading only; no body wrapper. Choose this when the content beneath
+  it is already inside another container (e.g. an aside panel) and you just need a visual divider.
+
+### Layout modifiers
+
+- **\`compact\`** — reduces vertical gap and title font size. Use for secondary or sidebar sections
+  where the default spacing feels too heavy.
+- **\`noDivider\`** — removes the bottom border from the header. Use when the surrounding layout
+  (e.g. card background, column gap) already provides visual separation.
+
+### Custom header slot
+
+The \`#header\` slot replaces the entire built-in heading row, allowing fully custom header
+layouts while preserving the \`<section>\` landmark wrapper and body slot.
+
+### Slots
+
+| Slot | Purpose |
+|---|---|
+| \`header\` | Replaces the entire header row for custom layouts |
+| \`actions\` | Buttons pinned to the right of the heading row |
+| \`default\` | Body content — stacked with consistent vertical spacing |
+
+### Accessibility
+
+- \`<section>\` is linked to its heading via \`aria-labelledby\`, satisfying WCAG 2.2 landmark labelling.
+- Each instance generates a unique \`id\` automatically — no manual wiring needed.
+- Heading level defaults to \`h2\`. If \`PageSection\` is nested inside another section, use \`h3\`.
+        `,
+      },
+    },
+  },
 }
 
 export const Default = {
@@ -65,6 +121,13 @@ export const Default = {
       </PageSection>
     `,
   }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Standard usage — a titled, described section wrapping a list of cards. The `icon` and `description` provide additional context at a glance. Multiple `PageSection` blocks stacked on a page each become independently navigable landmarks for screen reader users.',
+      },
+    },
+  },
 }
 
 export const WithActions = {
@@ -86,6 +149,13 @@ export const WithActions = {
       </PageSection>
     `,
   }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Section-scoped actions go in the `#actions` slot. They appear pinned to the right of the heading row. Reserve this for actions that apply to the whole section (e.g. exporting, adding an item) — not page-level actions, which belong in `PageHeader`.',
+      },
+    },
+  },
 }
 
 export const CustomHeader = {
@@ -107,6 +177,13 @@ export const CustomHeader = {
       </PageSection>
     `,
   }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Replace the entire header row with the `#header` slot when the built-in title / description / actions layout does not fit the design. The `<section>` landmark wrapper and body slot are preserved regardless.',
+      },
+    },
+  },
 }
 
 export const Compact = {
@@ -122,4 +199,11 @@ export const Compact = {
       </PageSection>
     `,
   }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Use `compact` for secondary or sidebar sections where the default spacing is too heavy — it reduces the vertical gap and makes the title slightly smaller. Pair with `noDivider` to strip the border if the surrounding layout already provides visual separation.',
+      },
+    },
+  },
 }
