@@ -15,6 +15,7 @@ export default {
       options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       table: { defaultValue: { summary: 'h2' } },
     },
+    noDivider: { control: 'boolean' },
   },
   parameters: {
     docs: {
@@ -43,6 +44,7 @@ structured title area that is subordinate to the main page heading.
 - **\`icon\`** — Optional icon shown to the left of the title, reinforcing the subject.
 - **\`tag\`** — HTML heading element (\`h2\`–\`h6\`). Pick the level that maintains a
   correct document outline — for a card inside a \`PageSection\` (h2) you would use \`h3\`.
+- **\`noDivider\`** — Remove the bottom divider when the header is inside a card or panel where a divider is not needed.
 
 ### Slots
 
@@ -98,6 +100,34 @@ export const WithActions = {
     docs: {
       description: {
         story: 'Add primary actions (edit, add, delete) via the `#actions` slot. Keep to a maximum of two buttons to avoid crowding the header.',
+      },
+    },
+  },
+}
+
+
+export const WithoutDivider = {
+  render: () => ({
+    components: { BaseHeader, Button },
+    template: `
+      <BaseHeader
+        label="Operations"
+        title="Calling points"
+        subtitle="Manage the calling points for this service."
+        icon="settings"
+        :noDivider="true"
+      >
+        <template #actions>
+          <Button variant="outlined" size="sm" label="Edit" />
+          <Button variant="filled" size="sm" label="Add stop" />
+        </template>
+      </BaseHeader>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'A header without a bottom divider. Useful for headers inside cards or panels where a divider is not needed.',
       },
     },
   },
