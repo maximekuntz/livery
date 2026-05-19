@@ -1,5 +1,5 @@
 <template>
-  <header class="base-header">
+  <header class="base-header" :class="{ 'base-header--divider': !noDivider }">
     <div class="base-header__content">
       <div v-if="label" class="base-header__label">{{ label }}</div>
 
@@ -54,6 +54,10 @@ defineProps({
     default: 'h2',
     validator: (v) => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(v),
   },
+  noDivider: {
+    type: Boolean,
+    default: false,
+  },
 })
 </script>
 
@@ -64,6 +68,9 @@ defineProps({
   justify-content: space-between;
   gap: var(--space-4);
   padding-bottom: var(--space-4);
+}
+
+.base-header--divider {
   border-bottom: 1px solid var(--border-subtle);
 }
 
