@@ -23,6 +23,7 @@ export { default as TimeInput }        from './components/TimeInput/TimeInput.vu
 export { default as DateTimeInput }    from './components/DateTimeInput/DateTimeInput.vue'
 export { default as SectionHeader }    from './components/SectionHeader/SectionHeader.vue'
 export { default as PageHeader }       from './components/PageHeader/PageHeader.vue'
+export { default as ProgressBar }      from './components/ProgressBar/ProgressBar.vue'
 export { default as Table }            from './components/Table/Table.vue'
 export { default as Pagination }       from './components/Pagination/Pagination.vue'
 export { default as Alert }            from './components/notification/Alert/Alert.vue'
@@ -69,6 +70,7 @@ import TimeInput        from './components/TimeInput/TimeInput.vue'
 import DateTimeInput    from './components/DateTimeInput/DateTimeInput.vue'
 import SectionHeader    from './components/SectionHeader/SectionHeader.vue'
 import PageHeader       from './components/PageHeader/PageHeader.vue'
+import ProgressBar      from './components/ProgressBar/ProgressBar.vue'
 import Table            from './components/Table/Table.vue'
 import Pagination       from './components/Pagination/Pagination.vue'
 import Alert            from './components/notification/Alert/Alert.vue'
@@ -94,7 +96,7 @@ const components = {
   Divider, BaseIcon, ClickableIcon,
   TextInput, BooleanInput, SelectInput, MultiSelectInput,
   DateInput, TimeInput, DateTimeInput,
-  SectionHeader, PageHeader, Table, Pagination,
+  SectionHeader, PageHeader, ProgressBar, Table, Pagination,
   Alert, Toast, ToastContainer,
   SidebarLayout, TopNavLayout, TemplateView,
   NavItem, NavGroup, TopNavItem,

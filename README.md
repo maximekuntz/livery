@@ -114,6 +114,7 @@ console.log(tokens.color.blue[700])
 | `DateTimeInput` | Combined date + time picker |
 | `SectionHeader` | Titled section divider |
 | `PageHeader` | Page-level title with optional actions slot |
+| `ProgressBar` | Linear progress indicator |
 | `BaseHeader` | Section header with icon and label prop |
 | `Table` | Data table with sortable columns |
 | `Pagination` | Page navigation control |
