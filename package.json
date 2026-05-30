@@ -31,13 +31,12 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^7.2.0",
-    "@storybook/addon-a11y": "^10.3.6",
-    "@storybook/addon-docs": "^10.3.6",
-    "@storybook/addon-links": "^10.3.6",
-    "@storybook/vue3": "^10.3.6",
-    "@storybook/vue3-vite": "^10.3.6",
+    "@storybook/addon-a11y": "^10.4.1",
+    "@storybook/addon-docs": "^10.4.1",
+    "@storybook/addon-links": "^10.4.1",
+    "@storybook/vue3-vite": "^10.4.1",
     "@vitejs/plugin-vue": "^5.0.0",
-    "storybook": "^10.3.6",
+    "storybook": "^10.4.1",
     "vite": "^5.0.0",
     "vitest": "^1.0.0"
   },
