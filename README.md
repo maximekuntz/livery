@@ -210,8 +210,13 @@ npm run test             # run unit tests
 
 ### Publishing a new version
 
+Follow the complete release runbook in [RELEASING.md](RELEASING.md).
+
+Quick version:
+
 1. Bump the version in `package.json`.
-2. Create a GitHub Release — the [Publish workflow](.github/workflows/publish.yml) triggers automatically and pushes the new version to GitHub Packages.
+2. Create a GitHub Release with tag `v<package.json version>`.
+3. The [Publish workflow](.github/workflows/publish.yml) runs automatically and publishes to GitHub Packages.
 
 ---
 
