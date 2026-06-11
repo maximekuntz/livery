@@ -11,6 +11,7 @@ export { default as Card }             from './components/cards/Card/Card.vue'
 export { default as BaseCard }         from './components/cards/BaseCard/BaseCard.vue'
 export { default as Metric }           from './components/Metric/Metric.vue'
 export { default as BaseHeader }       from './components/BaseHeader/BaseHeader.vue'
+export { default as BaseLoader }       from './components/BaseLoader/BaseLoader.vue'
 export { default as Divider }          from './components/Divider/Divider.vue'
 export { default as BaseIcon }         from './components/BaseIcon/BaseIcon.vue'
 export { default as ClickableIcon }    from './components/ClickableIcon/ClickableIcon.vue'
@@ -58,6 +59,7 @@ import Card             from './components/cards/Card/Card.vue'
 import BaseCard         from './components/cards/BaseCard/BaseCard.vue'
 import Metric           from './components/Metric/Metric.vue'
 import BaseHeader       from './components/BaseHeader/BaseHeader.vue'
+import BaseLoader       from './components/BaseLoader/BaseLoader.vue'
 import Divider          from './components/Divider/Divider.vue'
 import BaseIcon         from './components/BaseIcon/BaseIcon.vue'
 import ClickableIcon    from './components/ClickableIcon/ClickableIcon.vue'
@@ -92,7 +94,7 @@ import Modal             from './components/Modal/Modal.vue'
 import ConfirmModal      from './components/Modal/ConfirmModal.vue'
 
 const components = {
-  BaseBadge, Card, BaseCard, Metric, BaseHeader, Button, 
+  BaseBadge, Card, BaseCard, Metric, BaseHeader, BaseLoader, Button, 
   Divider, BaseIcon, ClickableIcon,
   TextInput, BooleanInput, SelectInput, MultiSelectInput,
   DateInput, TimeInput, DateTimeInput,
