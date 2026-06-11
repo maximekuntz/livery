@@ -21,6 +21,7 @@ export default {
       options: ['h1', 'h2', 'h3'],
       table: { defaultValue: { summary: 'h1' } },
     },
+    loading: { control: 'boolean' },
   },
   parameters: {
     docs: {
@@ -139,6 +140,22 @@ export const WithActions = {
       },
     },
   },
+}
+
+export const Loading = {
+  render: () => ({
+    components: { PageHeader },
+    template: `
+      <PageHeader
+        icon="calendar"
+        eyebrow="GWR · Long-distance"
+        subtitle="Refreshing service data..."
+        :loading="true"
+      >
+        Services
+      </PageHeader>
+    `,
+  }),
 }
 
 export const WithBreadcrumbAndMeta = {

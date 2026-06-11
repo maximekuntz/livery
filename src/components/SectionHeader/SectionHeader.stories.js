@@ -18,6 +18,7 @@ export default {
       options: ['h2', 'h3', 'h4', 'h5', 'h6'],
       table: { defaultValue: { summary: 'h2' } },
     },
+    loading: { control: 'boolean' },
   },
   parameters: {
     docs: {
@@ -144,4 +145,19 @@ export const WithActions = {
       },
     },
   },
+}
+
+export const Loading = {
+  render: () => ({
+    components: { SectionHeader },
+    template: `
+      <SectionHeader
+        icon="calendar"
+        description="Fetching updated service data..."
+        :loading="true"
+      >
+        Today's services
+      </SectionHeader>
+    `,
+  }),
 }

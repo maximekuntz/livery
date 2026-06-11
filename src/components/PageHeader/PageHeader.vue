@@ -9,8 +9,15 @@
         <div v-if="eyebrow" class="lv-page-header__eyebrow">{{ eyebrow }}</div>
 
         <div class="lv-page-header__title-row">
+          <BaseLoader
+            v-if="loading"
+            size="lg"
+            label=""
+            class="lv-page-header__loader"
+            aria-hidden="true"
+          />
           <BaseIcon
-            v-if="icon"
+            v-else-if="icon"
             :name="icon"
             size="lg"
             class="lv-page-header__icon"
@@ -38,6 +45,7 @@
 
 <script setup>
 import BaseIcon from '../BaseIcon/BaseIcon.vue'
+import BaseLoader from '../BaseLoader/BaseLoader.vue'
 
 /**
  * PageHeader — Top-level page heading.
@@ -67,6 +75,11 @@ defineProps({
     type: String,
     default: 'h1',
     validator: (v) => ['h1', 'h2', 'h3'].includes(v),
+  },
+  /** Shows a spinner instead of the configured icon */
+  loading: {
+    type: Boolean,
+    default: false,
   },
 })
 </script>
@@ -132,6 +145,10 @@ defineProps({
 }
 
 .lv-page-header__icon {
+  color: var(--text-secondary);
+}
+
+.lv-page-header__loader {
   color: var(--text-secondary);
 }
 

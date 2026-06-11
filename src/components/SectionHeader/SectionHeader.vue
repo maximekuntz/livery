@@ -2,8 +2,15 @@
   <div class="lv-section-header">
     <div class="lv-section-header__content">
       <div class="lv-section-header__title-row">
+        <BaseLoader
+          v-if="loading"
+          size="sm"
+          label=""
+          class="lv-section-header__loader"
+          aria-hidden="true"
+        />
         <BaseIcon
-          v-if="icon"
+          v-else-if="icon"
           :name="icon"
           size="sm"
           class="lv-section-header__icon"
@@ -27,6 +34,7 @@
 
 <script setup>
 import BaseIcon from '../BaseIcon/BaseIcon.vue'
+import BaseLoader from '../BaseLoader/BaseLoader.vue'
 
 /**
  * SectionHeader — Section-level heading with optional description and actions.
@@ -50,6 +58,11 @@ defineProps({
     type: String,
     default: 'h2',
     validator: (v) => ['h2', 'h3', 'h4', 'h5', 'h6'].includes(v),
+  },
+  /** Shows a spinner instead of the configured icon */
+  loading: {
+    type: Boolean,
+    default: false,
   },
 })
 </script>
@@ -88,6 +101,10 @@ defineProps({
 }
 
 .lv-section-header__icon {
+  color: var(--text-secondary);
+}
+
+.lv-section-header__loader {
   color: var(--text-secondary);
 }
 

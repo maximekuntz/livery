@@ -4,8 +4,15 @@
       <div v-if="label" class="base-header__label">{{ label }}</div>
 
       <div class="base-header__title-row">
+        <BaseLoader
+          v-if="loading"
+          size="sm"
+          label=""
+          class="base-header__loader"
+          aria-hidden="true"
+        />
         <BaseIcon
-          v-if="icon"
+          v-else-if="icon"
           :name="icon"
           size="sm"
           class="base-header__icon"
@@ -30,6 +37,7 @@
 <script setup>
 import { ICONS } from '../BaseIcon/BaseIcon.vue'
 import BaseIcon from '../BaseIcon/BaseIcon.vue'
+import BaseLoader from '../BaseLoader/BaseLoader.vue'
 
 defineProps({
   title: {
@@ -55,6 +63,10 @@ defineProps({
     validator: (v) => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(v),
   },
   noDivider: {
+    type: Boolean,
+    default: false,
+  },
+  loading: {
     type: Boolean,
     default: false,
   },
@@ -97,6 +109,10 @@ defineProps({
 }
 
 .base-header__icon {
+  color: var(--text-secondary);
+}
+
+.base-header__loader {
   color: var(--text-secondary);
 }
 

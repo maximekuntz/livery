@@ -16,6 +16,7 @@ export default {
       table: { defaultValue: { summary: 'h2' } },
     },
     noDivider: { control: 'boolean' },
+    loading: { control: 'boolean' },
   },
   parameters: {
     docs: {
@@ -102,6 +103,16 @@ export const WithActions = {
         story: 'Add primary actions (edit, add, delete) via the `#actions` slot. Keep to a maximum of two buttons to avoid crowding the header.',
       },
     },
+  },
+}
+
+export const Loading = {
+  args: {
+    label: 'Service',
+    title: 'Platform overview',
+    subtitle: 'Refreshing platform allocations...',
+    icon: 'calendar',
+    loading: true,
   },
 }
 
