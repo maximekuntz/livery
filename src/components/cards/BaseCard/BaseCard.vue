@@ -46,8 +46,7 @@ defineProps({
   },
   icon: {
     type: String,
-    default: undefined,
-    validator: (v) => !v || Object.keys(ICONS).includes(v),
+    default: undefined
   },
 })
 </script>
