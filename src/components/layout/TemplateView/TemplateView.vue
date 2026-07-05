@@ -3,11 +3,84 @@
 
     <!-- ── Chrome: header + toolbar (optionally sticky) ── -->
     <div
-      v-if="$slots.header || $slots.toolbar"
+      v-if="hasChrome"
       class="lv-template-view__chrome"
     >
-      <div v-if="$slots.header" class="lv-template-view__header">
-        <slot name="header" />
+      <div v-if="$slots.header || hasInlineHeader" class="lv-template-view__header">
+        <slot v-if="$slots.header" name="header" />
+        <PageHeader
+          v-else
+          :icon="icon"
+          :eyebrow="eyebrow"
+          :subtitle="subtitle"
+          :tag="titleTag"
+          :loading="loading"
+        >
+          {{ title }}
+
+          <template v-if="$slots.breadcrumb || normalizedBreadcrumbs.length" #breadcrumb>
+            <slot v-if="$slots.breadcrumb" name="breadcrumb" />
+            <nav v-else class="lv-template-view__breadcrumbs" aria-label="Breadcrumb">
+              <template
+                v-for="(crumb, index) in normalizedBreadcrumbs"
+                :key="crumb.key || `${crumb.label}-${index}`"
+              >
+                <a
+                  v-if="crumb.href && !crumb.current"
+                  class="lv-template-view__breadcrumb-link"
+                  :href="crumb.href"
+                  @click="onBreadcrumbClick(crumb, index, $event)"
+                >
+                  {{ crumb.label }}
+                </a>
+                <button
+                  v-else-if="typeof crumb.onClick === 'function' && !crumb.current"
+                  class="lv-template-view__breadcrumb-button"
+                  type="button"
+                  @click="onBreadcrumbButtonClick(crumb, index, $event)"
+                >
+                  {{ crumb.label }}
+                </button>
+                <span
+                  v-else
+                  class="lv-template-view__breadcrumb-current"
+                  :aria-current="crumb.current ? 'page' : undefined"
+                >
+                  {{ crumb.label }}
+                </span>
+                <span
+                  v-if="index < normalizedBreadcrumbs.length - 1"
+                  class="lv-template-view__breadcrumb-separator"
+                  aria-hidden="true"
+                >/</span>
+              </template>
+            </nav>
+          </template>
+
+          <template v-if="$slots.actions || normalizedActions.length" #actions>
+            <slot v-if="$slots.actions" name="actions" />
+            <div v-else class="lv-template-view__header-actions">
+              <Button
+                v-for="(action, index) in normalizedActions"
+                :key="action.key || `${action.label}-${index}`"
+                :label="action.label || ''"
+                :variant="action.variant || 'outlined'"
+                :size="action.size || 'sm'"
+                :icon="action.icon || null"
+                :icon-position="action.iconPosition || 'left'"
+                :disabled="Boolean(action.disabled)"
+                :loading="Boolean(action.loading)"
+                :aria-label="action.ariaLabel"
+                v-bind="action.attrs || {}"
+                @click="onActionClick(action, index)"
+              />
+            </div>
+          </template>
+
+          <template v-if="$slots.meta" #meta>
+            <slot name="meta" />
+          </template>
+        </PageHeader>
       </div>
       <div v-if="$slots.toolbar" class="lv-template-view__toolbar">
         <slot name="toolbar" />
@@ -36,7 +109,9 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, useSlots } from 'vue'
+import PageHeader from '../../PageHeader/PageHeader.vue'
+import Button from '../../Button/Button.vue'
 
 /**
  * TemplateView — Standard page-view layout shell.
@@ -46,7 +121,10 @@ import { computed } from 'vue'
  * a main content area, and an optional aside panel.
  *
  * Slots:
- *   header   — full-width page header zone (compose PageHeader here)
+ *   header     — full-width page header zone (compose PageHeader manually)
+ *   breadcrumb — custom breadcrumb slot for built-in PageHeader mode
+ *   actions    — custom actions slot for built-in PageHeader mode
+ *   meta       — custom meta slot for built-in PageHeader mode
  *   toolbar  — optional bar below header: tabs, filter controls, bulk actions
  *   default  — main scrollable page content
  *   aside    — optional side panel alongside the main content
@@ -98,7 +176,93 @@ const props = defineProps({
     type: String,
     default: 'Side panel',
   },
+  /** Page title used by built-in PageHeader mode. */
+  title: {
+    type: String,
+    default: '',
+  },
+  /** Small label above title in built-in PageHeader mode. */
+  eyebrow: {
+    type: String,
+    default: undefined,
+  },
+  /** Supporting text below title in built-in PageHeader mode. */
+  subtitle: {
+    type: String,
+    default: undefined,
+  },
+  /** Optional icon shown beside title in built-in PageHeader mode. */
+  icon: {
+    type: String,
+    default: undefined,
+  },
+  /** Heading element used by built-in PageHeader mode. */
+  titleTag: {
+    type: String,
+    default: 'h1',
+    validator: (v) => ['h1', 'h2', 'h3'].includes(v),
+  },
+  /** Shows loader in place of icon for built-in PageHeader mode. */
+  loading: {
+    type: Boolean,
+    default: false,
+  },
+  /**
+   * Built-in breadcrumb model:
+   * [{ label, href?, current?, key?, onClick? }]
+   */
+  breadcrumbs: {
+    type: Array,
+    default: () => [],
+  },
+  /**
+   * Built-in actions model:
+   * [{ label, key?, variant?, size?, icon?, iconPosition?, disabled?, loading?, ariaLabel?, attrs? }]
+   */
+  actions: {
+    type: Array,
+    default: () => [],
+  },
 })
+
+const emit = defineEmits(['action', 'breadcrumb-click'])
+const slots = useSlots()
+
+const normalizedBreadcrumbs = computed(() =>
+  props.breadcrumbs.filter((crumb) => crumb && typeof crumb.label === 'string' && crumb.label.length > 0)
+)
+
+const normalizedActions = computed(() => props.actions.filter(Boolean))
+
+const hasInlineHeader = computed(() =>
+  Boolean(
+    props.title ||
+    props.eyebrow ||
+    props.subtitle ||
+    props.icon ||
+    props.loading ||
+    normalizedBreadcrumbs.value.length ||
+    normalizedActions.value.length ||
+    slots.breadcrumb ||
+    slots.actions ||
+    slots.meta
+  )
+)
+
+const hasChrome = computed(() => Boolean(slots.header || slots.toolbar || hasInlineHeader.value))
+
+function onActionClick(action, index) {
+  emit('action', { action, index, key: action?.key })
+}
+
+function onBreadcrumbClick(crumb, index, event) {
+  emit('breadcrumb-click', { crumb, index, event })
+}
+
+function onBreadcrumbButtonClick(crumb, index, event) {
+  crumb.onClick(event)
+  onBreadcrumbClick(crumb, index, event)
+}
 
 const rootClasses = computed(() => ({
   'lv-template-view--padded':        props.padding,
@@ -149,6 +313,41 @@ const rootClasses = computed(() => ({
 
 .lv-template-view--padded .lv-template-view__header {
   padding-inline: var(--space-6);
+}
+
+.lv-template-view__breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.lv-template-view__breadcrumb-link,
+.lv-template-view__breadcrumb-button {
+  font: inherit;
+  color: var(--text-link);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.lv-template-view__breadcrumb-link:hover,
+.lv-template-view__breadcrumb-button:hover {
+  text-decoration: underline;
+}
+
+.lv-template-view__breadcrumb-current,
+.lv-template-view__breadcrumb-separator {
+  color: var(--text-secondary);
+}
+
+.lv-template-view__header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
 }
 
 /* ── Toolbar ── */

@@ -15,6 +15,14 @@ export default {
     stickyChrome:  { control: 'boolean' },
     asidePosition: { control: 'select', options: ['left', 'right'] },
     asideLabel:    { control: 'text' },
+    title:         { control: 'text' },
+    eyebrow:       { control: 'text' },
+    subtitle:      { control: 'text' },
+    icon:          { control: 'text' },
+    titleTag:      { control: 'select', options: ['h1', 'h2', 'h3'] },
+    loading:       { control: 'boolean' },
+    breadcrumbs:   { control: 'object' },
+    actions:       { control: 'object' },
   },
   parameters: {
     layout: 'fullscreen',
@@ -27,11 +35,19 @@ Place this inside the content area of \`SidebarLayout\` or \`TopNavLayout\`
 to give any page a consistent structure: header chrome, an optional toolbar,
 a main content area, and an optional aside panel.
 
+You can provide the header in two ways:
+
+- **Full custom** via \`#header\` slot (compose \`PageHeader\` yourself)
+- **Built-in** via props: \`title\`, \`breadcrumbs\`, \`actions\`, \`subtitle\`, etc.
+
 ### Slots
 
 | Slot | Purpose |
 |---|---|
 | \`header\` | Full-width header zone — compose \`PageHeader\` here |
+| \`breadcrumb\` | Custom breadcrumb content when using built-in header mode |
+| \`actions\` | Custom actions content when using built-in header mode |
+| \`meta\` | Status chips / tags below title in built-in header mode |
 | \`toolbar\` | Optional bar below the header: tabs, filters, bulk actions |
 | \`default\` | Main scrollable page content |
 | \`aside\` | Optional side panel alongside the main content |
@@ -126,6 +142,51 @@ export const Default = {
     docs: {
       description: {
         story: 'The standard page view: a `PageHeader` in the `#header` slot and content in the default slot. Nest this inside `SidebarLayout` or `TopNavLayout` to complete the application shell.',
+      },
+    },
+  },
+}
+
+export const BuiltInHeader = {
+  name: 'Built-in Header API',
+  render: (args) => ({
+    components: { TemplateView, BaseBadge, FakeMetrics },
+    setup() { return { args } },
+    template: `
+      <div style="height: 100vh; background: var(--bg-page);">
+        <TemplateView
+          v-bind="args"
+          @action="({ action }) => action.onClick && action.onClick()"
+        >
+          <template #meta>
+            <BaseBadge variant="success" pill label="Healthy" />
+            <BaseBadge variant="info" label="Live data" />
+          </template>
+
+          <FakeMetrics />
+        </TemplateView>
+      </div>
+    `,
+  }),
+  args: {
+    padding: true,
+    title: 'Fleet Overview',
+    eyebrow: 'Operations',
+    subtitle: 'Monitor consist health, incidents, and service readiness across depots.',
+    breadcrumbs: [
+      { label: 'Home', href: '#' },
+      { label: 'Operations', href: '#' },
+      { label: 'Fleet Overview', current: true },
+    ],
+    actions: [
+      { label: 'Export', variant: 'outlined', key: 'export' },
+      { label: 'Create Report', variant: 'filled', key: 'create' },
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Use the built-in header API when you want fast page scaffolding with title, breadcrumbs, and right-aligned actions directly from props. Listen to `@action` for action button clicks. Switch back to the `#header` slot when you need full custom markup.',
       },
     },
   },
