@@ -15,6 +15,7 @@ export { default as BaseLoader }       from './components/BaseLoader/BaseLoader.
 export { default as Divider }          from './components/Divider/Divider.vue'
 export { default as BaseIcon }         from './components/BaseIcon/BaseIcon.vue'
 export { default as ClickableIcon }    from './components/ClickableIcon/ClickableIcon.vue'
+export { default as TextArea }         from './components/TextArea/TextArea.vue'
 export { default as TextInput }        from './components/TextInput/TextInput.vue'
 export { default as BooleanInput }     from './components/BooleanInput/BooleanInput.vue'
 export { default as SelectInput }      from './components/SelectInput/SelectInput.vue'
@@ -63,6 +64,7 @@ import BaseLoader       from './components/BaseLoader/BaseLoader.vue'
 import Divider          from './components/Divider/Divider.vue'
 import BaseIcon         from './components/BaseIcon/BaseIcon.vue'
 import ClickableIcon    from './components/ClickableIcon/ClickableIcon.vue'
+import TextArea         from './components/TextArea/TextArea.vue'
 import TextInput        from './components/TextInput/TextInput.vue'
 import BooleanInput     from './components/BooleanInput/BooleanInput.vue'
 import SelectInput      from './components/SelectInput/SelectInput.vue'
@@ -96,7 +98,7 @@ import ConfirmModal      from './components/Modal/ConfirmModal.vue'
 const components = {
   BaseBadge, Card, BaseCard, Metric, BaseHeader, BaseLoader, Button, 
   Divider, BaseIcon, ClickableIcon,
-  TextInput, BooleanInput, SelectInput, MultiSelectInput,
+  TextArea, TextInput, BooleanInput, SelectInput, MultiSelectInput,
   DateInput, TimeInput, DateTimeInput,
   SectionHeader, PageHeader, ProgressBar, Table, Pagination,
   Alert, Toast, ToastContainer,
