@@ -22,11 +22,17 @@
           <slot />
         </component>
       </div>
-      <p v-if="description" class="lv-section-header__description">
+      <p
+        v-if="description"
+        class="lv-section-header__description"
+      >
         {{ description }}
       </p>
     </div>
-    <div v-if="$slots.actions" class="lv-section-header__actions">
+    <div
+      v-if="$slots.actions"
+      class="lv-section-header__actions"
+    >
       <slot name="actions" />
     </div>
   </div>

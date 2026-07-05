@@ -1,6 +1,8 @@
 <template>
-  <article :class="classes" :aria-label="`Carriage ${number} information`">
-
+  <article
+    :class="classes"
+    :aria-label="`Carriage ${number} information`"
+  >
     <!-- ── Header: number + class badge ── -->
     <header class="lv-carriage-info__header">
       <div class="lv-carriage-info__number">{{ number }}</div>
@@ -13,7 +15,10 @@
     </header>
 
     <!-- ── Platform zone ── -->
-    <div v-if="platformZone" class="lv-carriage-info__zone-row">
+    <div
+      v-if="platformZone"
+      class="lv-carriage-info__zone-row"
+    >
       <span
         class="lv-carriage-info__zone-badge"
         :data-zone="platformZone"
@@ -25,9 +30,15 @@
     </div>
 
     <!-- ── Services grid ── -->
-    <div v-if="services.length" class="lv-carriage-info__services-section">
+    <div
+      v-if="services.length"
+      class="lv-carriage-info__services-section"
+    >
       <p class="lv-carriage-info__services-heading">Services</p>
-      <ul class="lv-carriage-info__services" aria-label="Available services">
+      <ul
+        class="lv-carriage-info__services"
+        aria-label="Available services"
+      >
         <li
           v-for="service in services"
           :key="service"
@@ -44,8 +55,12 @@
       </ul>
     </div>
 
-    <p v-if="!services.length" class="lv-carriage-info__no-services">No services listed</p>
-
+    <p
+      v-if="!services.length"
+      class="lv-carriage-info__no-services"
+    >
+      No services listed
+    </p>
   </article>
 </template>
 

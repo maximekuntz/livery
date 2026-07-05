@@ -1,13 +1,21 @@
 <template>
-  <div class="lv-template-view" :class="rootClasses">
-
+  <div
+    class="lv-template-view"
+    :class="rootClasses"
+  >
     <!-- ── Chrome: header + toolbar (optionally sticky) ── -->
     <div
       v-if="hasChrome"
       class="lv-template-view__chrome"
     >
-      <div v-if="$slots.header || hasInlineHeader" class="lv-template-view__header">
-        <slot v-if="$slots.header" name="header" />
+      <div
+        v-if="$slots.header || hasInlineHeader"
+        class="lv-template-view__header"
+      >
+        <slot
+          v-if="$slots.header"
+          name="header"
+        />
         <PageHeader
           v-else
           :icon="icon"
@@ -18,9 +26,19 @@
         >
           {{ title }}
 
-          <template v-if="$slots.breadcrumb || normalizedBreadcrumbs.length" #breadcrumb>
-            <slot v-if="$slots.breadcrumb" name="breadcrumb" />
-            <nav v-else class="lv-template-view__breadcrumbs" aria-label="Breadcrumb">
+          <template
+            v-if="$slots.breadcrumb || normalizedBreadcrumbs.length"
+            #breadcrumb
+          >
+            <slot
+              v-if="$slots.breadcrumb"
+              name="breadcrumb"
+            />
+            <nav
+              v-else
+              class="lv-template-view__breadcrumbs"
+              aria-label="Breadcrumb"
+            >
               <template
                 v-for="(crumb, index) in normalizedBreadcrumbs"
                 :key="crumb.key || `${crumb.label}-${index}`"
@@ -57,9 +75,18 @@
             </nav>
           </template>
 
-          <template v-if="$slots.actions || normalizedActions.length" #actions>
-            <slot v-if="$slots.actions" name="actions" />
-            <div v-else class="lv-template-view__header-actions">
+          <template
+            v-if="$slots.actions || normalizedActions.length"
+            #actions
+          >
+            <slot
+              v-if="$slots.actions"
+              name="actions"
+            />
+            <div
+              v-else
+              class="lv-template-view__header-actions"
+            >
               <Button
                 v-for="(action, index) in normalizedActions"
                 :key="action.key || `${action.label}-${index}`"
@@ -77,12 +104,18 @@
             </div>
           </template>
 
-          <template v-if="$slots.meta" #meta>
+          <template
+            v-if="$slots.meta"
+            #meta
+          >
             <slot name="meta" />
           </template>
         </PageHeader>
       </div>
-      <div v-if="$slots.toolbar" class="lv-template-view__toolbar">
+      <div
+        v-if="$slots.toolbar"
+        class="lv-template-view__toolbar"
+      >
         <slot name="toolbar" />
       </div>
     </div>
@@ -104,7 +137,6 @@
         <slot name="aside" />
       </aside>
     </div>
-
   </div>
 </template>
 

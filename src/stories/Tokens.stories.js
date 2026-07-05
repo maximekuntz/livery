@@ -1,4 +1,4 @@
-import { color, typography, spacing, semantic } from '../tokens/index.js'
+import { color, spacing } from '../tokens/index.js'
 
 export default {
   title: 'Design Tokens/Overview',

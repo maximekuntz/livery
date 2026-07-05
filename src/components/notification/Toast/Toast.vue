@@ -1,11 +1,26 @@
 <template>
-  <div :class="classes" role="alert" :aria-live="variant === 'danger' ? 'assertive' : 'polite'">
-    <span class="lv-toast__icon" aria-hidden="true">
-      <BaseIcon :name="iconName" size="sm" />
+  <div
+    :class="classes"
+    role="alert"
+    :aria-live="variant === 'danger' ? 'assertive' : 'polite'"
+  >
+    <span
+      class="lv-toast__icon"
+      aria-hidden="true"
+    >
+      <BaseIcon
+        :name="iconName"
+        size="sm"
+      />
     </span>
 
     <div class="lv-toast__body">
-      <p v-if="title" class="lv-toast__title">{{ title }}</p>
+      <p
+        v-if="title"
+        class="lv-toast__title"
+      >
+        {{ title }}
+      </p>
       <p class="lv-toast__message">{{ message }}</p>
     </div>
 
@@ -15,16 +30,25 @@
       aria-label="Dismiss notification"
       @click="$emit('remove', id)"
     >
-      <BaseIcon name="close" size="xs" aria-hidden="true" />
+      <BaseIcon
+        name="close"
+        size="xs"
+        aria-hidden="true"
+      />
     </button>
 
     <!-- Progress bar — only shown when duration > 0 -->
-    <div v-if="duration > 0" class="lv-toast__progress" :style="progressStyle" aria-hidden="true" />
+    <div
+      v-if="duration > 0"
+      class="lv-toast__progress"
+      :style="progressStyle"
+      aria-hidden="true"
+    />
   </div>
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed } from 'vue'
 import BaseIcon from '../../BaseIcon/BaseIcon.vue'
 
 /**

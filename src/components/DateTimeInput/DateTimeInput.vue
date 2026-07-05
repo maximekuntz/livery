@@ -1,13 +1,24 @@
 <template>
-  <div ref="rootEl" :class="rootClasses">
-    <label v-if="label" :for="inputId" class="lv-dt-input__label">
-      {{ label }}<span v-if="required" class="lv-dt-input__required" aria-hidden="true"> *</span>
+  <div
+    ref="rootEl"
+    :class="rootClasses"
+  >
+    <label
+      v-if="label"
+      :for="inputId"
+      class="lv-dt-input__label"
+    >
+      {{ label }}<span
+        v-if="required"
+        class="lv-dt-input__required"
+        aria-hidden="true"
+      > *</span>
     </label>
 
     <div class="lv-dt-input__wrapper">
       <button
-        type="button"
         :id="inputId"
+        type="button"
         class="lv-dt-input__trigger"
         :disabled="disabled"
         :aria-expanded="open"
@@ -17,7 +28,12 @@
         @click="toggle"
         @keydown.esc.stop="close"
       >
-        <BaseIcon name="calendar" size="sm" class="lv-dt-input__icon" aria-hidden="true" />
+        <BaseIcon
+          name="calendar"
+          size="sm"
+          class="lv-dt-input__icon"
+          aria-hidden="true"
+        />
         <span :class="['lv-dt-input__value', { 'lv-dt-input__value--placeholder': !modelValue }]">
           {{ displayValue }}
         </span>
@@ -32,28 +48,57 @@
 
       <!-- Combined panel -->
       <Transition name="lv-dt-panel">
-        <div v-if="open" class="lv-dt-input__panel" role="dialog" aria-label="Choose date and time">
+        <div
+          v-if="open"
+          class="lv-dt-input__panel"
+          role="dialog"
+          aria-label="Choose date and time"
+        >
           <div class="lv-dt-input__body">
             <!-- ── Calendar ── -->
             <div class="lv-dt-input__calendar">
               <div class="lv-dt-input__nav">
-                <button type="button" class="lv-dt-input__nav-btn" aria-label="Previous month" @click="prevMonth">
-                  <BaseIcon name="chevron-left" size="sm" aria-hidden="true" />
+                <button
+                  type="button"
+                  class="lv-dt-input__nav-btn"
+                  aria-label="Previous month"
+                  @click="prevMonth"
+                >
+                  <BaseIcon
+                    name="chevron-left"
+                    size="sm"
+                    aria-hidden="true"
+                  />
                 </button>
                 <span class="lv-dt-input__month-label">{{ monthYearLabel }}</span>
-                <button type="button" class="lv-dt-input__nav-btn" aria-label="Next month" @click="nextMonth">
-                  <BaseIcon name="chevron-right" size="sm" aria-hidden="true" />
+                <button
+                  type="button"
+                  class="lv-dt-input__nav-btn"
+                  aria-label="Next month"
+                  @click="nextMonth"
+                >
+                  <BaseIcon
+                    name="chevron-right"
+                    size="sm"
+                    aria-hidden="true"
+                  />
                 </button>
               </div>
 
-              <div class="lv-dt-input__grid" role="grid" :aria-label="monthYearLabel">
+              <div
+                class="lv-dt-input__grid"
+                role="grid"
+                :aria-label="monthYearLabel"
+              >
                 <div
                   v-for="wd in WEEKDAYS"
                   :key="wd"
                   class="lv-dt-input__weekday"
                   role="columnheader"
                   aria-hidden="true"
-                >{{ wd }}</div>
+                >
+                  {{ wd }}
+                </div>
 
                 <button
                   v-for="cell in calendarCells"
@@ -62,9 +107,9 @@
                   role="gridcell"
                   class="lv-dt-input__day"
                   :class="{
-                    'lv-dt-input__day--today':    cell.isToday,
+                    'lv-dt-input__day--today': cell.isToday,
                     'lv-dt-input__day--selected': cell.isSelected,
-                    'lv-dt-input__day--outside':  cell.isOutside,
+                    'lv-dt-input__day--outside': cell.isOutside,
                     'lv-dt-input__day--disabled': cell.isDisabled,
                   }"
                   :disabled="cell.isDisabled"
@@ -72,12 +117,27 @@
                   :aria-current="cell.isToday ? 'date' : undefined"
                   :aria-label="cell.ariaLabel"
                   @click="selectDay(cell)"
-                >{{ cell.day }}</button>
+                >
+                  {{ cell.day }}
+                </button>
               </div>
 
               <div class="lv-dt-input__actions">
-                <button type="button" class="lv-dt-input__action-btn" @click="selectToday">Today</button>
-                <button v-if="dateISO" type="button" class="lv-dt-input__action-btn lv-dt-input__action-btn--muted" @click="clear">Clear</button>
+                <button
+                  type="button"
+                  class="lv-dt-input__action-btn"
+                  @click="selectToday"
+                >
+                  Today
+                </button>
+                <button
+                  v-if="dateISO"
+                  type="button"
+                  class="lv-dt-input__action-btn lv-dt-input__action-btn--muted"
+                  @click="clear"
+                >
+                  Clear
+                </button>
               </div>
             </div>
 
@@ -94,18 +154,25 @@
                 >
                   <button
                     v-for="h in HOURS"
-                    :key="h"
                     :id="`lv-dt-h-${uid}-${h}`"
+                    :key="h"
                     type="button"
                     role="option"
                     class="lv-dt-input__time-option"
                     :class="{ 'lv-dt-input__time-option--selected': h === selectedHour }"
                     :aria-selected="h === selectedHour"
                     @click="selectHour(h)"
-                  >{{ String(h).padStart(2, '0') }}</button>
+                  >
+                    {{ String(h).padStart(2, '0') }}
+                  </button>
                 </div>
 
-                <div class="lv-dt-input__time-sep" aria-hidden="true">:</div>
+                <div
+                  class="lv-dt-input__time-sep"
+                  aria-hidden="true"
+                >
+                  :
+                </div>
 
                 <!-- Minutes -->
                 <div
@@ -116,15 +183,17 @@
                 >
                   <button
                     v-for="m in minutes"
-                    :key="m"
                     :id="`lv-dt-m-${uid}-${m}`"
+                    :key="m"
                     type="button"
                     role="option"
                     class="lv-dt-input__time-option"
                     :class="{ 'lv-dt-input__time-option--selected': m === selectedMinute }"
                     :aria-selected="m === selectedMinute"
                     @click="selectMinute(m)"
-                  >{{ String(m).padStart(2, '0') }}</button>
+                  >
+                    {{ String(m).padStart(2, '0') }}
+                  </button>
                 </div>
               </div>
             </div>
@@ -133,10 +202,21 @@
       </Transition>
     </div>
 
-    <p v-if="error" :id="descId" class="lv-dt-input__hint lv-dt-input__hint--error" role="alert">
+    <p
+      v-if="error"
+      :id="descId"
+      class="lv-dt-input__hint lv-dt-input__hint--error"
+      role="alert"
+    >
       {{ error }}
     </p>
-    <p v-else-if="hint" :id="descId" class="lv-dt-input__hint">{{ hint }}</p>
+    <p
+      v-else-if="hint"
+      :id="descId"
+      class="lv-dt-input__hint"
+    >
+      {{ hint }}
+    </p>
   </div>
 </template>
 

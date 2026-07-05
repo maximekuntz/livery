@@ -1,21 +1,41 @@
 <template>
-  <nav class="lv-pagination" :aria-label="ariaLabel" role="navigation">
+  <nav
+    class="lv-pagination"
+    :aria-label="ariaLabel"
+    role="navigation"
+  >
     <!-- Row summary -->
-    <span class="lv-pagination__summary" aria-live="polite" aria-atomic="true">
+    <span
+      class="lv-pagination__summary"
+      aria-live="polite"
+      aria-atomic="true"
+    >
       {{ summary }}
     </span>
 
     <div class="lv-pagination__controls">
       <!-- Page-size selector -->
-      <div v-if="showPageSize" class="lv-pagination__size">
-        <label :for="selectId" class="lv-pagination__size-label">Rows per page</label>
+      <div
+        v-if="showPageSize"
+        class="lv-pagination__size"
+      >
+        <label
+          :for="selectId"
+          class="lv-pagination__size-label"
+        >Rows per page</label>
         <select
           :id="selectId"
           class="lv-pagination__select"
           :value="pageSize"
           @change="onSizeChange"
         >
-          <option v-for="opt in pageSizeOptions" :key="opt" :value="opt">{{ opt }}</option>
+          <option
+            v-for="opt in pageSizeOptions"
+            :key="opt"
+            :value="opt"
+          >
+            {{ opt }}
+          </option>
         </select>
       </div>
 
@@ -27,12 +47,23 @@
         aria-label="Previous page"
         @click="go(page - 1)"
       >
-        <BaseIcon name="chevron-left" size="sm" aria-hidden="true" />
+        <BaseIcon
+          name="chevron-left"
+          size="sm"
+          aria-hidden="true"
+        />
       </button>
 
       <!-- Page buttons with ellipsis -->
-      <template v-for="item in pageItems" :key="item === 'ellipsis-start' || item === 'ellipsis-end' ? item : `p${item}`">
-        <span v-if="typeof item === 'string'" class="lv-pagination__ellipsis" aria-hidden="true">…</span>
+      <template
+        v-for="item in pageItems"
+        :key="item === 'ellipsis-start' || item === 'ellipsis-end' ? item : `p${item}`"
+      >
+        <span
+          v-if="typeof item === 'string'"
+          class="lv-pagination__ellipsis"
+          aria-hidden="true"
+        >…</span>
         <button
           v-else
           type="button"
@@ -53,7 +84,11 @@
         aria-label="Next page"
         @click="go(page + 1)"
       >
-        <BaseIcon name="chevron-right" size="sm" aria-hidden="true" />
+        <BaseIcon
+          name="chevron-right"
+          size="sm"
+          aria-hidden="true"
+        />
       </button>
     </div>
   </nav>

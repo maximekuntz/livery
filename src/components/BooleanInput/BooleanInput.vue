@@ -1,7 +1,10 @@
 <template>
   <div :class="rootClasses">
     <!-- Toggle / Checkbox -->
-    <label class="lv-boolean-input__control" :class="{ 'lv-boolean-input__control--toggle': type === 'toggle' }">
+    <label
+      class="lv-boolean-input__control"
+      :class="{ 'lv-boolean-input__control--toggle': type === 'toggle' }"
+    >
       <input
         :id="inputId"
         :type="nativeType"
@@ -15,31 +18,66 @@
         class="lv-boolean-input__native"
         v-bind="$attrs"
         @change="handleChange"
-      />
+      >
 
       <!-- Checkbox custom mark -->
-      <span v-if="type === 'checkbox'" class="lv-boolean-input__box" aria-hidden="true">
-        <BaseIcon v-if="isChecked" name="check" size="xs" />
-        <BaseIcon v-else-if="indeterminate" name="minus" size="xs" />
+      <span
+        v-if="type === 'checkbox'"
+        class="lv-boolean-input__box"
+        aria-hidden="true"
+      >
+        <BaseIcon
+          v-if="isChecked"
+          name="check"
+          size="xs"
+        />
+        <BaseIcon
+          v-else-if="indeterminate"
+          name="minus"
+          size="xs"
+        />
       </span>
 
       <!-- Toggle track -->
-      <span v-if="type === 'toggle'" class="lv-boolean-input__track" aria-hidden="true">
+      <span
+        v-if="type === 'toggle'"
+        class="lv-boolean-input__track"
+        aria-hidden="true"
+      >
         <span class="lv-boolean-input__thumb" />
       </span>
 
       <!-- Radio dot -->
-      <span v-if="type === 'radio'" class="lv-boolean-input__radio" aria-hidden="true">
-        <span v-if="isChecked" class="lv-boolean-input__radio-dot" />
+      <span
+        v-if="type === 'radio'"
+        class="lv-boolean-input__radio"
+        aria-hidden="true"
+      >
+        <span
+          v-if="isChecked"
+          class="lv-boolean-input__radio-dot"
+        />
       </span>
 
-      <span v-if="label" class="lv-boolean-input__label">{{ label }}</span>
+      <span
+        v-if="label"
+        class="lv-boolean-input__label"
+      >{{ label }}</span>
     </label>
 
-    <p v-if="error" :id="descriptionId" class="lv-boolean-input__hint lv-boolean-input__hint--error" role="alert">
+    <p
+      v-if="error"
+      :id="descriptionId"
+      class="lv-boolean-input__hint lv-boolean-input__hint--error"
+      role="alert"
+    >
       {{ error }}
     </p>
-    <p v-else-if="hint" :id="descriptionId" class="lv-boolean-input__hint">
+    <p
+      v-else-if="hint"
+      :id="descriptionId"
+      class="lv-boolean-input__hint"
+    >
       {{ hint }}
     </p>
   </div>
@@ -57,6 +95,7 @@ import BaseIcon from '../BaseIcon/BaseIcon.vue'
  */
 const props = defineProps({
   modelValue: {
+    type: [Boolean, String, Number],
     default: false,
   },
   /** Visual and semantic type */
@@ -67,6 +106,7 @@ const props = defineProps({
   },
   /** Radio option value */
   value: {
+    type: [String, Number, Boolean],
     default: undefined,
   },
   label: { type: String, default: undefined },

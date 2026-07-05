@@ -1,5 +1,8 @@
 <template>
-  <span :class="classes" role="status">
+  <span
+    :class="classes"
+    role="status"
+  >
     <BaseIcon
       v-if="icon"
       :name="icon"

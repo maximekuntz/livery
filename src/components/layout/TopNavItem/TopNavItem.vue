@@ -5,7 +5,12 @@
     :class="classes"
     :aria-current="active ? 'page' : undefined"
   >
-    <BaseIcon v-if="icon" :name="icon" size="sm" aria-hidden="true" />
+    <BaseIcon
+      v-if="icon"
+      :name="icon"
+      size="sm"
+      aria-hidden="true"
+    />
     <slot />
   </router-link>
   <a
@@ -14,7 +19,12 @@
     :class="classes"
     :aria-current="active ? 'page' : undefined"
   >
-    <BaseIcon v-if="icon" :name="icon" size="sm" aria-hidden="true" />
+    <BaseIcon
+      v-if="icon"
+      :name="icon"
+      size="sm"
+      aria-hidden="true"
+    />
     <slot />
   </a>
 </template>

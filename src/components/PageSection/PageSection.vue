@@ -1,6 +1,12 @@
 <template>
-  <section :class="classes" :aria-labelledby="titleId">
-    <div v-if="title || $slots.header" class="lv-page-section__header">
+  <section
+    :class="classes"
+    :aria-labelledby="titleId"
+  >
+    <div
+      v-if="title || $slots.header"
+      class="lv-page-section__header"
+    >
       <slot name="header">
         <div class="lv-page-section__heading-row">
           <div class="lv-page-section__heading-content">
@@ -19,11 +25,17 @@
                 {{ title }}
               </component>
             </div>
-            <p v-if="description" class="lv-page-section__description">
+            <p
+              v-if="description"
+              class="lv-page-section__description"
+            >
               {{ description }}
             </p>
           </div>
-          <div v-if="$slots.actions" class="lv-page-section__actions">
+          <div
+            v-if="$slots.actions"
+            class="lv-page-section__actions"
+          >
             <slot name="actions" />
           </div>
         </div>
@@ -83,7 +95,8 @@ const props = defineProps({
   },
 })
 
-const titleId = `lv-page-section-title-${++uid}`
+uid += 1
+const titleId = `lv-page-section-title-${uid}`
 
 const classes = computed(() => [
   'lv-page-section',

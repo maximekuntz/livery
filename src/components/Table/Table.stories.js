@@ -1,6 +1,5 @@
 import Table from './Table.vue'
 import BaseBadge from '../BaseBadge/BaseBadge.vue'
-import Button from '../Button/Button.vue'
 
 export default {
   title: 'Components/Table',
@@ -105,8 +104,7 @@ export const Sortable = {
   render: (args) => ({
     components: { Table, BaseBadge },
     setup() {
-      const { ref, computed } = window.Vue ?? {}
-      // Storybook renders in browser — use Vue from the global
+      // Storybook renders in browser — Vue is available globally
       return { args, COLUMNS, ROWS, STATUS_VARIANT }
     },
     data() {

@@ -8,7 +8,11 @@
     :title="ariaLabel"
     v-bind="$attrs"
   >
-    <BaseIcon :name="icon" :size="iconSizeMap[size]" aria-hidden="true" />
+    <BaseIcon
+      :name="icon"
+      :size="iconSizeMap[size]"
+      aria-hidden="true"
+    />
   </button>
 </template>
 

@@ -14,7 +14,14 @@
           class="lv-train-consist__direction-arrow"
           :style="direction === 'rtl' ? 'transform:scaleX(-1)' : ''"
         >
-          <path d="M1 8h12M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path
+            d="M1 8h12M9 4l4 4-4 4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            fill="none"
+          />
         </svg>
         Direction of travel
       </span>
@@ -41,10 +48,20 @@
     <!-- Formation row -->
     <div class="lv-train-consist__track">
       <!-- Track rail lines -->
-      <div class="lv-train-consist__rail lv-train-consist__rail--top"    aria-hidden="true" />
-      <div class="lv-train-consist__rail lv-train-consist__rail--bottom" aria-hidden="true" />
+      <div
+        class="lv-train-consist__rail lv-train-consist__rail--top"
+        aria-hidden="true"
+      />
+      <div
+        class="lv-train-consist__rail lv-train-consist__rail--bottom"
+        aria-hidden="true"
+      />
 
-      <ol class="lv-train-consist__formation" role="list" aria-label="Carriages">
+      <ol
+        class="lv-train-consist__formation"
+        role="list"
+        aria-label="Carriages"
+      >
         <li
           v-for="(carriage, index) in carriages"
           :key="carriage.id ?? index"
@@ -60,7 +77,10 @@
     </div>
 
     <!-- Carriage number labels below formation -->
-    <div class="lv-train-consist__number-row" aria-hidden="true">
+    <div
+      class="lv-train-consist__number-row"
+      aria-hidden="true"
+    >
       <span
         v-for="(carriage, index) in carriages"
         :key="`num-${carriage.id ?? index}`"

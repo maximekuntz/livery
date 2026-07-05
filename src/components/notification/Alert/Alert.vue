@@ -1,11 +1,26 @@
 <template>
-  <div :class="classes" role="alert" :aria-live="variant === 'danger' ? 'assertive' : 'polite'">
-    <span class="lv-alert__icon" aria-hidden="true">
-      <BaseIcon :name="iconName" size="md" />
+  <div
+    :class="classes"
+    role="alert"
+    :aria-live="variant === 'danger' ? 'assertive' : 'polite'"
+  >
+    <span
+      class="lv-alert__icon"
+      aria-hidden="true"
+    >
+      <BaseIcon
+        :name="iconName"
+        size="md"
+      />
     </span>
 
     <div class="lv-alert__body">
-      <p v-if="title" class="lv-alert__title">{{ title }}</p>
+      <p
+        v-if="title"
+        class="lv-alert__title"
+      >
+        {{ title }}
+      </p>
       <div class="lv-alert__description">
         <slot />
       </div>
@@ -18,7 +33,11 @@
       aria-label="Dismiss"
       @click="$emit('dismiss')"
     >
-      <BaseIcon name="close" size="sm" aria-hidden="true" />
+      <BaseIcon
+        name="close"
+        size="sm"
+        aria-hidden="true"
+      />
     </button>
   </div>
 </template>

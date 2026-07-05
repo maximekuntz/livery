@@ -1,7 +1,15 @@
 <template>
   <Teleport to="body">
-    <div :class="classes" aria-label="Notifications" role="region">
-      <TransitionGroup name="lv-toast" tag="div" class="lv-toast-container__stack">
+    <div
+      :class="classes"
+      aria-label="Notifications"
+      role="region"
+    >
+      <TransitionGroup
+        name="lv-toast"
+        tag="div"
+        class="lv-toast-container__stack"
+      >
         <Toast
           v-for="toast in toasts"
           :key="toast.id"

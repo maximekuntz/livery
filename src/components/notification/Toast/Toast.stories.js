@@ -1,4 +1,3 @@
-import { ref } from 'vue'
 import Toast from './Toast.vue'
 
 export default {

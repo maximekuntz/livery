@@ -1,8 +1,16 @@
 <template>
   <div :class="rootClasses">
-    <label v-if="label" :for="inputId" class="lv-select-input__label">
+    <label
+      v-if="label"
+      :for="inputId"
+      class="lv-select-input__label"
+    >
       {{ label }}
-      <span v-if="required" class="lv-select-input__required" aria-hidden="true">*</span>
+      <span
+        v-if="required"
+        class="lv-select-input__required"
+        aria-hidden="true"
+      >*</span>
     </label>
 
     <div class="lv-select-input__wrapper">
@@ -17,7 +25,12 @@
         v-bind="$attrs"
         @change="$emit('update:modelValue', $event.target.value)"
       >
-        <option v-if="placeholder" value="" disabled :selected="!modelValue">
+        <option
+          v-if="placeholder"
+          value=""
+          disabled
+          :selected="!modelValue"
+        >
           {{ placeholder }}
         </option>
         <option
@@ -30,15 +43,30 @@
         </option>
       </select>
 
-      <span class="lv-select-input__chevron" aria-hidden="true">
-        <BaseIcon name="chevron-down" size="sm" />
+      <span
+        class="lv-select-input__chevron"
+        aria-hidden="true"
+      >
+        <BaseIcon
+          name="chevron-down"
+          size="sm"
+        />
       </span>
     </div>
 
-    <p v-if="error" :id="descriptionId" class="lv-select-input__hint lv-select-input__hint--error" role="alert">
+    <p
+      v-if="error"
+      :id="descriptionId"
+      class="lv-select-input__hint lv-select-input__hint--error"
+      role="alert"
+    >
       {{ error }}
     </p>
-    <p v-else-if="hint" :id="descriptionId" class="lv-select-input__hint">
+    <p
+      v-else-if="hint"
+      :id="descriptionId"
+      class="lv-select-input__hint"
+    >
       {{ hint }}
     </p>
   </div>
@@ -54,6 +82,7 @@ import BaseIcon from '../BaseIcon/BaseIcon.vue'
  */
 const props = defineProps({
   modelValue: {
+    type: [String, Number],
     default: '',
   },
   options: {

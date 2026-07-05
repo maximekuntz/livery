@@ -22,7 +22,14 @@
           class="lv-train-carriage__body"
         />
         <!-- Coupler on the straight right end -->
-        <rect x="92" y="18" width="4" height="20" rx="1" class="lv-train-carriage__coupler" />
+        <rect
+          x="92"
+          y="18"
+          width="4"
+          height="20"
+          rx="1"
+          class="lv-train-carriage__coupler"
+        />
       </template>
 
       <!-- ── nose-right: angled right end + straight left end, coupler on left ── -->
@@ -32,7 +39,14 @@
           class="lv-train-carriage__body"
         />
         <!-- Coupler on the straight left end -->
-        <rect x="0" y="18" width="4" height="20" rx="1" class="lv-train-carriage__coupler" />
+        <rect
+          x="0"
+          y="18"
+          width="4"
+          height="20"
+          rx="1"
+          class="lv-train-carriage__coupler"
+        />
       </template>
 
       <!-- ── locomotive: both sides angled (symmetric), couplers at both ends ── -->
@@ -50,16 +64,38 @@
 
       <!-- ── Rectangular coach ── -->
       <template v-else>
-        <rect x="4" y="6" width="88" height="44" rx="2" class="lv-train-carriage__body" />
+        <rect
+          x="4"
+          y="6"
+          width="88"
+          height="44"
+          rx="2"
+          class="lv-train-carriage__body"
+        />
         <!-- Couplers at both ends -->
-        <rect x="0"  y="18" width="4" height="20" rx="1" class="lv-train-carriage__coupler" />
-        <rect x="92" y="18" width="4" height="20" rx="1" class="lv-train-carriage__coupler" />
+        <rect
+          x="0"
+          y="18"
+          width="4"
+          height="20"
+          rx="1"
+          class="lv-train-carriage__coupler"
+        />
+        <rect
+          x="92"
+          y="18"
+          width="4"
+          height="20"
+          rx="1"
+          class="lv-train-carriage__coupler"
+        />
       </template>
 
       <!-- Number label — vertically centred in the body (y 6–50 for both shapes) -->
       <text
         v-if="number != null"
-        x="48" y="28"
+        x="48"
+        y="28"
         class="lv-train-carriage__label"
         text-anchor="middle"
         dominant-baseline="middle"

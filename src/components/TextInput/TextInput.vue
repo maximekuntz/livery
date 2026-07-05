@@ -1,12 +1,24 @@
 <template>
   <div :class="rootClasses">
-    <label v-if="label" :for="inputId" class="lv-text-input__label">
+    <label
+      v-if="label"
+      :for="inputId"
+      class="lv-text-input__label"
+    >
       {{ label }}
-      <span v-if="required" class="lv-text-input__required" aria-hidden="true">*</span>
+      <span
+        v-if="required"
+        class="lv-text-input__required"
+        aria-hidden="true"
+      >*</span>
     </label>
 
     <div class="lv-text-input__wrapper">
-      <span v-if="$slots.leading" class="lv-text-input__addon lv-text-input__addon--leading" aria-hidden="true">
+      <span
+        v-if="$slots.leading"
+        class="lv-text-input__addon lv-text-input__addon--leading"
+        aria-hidden="true"
+      >
         <slot name="leading" />
       </span>
 
@@ -28,26 +40,42 @@
         }"
         v-bind="$attrs"
         @input="$emit('update:modelValue', $event.target.value)"
-      />
+      >
 
-      <span v-if="type === 'password'" class="lv-text-input__addon lv-text-input__addon--trailing">
+      <span
+        v-if="type === 'password'"
+        class="lv-text-input__addon lv-text-input__addon--trailing"
+      >
         <ClickableIcon
           :icon="showPassword ? 'eye-off' : 'eye'"
-          :ariaLabel="showPassword ? 'Hide password' : 'Show password'"
+          :aria-label="showPassword ? 'Hide password' : 'Show password'"
           size="sm"
           variant="ghost"
           @click="showPassword = !showPassword"
         />
       </span>
-      <span v-else-if="$slots.trailing" class="lv-text-input__addon lv-text-input__addon--trailing" aria-hidden="true">
+      <span
+        v-else-if="$slots.trailing"
+        class="lv-text-input__addon lv-text-input__addon--trailing"
+        aria-hidden="true"
+      >
         <slot name="trailing" />
       </span>
     </div>
 
-    <p v-if="error" :id="descriptionId" class="lv-text-input__hint lv-text-input__hint--error" role="alert">
+    <p
+      v-if="error"
+      :id="descriptionId"
+      class="lv-text-input__hint lv-text-input__hint--error"
+      role="alert"
+    >
       {{ error }}
     </p>
-    <p v-else-if="hint" :id="descriptionId" class="lv-text-input__hint">
+    <p
+      v-else-if="hint"
+      :id="descriptionId"
+      class="lv-text-input__hint"
+    >
       {{ hint }}
     </p>
   </div>

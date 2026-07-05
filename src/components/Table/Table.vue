@@ -1,8 +1,15 @@
 <template>
   <div :class="wrapperClasses">
     <!-- Optional caption / toolbar above the table -->
-    <div v-if="$slots.toolbar || caption" class="lv-table__toolbar">
-      <p v-if="caption" class="lv-table__caption-text" :id="captionId">
+    <div
+      v-if="$slots.toolbar || caption"
+      class="lv-table__toolbar"
+    >
+      <p
+        v-if="caption"
+        :id="captionId"
+        class="lv-table__caption-text"
+      >
         <BaseIcon
           v-if="captionIcon"
           class="lv-table__caption-icon"
@@ -23,7 +30,10 @@
         :aria-describedby="$slots.footer ? footerId : undefined"
       >
         <!-- Head -->
-        <thead v-if="columns.length" class="lv-table__head">
+        <thead
+          v-if="columns.length"
+          class="lv-table__head"
+        >
           <tr>
             <th
               v-for="col in columns"
@@ -47,7 +57,11 @@
                   aria-hidden="true"
                 />
                 {{ col.label }}
-                <span v-if="col.sortable" class="lv-table__sort-icon" aria-hidden="true">
+                <span
+                  v-if="col.sortable"
+                  class="lv-table__sort-icon"
+                  aria-hidden="true"
+                >
                   <BaseIcon
                     :name="sortKey === col.key && sortDir === 'asc' ? 'chevron-up' : 'chevron-down'"
                     size="xs"
@@ -62,8 +76,16 @@
         <tbody class="lv-table__body">
           <!-- Loading skeleton rows -->
           <template v-if="loading">
-            <tr v-for="n in skeletonRows" :key="`skeleton-${n}`" class="lv-table__row lv-table__row--skeleton">
-              <td v-for="col in columns" :key="col.key" class="lv-table__td">
+            <tr
+              v-for="n in skeletonRows"
+              :key="`skeleton-${n}`"
+              class="lv-table__row lv-table__row--skeleton"
+            >
+              <td
+                v-for="col in columns"
+                :key="col.key"
+                class="lv-table__td"
+              >
                 <span class="lv-table__skeleton-cell" />
               </td>
             </tr>
@@ -72,7 +94,10 @@
           <!-- Empty state -->
           <template v-else-if="!rows.length">
             <tr class="lv-table__row lv-table__row--empty">
-              <td :colspan="columns.length || 1" class="lv-table__td lv-table__empty-cell">
+              <td
+                :colspan="columns.length || 1"
+                class="lv-table__td lv-table__empty-cell"
+              >
                 <slot name="empty">
                   <span class="lv-table__empty-text">{{ emptyText }}</span>
                 </slot>
@@ -106,7 +131,12 @@
                 ]"
               >
                 <!-- Scoped slot per column, fallback to raw value -->
-                <slot :name="`cell(${col.key})`" :value="row[col.key]" :row="row" :index="rowIndex">
+                <slot
+                  :name="`cell(${col.key})`"
+                  :value="row[col.key]"
+                  :row="row"
+                  :index="rowIndex"
+                >
                   {{ row[col.key] ?? '—' }}
                 </slot>
               </td>
@@ -115,9 +145,16 @@
         </tbody>
 
         <!-- Optional foot for totals / summaries -->
-        <tfoot v-if="$slots.footer" class="lv-table__foot">
+        <tfoot
+          v-if="$slots.footer"
+          class="lv-table__foot"
+        >
           <tr>
-            <td :colspan="columns.length || 1" class="lv-table__td" :id="footerId">
+            <td
+              :id="footerId"
+              :colspan="columns.length || 1"
+              class="lv-table__td"
+            >
               <slot name="footer" />
             </td>
           </tr>
@@ -126,7 +163,10 @@
     </div>
 
     <!-- Pagination bar -->
-    <div v-if="paginate" class="lv-table__pagination-bar">
+    <div
+      v-if="paginate"
+      class="lv-table__pagination-bar"
+    >
       <Pagination
         :page="currentPage"
         :page-size="currentPageSize"

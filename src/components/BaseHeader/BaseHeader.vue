@@ -1,7 +1,15 @@
 <template>
-  <header class="base-header" :class="{ 'base-header--divider': !noDivider }">
+  <header
+    class="base-header"
+    :class="{ 'base-header--divider': !noDivider }"
+  >
     <div class="base-header__content">
-      <div v-if="label" class="base-header__label">{{ label }}</div>
+      <div
+        v-if="label"
+        class="base-header__label"
+      >
+        {{ label }}
+      </div>
 
       <div class="base-header__title-row">
         <BaseLoader
@@ -18,17 +26,26 @@
           class="base-header__icon"
           aria-hidden="true"
         />
-        <component :is="tag" class="base-header__title">
+        <component
+          :is="tag"
+          class="base-header__title"
+        >
           <slot>{{ title }}</slot>
         </component>
       </div>
 
-      <p v-if="subtitle" class="base-header__subtitle">
+      <p
+        v-if="subtitle"
+        class="base-header__subtitle"
+      >
         {{ subtitle }}
       </p>
     </div>
 
-    <div v-if="$slots.actions" class="base-header__actions">
+    <div
+      v-if="$slots.actions"
+      class="base-header__actions"
+    >
       <slot name="actions" />
     </div>
   </header>

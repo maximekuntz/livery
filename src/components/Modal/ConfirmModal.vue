@@ -15,7 +15,11 @@
     </slot>
 
     <template #footer>
-      <slot name="footer" :confirm="onConfirm" :cancel="onCancel">
+      <slot
+        name="footer"
+        :confirm="onConfirm"
+        :cancel="onCancel"
+      >
         <div class="lv-confirm-modal__actions">
           <Button
             :label="cancelLabel"

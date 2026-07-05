@@ -1,13 +1,24 @@
 <template>
-  <div ref="rootEl" :class="rootClasses">
-    <label v-if="label" :for="inputId" class="lv-date-input__label">
-      {{ label }}<span v-if="required" class="lv-date-input__required" aria-hidden="true"> *</span>
+  <div
+    ref="rootEl"
+    :class="rootClasses"
+  >
+    <label
+      v-if="label"
+      :for="inputId"
+      class="lv-date-input__label"
+    >
+      {{ label }}<span
+        v-if="required"
+        class="lv-date-input__required"
+        aria-hidden="true"
+      > *</span>
     </label>
 
     <div class="lv-date-input__wrapper">
       <button
-        type="button"
         :id="inputId"
+        type="button"
         class="lv-date-input__trigger"
         :disabled="disabled"
         :aria-expanded="open"
@@ -17,7 +28,12 @@
         @click="toggle"
         @keydown.esc.stop="close"
       >
-        <BaseIcon name="calendar" size="sm" class="lv-date-input__icon" aria-hidden="true" />
+        <BaseIcon
+          name="calendar"
+          size="sm"
+          class="lv-date-input__icon"
+          aria-hidden="true"
+        />
         <span :class="['lv-date-input__value', { 'lv-date-input__value--placeholder': !modelValue }]">
           {{ displayValue }}
         </span>
@@ -46,7 +62,11 @@
               aria-label="Previous month"
               @click="prevMonth"
             >
-              <BaseIcon name="chevron-left" size="sm" aria-hidden="true" />
+              <BaseIcon
+                name="chevron-left"
+                size="sm"
+                aria-hidden="true"
+              />
             </button>
             <span class="lv-date-input__month-label">{{ monthYearLabel }}</span>
             <button
@@ -55,19 +75,29 @@
               aria-label="Next month"
               @click="nextMonth"
             >
-              <BaseIcon name="chevron-right" size="sm" aria-hidden="true" />
+              <BaseIcon
+                name="chevron-right"
+                size="sm"
+                aria-hidden="true"
+              />
             </button>
           </div>
 
           <!-- Day grid -->
-          <div class="lv-date-input__grid" role="grid" :aria-label="monthYearLabel">
+          <div
+            class="lv-date-input__grid"
+            role="grid"
+            :aria-label="monthYearLabel"
+          >
             <div
               v-for="wd in WEEKDAYS"
               :key="wd"
               class="lv-date-input__weekday"
               role="columnheader"
               aria-hidden="true"
-            >{{ wd }}</div>
+            >
+              {{ wd }}
+            </div>
 
             <button
               v-for="cell in calendarCells"
@@ -76,9 +106,9 @@
               role="gridcell"
               class="lv-date-input__day"
               :class="{
-                'lv-date-input__day--today':    cell.isToday,
+                'lv-date-input__day--today': cell.isToday,
                 'lv-date-input__day--selected': cell.isSelected,
-                'lv-date-input__day--outside':  cell.isOutside,
+                'lv-date-input__day--outside': cell.isOutside,
                 'lv-date-input__day--disabled': cell.isDisabled,
               }"
               :disabled="cell.isDisabled"
@@ -86,27 +116,48 @@
               :aria-current="cell.isToday ? 'date' : undefined"
               :aria-label="cell.ariaLabel"
               @click="selectDay(cell)"
-            >{{ cell.day }}</button>
+            >
+              {{ cell.day }}
+            </button>
           </div>
 
           <!-- Actions -->
           <div class="lv-date-input__actions">
-            <button type="button" class="lv-date-input__action-btn" @click="selectToday">Today</button>
+            <button
+              type="button"
+              class="lv-date-input__action-btn"
+              @click="selectToday"
+            >
+              Today
+            </button>
             <button
               v-if="modelValue"
               type="button"
               class="lv-date-input__action-btn lv-date-input__action-btn--muted"
               @click="clear"
-            >Clear</button>
+            >
+              Clear
+            </button>
           </div>
         </div>
       </Transition>
     </div>
 
-    <p v-if="error" :id="descId" class="lv-date-input__hint lv-date-input__hint--error" role="alert">
+    <p
+      v-if="error"
+      :id="descId"
+      class="lv-date-input__hint lv-date-input__hint--error"
+      role="alert"
+    >
       {{ error }}
     </p>
-    <p v-else-if="hint" :id="descId" class="lv-date-input__hint">{{ hint }}</p>
+    <p
+      v-else-if="hint"
+      :id="descId"
+      class="lv-date-input__hint"
+    >
+      {{ hint }}
+    </p>
   </div>
 </template>
 

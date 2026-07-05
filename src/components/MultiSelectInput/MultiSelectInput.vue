@@ -1,8 +1,19 @@
 <template>
-  <div :class="rootClasses" ref="rootRef">
-    <label v-if="label" class="lv-multi-select__label" :id="labelId">
+  <div
+    ref="rootRef"
+    :class="rootClasses"
+  >
+    <label
+      v-if="label"
+      :id="labelId"
+      class="lv-multi-select__label"
+    >
       {{ label }}
-      <span v-if="required" class="lv-multi-select__required" aria-hidden="true">*</span>
+      <span
+        v-if="required"
+        class="lv-multi-select__required"
+        aria-hidden="true"
+      >*</span>
     </label>
 
     <!-- Trigger -->
@@ -20,7 +31,10 @@
       @keydown.tab="close"
     >
       <span class="lv-multi-select__trigger-text">
-        <span v-if="selectedOptions.length === 0" class="lv-multi-select__placeholder">
+        <span
+          v-if="selectedOptions.length === 0"
+          class="lv-multi-select__placeholder"
+        >
           {{ placeholder }}
         </span>
         <span v-else-if="selectedOptions.length <= 2">
@@ -31,7 +45,11 @@
           <span class="lv-multi-select__overflow-count">+{{ selectedOptions.length - 2 }}</span>
         </span>
       </span>
-      <BaseIcon :name="open ? 'chevron-up' : 'chevron-down'" size="sm" aria-hidden="true" />
+      <BaseIcon
+        :name="open ? 'chevron-up' : 'chevron-down'"
+        size="sm"
+        aria-hidden="true"
+      />
     </button>
 
     <!-- Dropdown -->
@@ -44,7 +62,12 @@
     >
       <!-- Search filter -->
       <div class="lv-multi-select__search">
-        <BaseIcon name="search" size="sm" class="lv-multi-select__search-icon" aria-hidden="true" />
+        <BaseIcon
+          name="search"
+          size="sm"
+          class="lv-multi-select__search-icon"
+          aria-hidden="true"
+        />
         <input
           ref="searchRef"
           v-model="searchQuery"
@@ -53,10 +76,13 @@
           placeholder="Filter…"
           aria-label="Filter options"
           @keydown.escape="close"
-        />
+        >
       </div>
 
-      <ul class="lv-multi-select__list" role="presentation">
+      <ul
+        class="lv-multi-select__list"
+        role="presentation"
+      >
         <li
           v-for="opt in filteredOptions"
           :key="opt.value"
@@ -70,35 +96,61 @@
           }"
           @click="!opt.disabled && toggle(opt.value)"
         >
-          <span class="lv-multi-select__option-check" aria-hidden="true">
-            <BaseIcon v-if="isSelected(opt.value)" name="check" size="xs" />
+          <span
+            class="lv-multi-select__option-check"
+            aria-hidden="true"
+          >
+            <BaseIcon
+              v-if="isSelected(opt.value)"
+              name="check"
+              size="xs"
+            />
           </span>
           {{ opt.label }}
         </li>
-        <li v-if="filteredOptions.length === 0" class="lv-multi-select__empty">
+        <li
+          v-if="filteredOptions.length === 0"
+          class="lv-multi-select__empty"
+        >
           No options match "{{ searchQuery }}"
         </li>
       </ul>
 
-      <div v-if="modelValue.length > 0" class="lv-multi-select__footer">
-        <button type="button" class="lv-multi-select__clear" @click="clearAll">
+      <div
+        v-if="modelValue.length > 0"
+        class="lv-multi-select__footer"
+      >
+        <button
+          type="button"
+          class="lv-multi-select__clear"
+          @click="clearAll"
+        >
           Clear all
         </button>
         <span class="lv-multi-select__count">{{ modelValue.length }} selected</span>
       </div>
     </div>
 
-    <p v-if="error" :id="descriptionId" class="lv-multi-select__hint lv-multi-select__hint--error" role="alert">
+    <p
+      v-if="error"
+      :id="descriptionId"
+      class="lv-multi-select__hint lv-multi-select__hint--error"
+      role="alert"
+    >
       {{ error }}
     </p>
-    <p v-else-if="hint" :id="descriptionId" class="lv-multi-select__hint">
+    <p
+      v-else-if="hint"
+      :id="descriptionId"
+      class="lv-multi-select__hint"
+    >
       {{ hint }}
     </p>
   </div>
 </template>
 
 <script setup>
-import { computed, ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
+import { computed, ref, nextTick, onMounted, onUnmounted } from 'vue'
 import BaseIcon from '../BaseIcon/BaseIcon.vue'
 
 /**

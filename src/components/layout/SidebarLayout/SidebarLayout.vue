@@ -7,17 +7,26 @@
       :aria-hidden="mobileOpen ? undefined : isMobile ? 'true' : undefined"
     >
       <!-- Sidebar header — logo / wordmark zone -->
-      <div v-if="$slots['sidebar-header']" class="lv-sidebar-layout__sidebar-header">
+      <div
+        v-if="$slots['sidebar-header']"
+        class="lv-sidebar-layout__sidebar-header"
+      >
         <slot name="sidebar-header" />
       </div>
 
       <!-- Primary navigation -->
-      <nav class="lv-sidebar-layout__nav" aria-label="Primary navigation">
+      <nav
+        class="lv-sidebar-layout__nav"
+        aria-label="Primary navigation"
+      >
         <slot name="sidebar" />
       </nav>
 
       <!-- Sidebar footer — user menu, settings link -->
-      <div v-if="$slots['sidebar-footer']" class="lv-sidebar-layout__sidebar-footer">
+      <div
+        v-if="$slots['sidebar-footer']"
+        class="lv-sidebar-layout__sidebar-footer"
+      >
         <slot name="sidebar-footer" />
       </div>
     </aside>
@@ -33,7 +42,10 @@
     <!-- ── Main column ── -->
     <div class="lv-sidebar-layout__main">
       <!-- Topbar inside the main column (mobile hamburger + page-level chrome) -->
-      <header v-if="$slots.topbar || showMobileToggle" class="lv-sidebar-layout__topbar">
+      <header
+        v-if="$slots.topbar || showMobileToggle"
+        class="lv-sidebar-layout__topbar"
+      >
         <button
           v-if="showMobileToggle"
           type="button"
@@ -43,13 +55,21 @@
           aria-label="Toggle navigation"
           @click="mobileOpen = !mobileOpen"
         >
-          <BaseIcon :name="mobileOpen ? 'close' : 'menu'" size="md" aria-hidden="true" />
+          <BaseIcon
+            :name="mobileOpen ? 'close' : 'menu'"
+            size="md"
+            aria-hidden="true"
+          />
         </button>
         <slot name="topbar" />
       </header>
 
       <!-- Page content -->
-      <main class="lv-sidebar-layout__content" id="main-content" tabindex="-1">
+      <main
+        id="main-content"
+        class="lv-sidebar-layout__content"
+        tabindex="-1"
+      >
         <slot />
       </main>
     </div>

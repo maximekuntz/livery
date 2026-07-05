@@ -1,8 +1,16 @@
 <template>
   <Teleport to="body">
     <transition name="lv-modal-fade">
-      <div v-if="modelValue" class="lv-modal" :style="overlayStyles">
-        <div class="lv-modal__backdrop" aria-hidden="true" @click="onBackdropClick" />
+      <div
+        v-if="modelValue"
+        class="lv-modal"
+        :style="overlayStyles"
+      >
+        <div
+          class="lv-modal__backdrop"
+          aria-hidden="true"
+          @click="onBackdropClick"
+        />
 
         <section
           ref="dialogRef"
@@ -14,11 +22,26 @@
           :style="dialogStyles"
           tabindex="-1"
         >
-          <header v-if="title || description || showClose || $slots.header" class="lv-modal__header">
+          <header
+            v-if="title || description || showClose || $slots.header"
+            class="lv-modal__header"
+          >
             <slot name="header">
               <div class="lv-modal__heading">
-                <h2 v-if="title" :id="headingId" class="lv-modal__title">{{ title }}</h2>
-                <p v-if="description" :id="descriptionId" class="lv-modal__description">{{ description }}</p>
+                <h2
+                  v-if="title"
+                  :id="headingId"
+                  class="lv-modal__title"
+                >
+                  {{ title }}
+                </h2>
+                <p
+                  v-if="description"
+                  :id="descriptionId"
+                  class="lv-modal__description"
+                >
+                  {{ description }}
+                </p>
               </div>
             </slot>
 
@@ -29,7 +52,11 @@
               aria-label="Close dialog"
               @click="requestClose('close-button')"
             >
-              <BaseIcon name="close" size="sm" aria-hidden="true" />
+              <BaseIcon
+                name="close"
+                size="sm"
+                aria-hidden="true"
+              />
             </button>
           </header>
 
@@ -37,7 +64,10 @@
             <slot />
           </div>
 
-          <footer v-if="$slots.footer" class="lv-modal__footer">
+          <footer
+            v-if="$slots.footer"
+            class="lv-modal__footer"
+          >
             <slot name="footer" />
           </footer>
         </section>
@@ -127,7 +157,9 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'open', 'close'])
 
-const modalId = `lv-modal-${nextModalId++}`
+const modalId = `lv-modal-${nextModalId}`
+// eslint-disable-next-line no-useless-assignment
+nextModalId += 1
 const headingId = `${modalId}-title`
 const descriptionId = `${modalId}-description`
 

@@ -1,13 +1,24 @@
 <template>
-  <div ref="rootEl" :class="rootClasses">
-    <label v-if="label" :for="inputId" class="lv-time-input__label">
-      {{ label }}<span v-if="required" class="lv-time-input__required" aria-hidden="true"> *</span>
+  <div
+    ref="rootEl"
+    :class="rootClasses"
+  >
+    <label
+      v-if="label"
+      :for="inputId"
+      class="lv-time-input__label"
+    >
+      {{ label }}<span
+        v-if="required"
+        class="lv-time-input__required"
+        aria-hidden="true"
+      > *</span>
     </label>
 
     <div class="lv-time-input__wrapper">
       <button
-        type="button"
         :id="inputId"
+        type="button"
         class="lv-time-input__trigger"
         :disabled="disabled"
         :aria-expanded="open"
@@ -17,7 +28,12 @@
         @click="toggle"
         @keydown.esc.stop="close"
       >
-        <BaseIcon name="clock" size="sm" class="lv-time-input__icon" aria-hidden="true" />
+        <BaseIcon
+          name="clock"
+          size="sm"
+          class="lv-time-input__icon"
+          aria-hidden="true"
+        />
         <span :class="['lv-time-input__value', { 'lv-time-input__value--placeholder': !modelValue }]">
           {{ displayValue }}
         </span>
@@ -32,7 +48,10 @@
 
       <!-- Time picker panel -->
       <Transition name="lv-time-panel">
-        <div v-if="open" class="lv-time-input__panel">
+        <div
+          v-if="open"
+          class="lv-time-input__panel"
+        >
           <div class="lv-time-input__columns">
             <!-- Hours -->
             <div
@@ -44,18 +63,25 @@
             >
               <button
                 v-for="h in HOURS"
-                :key="h"
                 :id="`lv-time-h-${uid}-${h}`"
+                :key="h"
                 type="button"
                 role="option"
                 class="lv-time-input__option"
                 :class="{ 'lv-time-input__option--selected': h === selectedHour }"
                 :aria-selected="h === selectedHour"
                 @click="selectHour(h)"
-              >{{ String(h).padStart(2, '0') }}</button>
+              >
+                {{ String(h).padStart(2, '0') }}
+              </button>
             </div>
 
-            <div class="lv-time-input__separator" aria-hidden="true">:</div>
+            <div
+              class="lv-time-input__separator"
+              aria-hidden="true"
+            >
+              :
+            </div>
 
             <!-- Minutes -->
             <div
@@ -67,30 +93,52 @@
             >
               <button
                 v-for="m in minutes"
-                :key="m"
                 :id="`lv-time-m-${uid}-${m}`"
+                :key="m"
                 type="button"
                 role="option"
                 class="lv-time-input__option"
                 :class="{ 'lv-time-input__option--selected': m === selectedMinute }"
                 :aria-selected="m === selectedMinute"
                 @click="selectMinute(m)"
-              >{{ String(m).padStart(2, '0') }}</button>
+              >
+                {{ String(m).padStart(2, '0') }}
+              </button>
             </div>
           </div>
 
           <!-- Clear action -->
-          <div v-if="modelValue" class="lv-time-input__actions">
-            <button type="button" class="lv-time-input__action-btn" @click="clear">Clear</button>
+          <div
+            v-if="modelValue"
+            class="lv-time-input__actions"
+          >
+            <button
+              type="button"
+              class="lv-time-input__action-btn"
+              @click="clear"
+            >
+              Clear
+            </button>
           </div>
         </div>
       </Transition>
     </div>
 
-    <p v-if="error" :id="descId" class="lv-time-input__hint lv-time-input__hint--error" role="alert">
+    <p
+      v-if="error"
+      :id="descId"
+      class="lv-time-input__hint lv-time-input__hint--error"
+      role="alert"
+    >
       {{ error }}
     </p>
-    <p v-else-if="hint" :id="descId" class="lv-time-input__hint">{{ hint }}</p>
+    <p
+      v-else-if="hint"
+      :id="descId"
+      class="lv-time-input__hint"
+    >
+      {{ hint }}
+    </p>
   </div>
 </template>
 

@@ -1,12 +1,20 @@
 <template>
   <header class="lv-page-header">
-    <div v-if="$slots.breadcrumb" class="lv-page-header__breadcrumb">
+    <div
+      v-if="$slots.breadcrumb"
+      class="lv-page-header__breadcrumb"
+    >
       <slot name="breadcrumb" />
     </div>
 
     <div class="lv-page-header__main">
       <div class="lv-page-header__content">
-        <div v-if="eyebrow" class="lv-page-header__eyebrow">{{ eyebrow }}</div>
+        <div
+          v-if="eyebrow"
+          class="lv-page-header__eyebrow"
+        >
+          {{ eyebrow }}
+        </div>
 
         <div class="lv-page-header__title-row">
           <BaseLoader
@@ -22,22 +30,34 @@
             size="lg"
             class="lv-page-header__icon"
           />
-          <component :is="tag" class="lv-page-header__title">
+          <component
+            :is="tag"
+            class="lv-page-header__title"
+          >
             <slot />
           </component>
         </div>
 
-        <p v-if="subtitle" class="lv-page-header__subtitle">
+        <p
+          v-if="subtitle"
+          class="lv-page-header__subtitle"
+        >
           {{ subtitle }}
         </p>
       </div>
 
-      <div v-if="$slots.actions" class="lv-page-header__actions">
+      <div
+        v-if="$slots.actions"
+        class="lv-page-header__actions"
+      >
         <slot name="actions" />
       </div>
     </div>
 
-    <div v-if="$slots.meta" class="lv-page-header__meta">
+    <div
+      v-if="$slots.meta"
+      class="lv-page-header__meta"
+    >
       <slot name="meta" />
     </div>
   </header>

@@ -5,13 +5,24 @@
     :class="classes"
     :aria-current="active ? 'page' : undefined"
   >
-    <span v-if="icon" class="lv-nav-item__icon" aria-hidden="true">
-      <BaseIcon :name="icon" size="sm" />
+    <span
+      v-if="icon"
+      class="lv-nav-item__icon"
+      aria-hidden="true"
+    >
+      <BaseIcon
+        :name="icon"
+        size="sm"
+      />
     </span>
     <span class="lv-nav-item__label">
       <slot />
     </span>
-    <span v-if="badge" class="lv-nav-item__badge" aria-label=", {{ badge }} notifications">
+    <span
+      v-if="badge"
+      class="lv-nav-item__badge"
+      aria-label=", {{ badge }} notifications"
+    >
       {{ badge }}
     </span>
   </router-link>
@@ -22,13 +33,23 @@
     :class="classes"
     :aria-current="active ? 'page' : undefined"
   >
-    <span v-if="icon" class="lv-nav-item__icon" aria-hidden="true">
-      <BaseIcon :name="icon" size="sm" />
+    <span
+      v-if="icon"
+      class="lv-nav-item__icon"
+      aria-hidden="true"
+    >
+      <BaseIcon
+        :name="icon"
+        size="sm"
+      />
     </span>
     <span class="lv-nav-item__label">
       <slot />
     </span>
-    <span v-if="badge" class="lv-nav-item__badge">
+    <span
+      v-if="badge"
+      class="lv-nav-item__badge"
+    >
       {{ badge }}
     </span>
   </a>

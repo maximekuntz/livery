@@ -87,8 +87,9 @@ const props = defineProps({
 
 const emit = defineEmits(['update:open'])
 
+uid += 1
 const isOpen = ref(props.defaultOpen)
-const panelId = `lv-expandable-section-${++uid}`
+const panelId = `lv-expandable-section-${uid}`
 
 // Use the trigger slot text as an implicit label for the region
 const panelLabel = computed(() => undefined)

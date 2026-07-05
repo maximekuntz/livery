@@ -1,9 +1,17 @@
 <template>
   <div class="lv-nav-group">
-    <div v-if="label" class="lv-nav-group__label" :class="{ 'lv-nav-group__label--hidden': collapsed }">
+    <div
+      v-if="label"
+      class="lv-nav-group__label"
+      :class="{ 'lv-nav-group__label--hidden': collapsed }"
+    >
       <span>{{ label }}</span>
     </div>
-    <div v-else-if="!collapsed" class="lv-nav-group__divider" aria-hidden="true" />
+    <div
+      v-else-if="!collapsed"
+      class="lv-nav-group__divider"
+      aria-hidden="true"
+    />
     <slot />
   </div>
 </template>

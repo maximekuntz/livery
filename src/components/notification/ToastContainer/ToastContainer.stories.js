@@ -1,4 +1,3 @@
-import { ref } from 'vue'
 import ToastContainer from './ToastContainer.vue'
 import Button from '../../Button/Button.vue'
 import { useToast } from '../useToast.js'
@@ -27,7 +26,7 @@ Mount once at the app root. Connect to \`useToast()\`:
 <script setup>
 import { useToast } from 'livery'
 const { toasts, remove } = useToast()
-<\/script>
+</script>
 \`\`\`
 
 Dispatch from any component:

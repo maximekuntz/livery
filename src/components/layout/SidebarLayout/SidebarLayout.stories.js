@@ -63,21 +63,6 @@ header, toolbar, and content structure.
 }
 
 /* ── Helpers ── */
-const SidebarContent = {
-  components: { NavItem, NavGroup },
-  template: `
-    <NavGroup label="Operations">
-      <NavItem href="#" icon="check-circle" :active="true">Dashboard</NavItem>
-      <NavItem href="#" icon="search">Timetable</NavItem>
-      <NavItem href="#" icon="info">Incidents</NavItem>
-    </NavGroup>
-    <NavGroup label="Network">
-      <NavItem href="#" icon="external-link">Routes</NavItem>
-      <NavItem href="#" icon="user">Depots</NavItem>
-    </NavGroup>
-  `,
-}
-
 const PageContent = {
   template: `
     <div style="max-width: 720px;">

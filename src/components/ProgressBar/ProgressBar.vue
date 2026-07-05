@@ -9,9 +9,15 @@
       :aria-valuenow="safeValue"
       :aria-valuetext="valueText"
     >
-      <div class="lv-progress-bar__fill" :style="{ width: `${percentage}%` }" />
+      <div
+        class="lv-progress-bar__fill"
+        :style="{ width: `${percentage}%` }"
+      />
     </div>
-    <span v-if="showText" class="lv-progress-bar__text">{{ text }}</span>
+    <span
+      v-if="showText"
+      class="lv-progress-bar__text"
+    >{{ text }}</span>
   </div>
 </template>
 

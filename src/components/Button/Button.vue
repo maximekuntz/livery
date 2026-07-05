@@ -5,15 +5,30 @@
     :aria-busy="loading"
     :class="classes"
     type="button"
-    @click="$emit('click')"
     v-bind="$attrs"
+    @click="$emit('click')"
   >
-    <span v-if="loading" class="lv-button__spinner" aria-hidden="true" />
-    <span v-if="icon && iconPosition === 'left'" class="lv-button__icon" aria-hidden="true">
+    <span
+      v-if="loading"
+      class="lv-button__spinner"
+      aria-hidden="true"
+    />
+    <span
+      v-if="icon && iconPosition === 'left'"
+      class="lv-button__icon"
+      aria-hidden="true"
+    >
       <BaseIcon :name="icon" />
     </span>
-    <span v-if="label" class="lv-button__label">{{ label }}</span>
-    <span v-if="icon && iconPosition === 'right'" class="lv-button__icon" aria-hidden="true">
+    <span
+      v-if="label"
+      class="lv-button__label"
+    >{{ label }}</span>
+    <span
+      v-if="icon && iconPosition === 'right'"
+      class="lv-button__icon"
+      aria-hidden="true"
+    >
       <BaseIcon :name="icon" />
     </span>
   </button>

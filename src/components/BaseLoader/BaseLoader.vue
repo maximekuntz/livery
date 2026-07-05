@@ -1,7 +1,18 @@
 <template>
-  <span class="base-loader" role="status" :aria-label="props.label">
-    <span class="base-loader__spinner" :class="`base-loader__spinner--${props.size}`" aria-hidden="true" />
-    <span v-if="props.label" class="base-loader__label">{{ props.label }}</span>
+  <span
+    class="base-loader"
+    role="status"
+    :aria-label="props.label"
+  >
+    <span
+      class="base-loader__spinner"
+      :class="`base-loader__spinner--${props.size}`"
+      aria-hidden="true"
+    />
+    <span
+      v-if="props.label"
+      class="base-loader__label"
+    >{{ props.label }}</span>
   </span>
 </template>
 

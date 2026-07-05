@@ -1,9 +1,11 @@
 <template>
   <div class="lv-top-nav-layout">
     <!-- ── Navbar ── -->
-    <header class="lv-top-nav-layout__navbar" role="banner">
+    <header
+      class="lv-top-nav-layout__navbar"
+      role="banner"
+    >
       <div class="lv-top-nav-layout__navbar-inner">
-
         <!-- Brand slot — logo / wordmark -->
         <div class="lv-top-nav-layout__brand">
           <slot name="brand" />
@@ -19,7 +21,10 @@
         </nav>
 
         <!-- Right-side actions — user menu, CTAs, icons -->
-        <div v-if="$slots.actions" class="lv-top-nav-layout__actions">
+        <div
+          v-if="$slots.actions"
+          class="lv-top-nav-layout__actions"
+        >
           <slot name="actions" />
         </div>
 
@@ -31,7 +36,11 @@
           aria-label="Toggle navigation"
           @click="mobileOpen = !mobileOpen"
         >
-          <BaseIcon :name="mobileOpen ? 'close' : 'menu'" size="md" aria-hidden="true" />
+          <BaseIcon
+            :name="mobileOpen ? 'close' : 'menu'"
+            size="md"
+            aria-hidden="true"
+          />
         </button>
       </div>
 
@@ -47,15 +56,18 @@
     </header>
 
     <!-- Optional secondary bar — breadcrumb, tabs, filters -->
-    <div v-if="$slots.subbar" class="lv-top-nav-layout__subbar">
+    <div
+      v-if="$slots.subbar"
+      class="lv-top-nav-layout__subbar"
+    >
       <slot name="subbar" />
     </div>
 
     <!-- ── Page content ── -->
     <main
+      id="main-content"
       class="lv-top-nav-layout__content"
       :class="{ 'lv-top-nav-layout__content--contained': contained }"
-      id="main-content"
       tabindex="-1"
     >
       <slot />
@@ -79,7 +91,7 @@ import BaseIcon from '../../BaseIcon/BaseIcon.vue'
  *
  * On mobile the nav links collapse behind a hamburger into a drawer.
  */
-const props = defineProps({
+defineProps({
   /** Constrains the content area to a max-width and centres it */
   contained: {
     type: Boolean,

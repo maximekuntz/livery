@@ -1,11 +1,24 @@
 <template>
-  <div :class="classes" role="group" :aria-label="ariaLabel">
-    <div v-if="$slots.icon || $slots.header" class="card__header">
-      <div v-if="$slots.icon" class="card__header-icon">
+  <div
+    :class="classes"
+    role="group"
+    :aria-label="ariaLabel"
+  >
+    <div
+      v-if="$slots.icon || $slots.header"
+      class="card__header"
+    >
+      <div
+        v-if="$slots.icon"
+        class="card__header-icon"
+      >
         <slot name="icon" />
       </div>
 
-      <div v-if="$slots.header" class="card__header-content">
+      <div
+        v-if="$slots.header"
+        class="card__header-content"
+      >
         <slot name="header" />
       </div>
     </div>
@@ -16,7 +29,10 @@
       </slot>
     </div>
 
-    <div v-if="$slots.footer" class="card__footer">
+    <div
+      v-if="$slots.footer"
+      class="card__footer"
+    >
       <slot name="footer" />
     </div>
   </div>

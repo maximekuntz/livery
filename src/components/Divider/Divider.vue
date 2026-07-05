@@ -1,5 +1,9 @@
 <template>
-  <hr :class="classes" :aria-orientation="orientation" role="separator" />
+  <hr
+    :class="classes"
+    :aria-orientation="orientation"
+    role="separator"
+  >
 </template>
 
 <script setup>

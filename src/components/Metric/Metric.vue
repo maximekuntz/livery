@@ -1,5 +1,8 @@
 <template>
-  <article class="metric" :aria-label="ariaLabel">
+  <article
+    class="metric"
+    :aria-label="ariaLabel"
+  >
     <header class="metric__header">
       <BaseIcon
         v-if="icon"

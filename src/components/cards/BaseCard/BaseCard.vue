@@ -1,6 +1,12 @@
 <template>
-  <Card :elevation="elevation" :aria-label="ariaLabel">
-    <template v-if="icon" #icon>
+  <Card
+    :elevation="elevation"
+    :aria-label="ariaLabel"
+  >
+    <template
+      v-if="icon"
+      #icon
+    >
       <BaseIcon
         :name="icon"
         size="sm"
@@ -9,7 +15,10 @@
       />
     </template>
 
-    <template v-if="name" #header>
+    <template
+      v-if="name"
+      #header
+    >
       <div class="base-card__header-content">
         {{ name }}
       </div>
@@ -19,14 +28,16 @@
       <slot />
     </template>
 
-    <template v-if="$slots.footer" #footer>
+    <template
+      v-if="$slots.footer"
+      #footer
+    >
       <slot name="footer" />
     </template>
   </Card>
 </template>
 
 <script setup>
-import { ICONS } from '../../BaseIcon/BaseIcon.vue'
 import BaseIcon from '../../BaseIcon/BaseIcon.vue'
 import Card from '../Card/Card.vue'
 
