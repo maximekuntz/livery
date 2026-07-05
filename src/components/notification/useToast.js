@@ -1,5 +1,4 @@
 import { reactive } from 'vue'
-import { setTimeout } from 'timers'
 /**
  * useToast — composable for programmatic toast dispatch.
  *
