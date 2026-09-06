@@ -120,7 +120,6 @@ const FakeMetrics = {
 /* ────────────────────────────────────────────────────────── */
 
 export const Default = {
-  name: 'Default',
   render: (args) => ({
     components: { TemplateView, PageHeader, FakeMetrics },
     setup() { return { args } },
@@ -193,7 +192,6 @@ export const BuiltInHeader = {
 }
 
 export const WithToolbar = {
-  name: 'With Toolbar',
   render: (args) => ({
     components: { TemplateView, PageHeader, Button, BaseBadge, FakeMetrics },
     setup() { return { args } },
@@ -227,7 +225,6 @@ export const WithToolbar = {
 }
 
 export const WithAside = {
-  name: 'With Aside',
   render: (args) => ({
     components: { TemplateView, PageHeader, SectionHeader, FakeMetrics },
     setup() { return { args } },
@@ -274,7 +271,6 @@ export const WithAside = {
 }
 
 export const AsideLeft = {
-  name: 'Aside Left',
   render: (args) => ({
     components: { TemplateView, PageHeader, SectionHeader, FakeMetrics },
     setup() { return { args } },
@@ -308,7 +304,6 @@ export const AsideLeft = {
 }
 
 export const StickyChrome = {
-  name: 'Sticky Chrome',
   render: (args) => ({
     components: { TemplateView, PageHeader, Button, FakeMetrics },
     setup() { return { args } },

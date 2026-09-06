@@ -60,7 +60,6 @@ export const Default = {
 }
 
 export const WithValue = {
-  name: 'With Value',
   render: (args) => ({
     components: { DateInput },
     data() { return { value: '2026-05-12' } },
@@ -97,7 +96,6 @@ export const WithMinMax = {
 }
 
 export const ErrorState = {
-  name: 'Error State',
   render: (args) => ({
     components: { DateInput },
     data() { return { value: null } },

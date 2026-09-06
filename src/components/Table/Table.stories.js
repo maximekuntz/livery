@@ -82,7 +82,6 @@ export const Default = {
 }
 
 export const CustomCells = {
-  name: 'Custom Cells',
   render: (args) => ({
     components: { Table, BaseBadge },
     setup() { return { args, COLUMNS, ROWS, STATUS_VARIANT } },
@@ -187,7 +186,6 @@ export const Dense = {
 }
 
 export const WithFooter = {
-  name: 'With Footer',
   render: (args) => ({
     components: { Table, BaseBadge },
     setup() { return { args, COLUMNS, ROWS, STATUS_VARIANT } },

@@ -117,7 +117,6 @@ export const Default = {
 }
 
 export const WithActions = {
-  name: 'With Actions',
   render: (args) => ({
     components: { TopNavLayout, TopNavItem, Button, ClickableIcon, FakeContent },
     setup() { return { args } },
@@ -193,7 +192,6 @@ export const Contained = {
 }
 
 export const WithSubbar = {
-  name: 'With Subbar',
   render: (args) => ({
     components: { TopNavLayout, TopNavItem, ClickableIcon },
     setup() { return { args } },

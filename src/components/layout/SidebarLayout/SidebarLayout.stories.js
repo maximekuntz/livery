@@ -193,7 +193,6 @@ export const Collapsible = {
 }
 
 export const MinimalShell = {
-  name: 'Minimal Shell',
   render: (args) => ({
     components: { SidebarLayout, NavItem },
     setup() { return { args } },

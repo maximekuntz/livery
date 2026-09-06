@@ -58,7 +58,6 @@ export const Default = {
 }
 
 export const WithValue = {
-  name: 'With Value',
   render: (args) => ({
     components: { TimeInput },
     data() { return { value: '07:30' } },
@@ -88,7 +87,6 @@ export const OneMinuteStep = {
 }
 
 export const ErrorState = {
-  name: 'Error State',
   render: (args) => ({
     components: { TimeInput },
     data() { return { value: null } },

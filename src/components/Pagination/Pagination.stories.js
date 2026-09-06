@@ -93,7 +93,6 @@ export const MidPageEllipsis = {
 }
 
 export const LastPage = {
-  name: 'Last Page',
   render: (args) => ({
     components: { Pagination },
     data() { return { page: args.page, pageSize: args.pageSize } },
@@ -109,7 +108,6 @@ export const LastPage = {
 }
 
 export const NoResults = {
-  name: 'No Results',
   render: (args) => ({
     components: { Pagination },
     setup() { return { args } },

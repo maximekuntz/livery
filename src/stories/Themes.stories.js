@@ -177,7 +177,6 @@ const SampleCard = {
 // ─── All themes at a glance ───────────────────────────────────────────────────
 
 export const AllThemes = {
-  name: 'All themes',
   render: () => ({
     components: { SampleCard },
     setup() {
@@ -205,7 +204,6 @@ export const AllThemes = {
 // ─── Individual theme stories ─────────────────────────────────────────────────
 
 export const TransEuropExpress = {
-  name: 'Trans-Europ-Express',
   render: () => ({
     components: { SampleCard },
     setup() {
@@ -216,7 +214,6 @@ export const TransEuropExpress = {
 }
 
 export const Corail = {
-  name: 'Corail',
   render: () => ({
     components: { SampleCard },
     setup() {
@@ -227,7 +224,6 @@ export const Corail = {
 }
 
 export const OrientExpress = {
-  name: 'Orient Express',
   render: () => ({
     components: { SampleCard },
     setup() {
