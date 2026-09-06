@@ -24,6 +24,7 @@ export { default as DateInput }        from './components/DateInput/DateInput.vu
 export { default as TimeInput }        from './components/TimeInput/TimeInput.vue'
 export { default as DateTimeInput }    from './components/DateTimeInput/DateTimeInput.vue'
 export { default as SectionHeader }    from './components/SectionHeader/SectionHeader.vue'
+export { default as Breadcrumb }        from './components/Breadcrumb/Breadcrumb.vue'
 export { default as PageHeader }       from './components/PageHeader/PageHeader.vue'
 export { default as ProgressBar }      from './components/ProgressBar/ProgressBar.vue'
 export { default as Table }            from './components/Table/Table.vue'
@@ -73,6 +74,7 @@ import DateInput        from './components/DateInput/DateInput.vue'
 import TimeInput        from './components/TimeInput/TimeInput.vue'
 import DateTimeInput    from './components/DateTimeInput/DateTimeInput.vue'
 import SectionHeader    from './components/SectionHeader/SectionHeader.vue'
+import Breadcrumb       from './components/Breadcrumb/Breadcrumb.vue'
 import PageHeader       from './components/PageHeader/PageHeader.vue'
 import ProgressBar      from './components/ProgressBar/ProgressBar.vue'
 import Table            from './components/Table/Table.vue'
@@ -100,7 +102,7 @@ const components = {
   Divider, BaseIcon, ClickableIcon,
   TextArea, TextInput, BooleanInput, SelectInput, MultiSelectInput,
   DateInput, TimeInput, DateTimeInput,
-  SectionHeader, PageHeader, ProgressBar, Table, Pagination,
+  SectionHeader, Breadcrumb, PageHeader, ProgressBar, Table, Pagination,
   Alert, Toast, ToastContainer,
   SidebarLayout, TopNavLayout, TemplateView,
   NavItem, NavGroup, TopNavItem,

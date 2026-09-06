@@ -34,45 +34,11 @@
               v-if="$slots.breadcrumb"
               name="breadcrumb"
             />
-            <nav
+            <Breadcrumb
               v-else
-              class="lv-template-view__breadcrumbs"
-              aria-label="Breadcrumb"
-            >
-              <template
-                v-for="(crumb, index) in normalizedBreadcrumbs"
-                :key="crumb.key || `${crumb.label}-${index}`"
-              >
-                <a
-                  v-if="crumb.href && !crumb.current"
-                  class="lv-template-view__breadcrumb-link"
-                  :href="crumb.href"
-                  @click="onBreadcrumbClick(crumb, index, $event)"
-                >
-                  {{ crumb.label }}
-                </a>
-                <button
-                  v-else-if="typeof crumb.onClick === 'function' && !crumb.current"
-                  class="lv-template-view__breadcrumb-button"
-                  type="button"
-                  @click="onBreadcrumbButtonClick(crumb, index, $event)"
-                >
-                  {{ crumb.label }}
-                </button>
-                <span
-                  v-else
-                  class="lv-template-view__breadcrumb-current"
-                  :aria-current="crumb.current ? 'page' : undefined"
-                >
-                  {{ crumb.label }}
-                </span>
-                <span
-                  v-if="index < normalizedBreadcrumbs.length - 1"
-                  class="lv-template-view__breadcrumb-separator"
-                  aria-hidden="true"
-                >/</span>
-              </template>
-            </nav>
+              :items="normalizedBreadcrumbs"
+              @click="onBreadcrumbClick"
+            />
           </template>
 
           <template
@@ -144,6 +110,7 @@
 import { computed, useSlots } from 'vue'
 import PageHeader from '../../PageHeader/PageHeader.vue'
 import Button from '../../Button/Button.vue'
+import Breadcrumb from '../../Breadcrumb/Breadcrumb.vue'
 
 /**
  * TemplateView — Standard page-view layout shell.
@@ -291,11 +258,6 @@ function onBreadcrumbClick(crumb, index, event) {
   emit('breadcrumb-click', { crumb, index, event })
 }
 
-function onBreadcrumbButtonClick(crumb, index, event) {
-  crumb.onClick(event)
-  onBreadcrumbClick(crumb, index, event)
-}
-
 const rootClasses = computed(() => ({
   'lv-template-view--padded':        props.padding,
   'lv-template-view--constrained':   props.maxWidth !== 'none',
@@ -345,34 +307,6 @@ const rootClasses = computed(() => ({
 
 .lv-template-view--padded .lv-template-view__header {
   padding-inline: var(--space-6);
-}
-
-.lv-template-view__breadcrumbs {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-1);
-}
-
-.lv-template-view__breadcrumb-link,
-.lv-template-view__breadcrumb-button {
-  font: inherit;
-  color: var(--text-link);
-  text-decoration: none;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.lv-template-view__breadcrumb-link:hover,
-.lv-template-view__breadcrumb-button:hover {
-  text-decoration: underline;
-}
-
-.lv-template-view__breadcrumb-current,
-.lv-template-view__breadcrumb-separator {
-  color: var(--text-secondary);
 }
 
 .lv-template-view__header-actions {
